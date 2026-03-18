@@ -1,13 +1,42 @@
 // app/page.tsx
 'use client';
 import { useState } from 'react';
+import Image from 'next/image'; // Next.js 이미지 최적화 컴포넌트 불러오기
 import { recommendations } from './data';
 import QuizEngine from './quiz-engine';
+
+// --- 데이터 타입 정의 (빨간 줄 방지) ---
+
+interface Product {
+  name: string;
+  img: string;
+  link: string;
+}
+
+interface RecommendationData {
+  title: string;
+  description: string;
+  bgClass: string;
+  textClass: string;
+  btnClass: string;
+  moodImg: string;
+  products: Product[];
+}
+
+interface FullRecommendation {
+  type: string;
+  lip: RecommendationData;
+  shadow: RecommendationData;
+}
+
+const typedRecommendations = recommendations as Record<'warm' | 'cool', FullRecommendation>;
+
+// --- 메인 컴포넌트 ---
 
 export default function Home() {
   const [mode, setMode] = useState<'menu' | 'quiz' | 'result'>('menu');
   const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip'); 
-  const [resultData, setResultData] = useState<any>(null);
+  const [resultData, setResultData] = useState<RecommendationData | null>(null);
 
   const startQuiz = (type: 'lip' | 'shadow') => {
     setActiveQuizType(type);
@@ -16,14 +45,17 @@ export default function Home() {
   };
 
   const handleFinish = (type: 'warm' | 'cool') => {
-    setResultData(recommendations[type][activeQuizType]);
+    // 선택한 진단 타입에 맞춰 데이터를 가져옵니다.
+    const fullData = typedRecommendations[type];
+    setResultData(fullData[activeQuizType]);
     setMode('result');
   };
 
+  // 1. 메인 메뉴 화면 (동일)
   if (mode === 'menu') {
     return (
       <main className="flex min-h-screen flex-col items-center bg-[#fffafa] font-sans text-[#1a1a1a]">
-        <header className="mt-20 mb-24 text-center px-6">
+        <header className="mt-20 mb-24 text-center px-6 relative">
           <p className="text-pink-400 text-xs font-bold tracking-[0.3em] mb-3 uppercase">Find Your Inner Light</p>
           <h1 className="text-5xl font-extrabold tracking-tight mb-6">Lueur (リュール)</h1>
           <p className="text-gray-500 text-sm font-light leading-relaxed max-w-xs mx-auto">
@@ -36,40 +68,31 @@ export default function Home() {
         <div className="max-w-md w-full px-6 space-y-6">
           <p className="text-xs font-bold text-gray-400 tracking-widest ml-1 mb-4 uppercase">Selection</p>
           
-          <button 
-            onClick={() => startQuiz('lip')}
-            className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500"
-          >
+          <button onClick={() => startQuiz('lip')} className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500">
             <div className="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">💄</div>
             <div className="text-left flex-1">
               <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">Popular Choice</span>
               <h2 className="text-lg font-bold mt-1">パーソナルカラー別<br />似合うリップ診断</h2>
             </div>
-            <span className="text-gray-300 font-light text-xl opacity-0 group-hover:opacity-100 transition-opacity">→</span>
           </button>
 
-          <button 
-            onClick={() => startQuiz('shadow')}
-            className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500"
-          >
+          <button onClick={() => startQuiz('shadow')} className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500">
             <div className="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">👁️</div>
             <div className="text-left flex-1">
               <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">New Release</span>
               <h2 className="text-lg font-bold mt-1">瞳の色を際立たせる<br />アイシャドウ診断</h2>
             </div>
-            <span className="text-gray-300 font-light text-xl opacity-0 group-hover:opacity-100 transition-opacity">→</span>
           </button>
         </div>
         
         <footer className="mt-auto py-16 text-center">
-          <p className="text-[10px] text-gray-400 tracking-[0.2em] font-light">
-            &copy; 2026 Lueur JP. Beauty Innovation.
-          </p>
+          <p className="text-[10px] text-gray-400 tracking-[0.2em] font-light">&copy; 2026 Lueur JP. Beauty Innovation.</p>
         </footer>
       </main>
     );
   }
 
+  // 2. 퀴즈 화면 (동일)
   if (mode === 'quiz') {
     return (
       <main className="flex min-h-screen flex-col items-center bg-[#fffafa] p-6">
@@ -78,32 +101,41 @@ export default function Home() {
     );
   }
 
+  // 3. 결과 화면 (이미지 최적화 적용됨)
   if (mode === 'result' && resultData) {
     const isWarm = resultData.moodImg === '/warm-mood.png';
     return (
       <main className={`flex min-h-screen flex-col items-center p-6 ${resultData.bgClass} text-[#1a1a1a]`}>
         <div className="max-w-md w-full mt-10">
-          <div className="text-center mb-10 px-4">
-            <span className={`text-xs font-bold tracking-[0.2em] px-4 py-1.5 rounded-full bg-white shadow-sm ${resultData.textClass}`}>
+          <div className="text-center mb-10 px-4 relative">
+            <span className={`inline-block text-xs font-bold tracking-[0.2em] px-4 py-1.5 rounded-full bg-white shadow-sm ${resultData.textClass}`}>
               {isWarm ? 'Warm Base / イエベ' : 'Cool Base / ブルベ'}
             </span>
             <h1 className="text-2xl font-black mt-8 mb-6 leading-tight tracking-tight">{resultData.title}</h1>
             
-            <img 
-              src={resultData.moodImg} 
-              alt="Mood" 
-              className="w-full h-auto rounded-[2.5rem] shadow-2xl mb-8 border-[6px] border-white" 
-            />
+            {/* --- 이미지 최적화 (next/image) 적용 부위 --- */}
+            {/* 무드 이미지: 크기를 400x300으로 지정하고, priority를 줘서 가장 먼저 로딩하게 합니다. */}
+            <div className="w-full h-auto aspect-[4/3] rounded-[2.5rem] shadow-2xl mb-8 border-[6px] border-white overflow-hidden relative">
+              <Image 
+                src={resultData.moodImg} 
+                alt="Personal Color Mood" 
+                fill // 부모 요소를 꽉 채우게 합니다. aspect-[4/3]로 비율을 유지합니다.
+                className="object-cover" // 이미지가 비율에 맞게 꽉 차도록 합니다.
+                priority // 이 이미지는 결과 화면에서 가장 중요하므로 우선적으로 로딩합니다.
+                sizes="(max-w-md) 100vw, 400px" // 모바일 기기 크기에 맞춰 최적화된 크기를 보냅니다.
+              />
+            </div>
+            {/* ------------------------------------------ */}
 
             <p className="text-sm font-light leading-relaxed text-left bg-white/40 p-6 rounded-3xl border border-white/50">
               {resultData.description}
             </p>
           </div>
 
-          <h2 className="text-sm font-bold text-gray-400 tracking-widest mb-6 text-center uppercase">Recommended Item</h2>
+          <h2 className="text-sm font-bold text-gray-400 tracking-widest mb-6 text-center uppercase relative">Recommended Item</h2>
           
-          <div className="space-y-4 px-2 mb-12">
-            {resultData.products.map((product: any, index: number) => (
+          <div className="space-y-4 px-2 mb-12 relative">
+            {resultData.products.map((product: Product, index: number) => (
               <div key={index} className="flex bg-white/80 backdrop-blur-sm p-5 rounded-[2rem] shadow-sm items-center gap-5 border border-white">
                 <img src={product.img} alt={product.name} className="w-20 h-20 rounded-2xl object-contain bg-white" />
                 <div className="flex-1 text-left">
@@ -116,10 +148,7 @@ export default function Home() {
             ))}
           </div>
           
-          <button 
-            onClick={() => setMode('menu')} 
-            className="w-full bg-white/60 text-gray-500 text-xs font-bold py-5 rounded-[2rem] border border-white mb-12 hover:bg-white transition-all"
-          >
+          <button onClick={() => setMode('menu')} className="w-full bg-white/50 text-gray-500 text-xs font-bold py-5 rounded-[2rem] border border-white mb-12 hover:bg-white transition-all">
             診断メニューに戻る
           </button>
         </div>

@@ -46,7 +46,7 @@ export const recommendations: any = {
       textClass: 'text-[#8b4513]',
       btnClass: 'bg-[#d2691e] hover:bg-[#a0522d]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 03 [陽炎]', img: '/product-warm.png', link: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+03' }
+        { name: 'KATE(ケイト) リップモンスター 03 [陽炎]', img: '/lip-warm.png', link: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+03' }
       ]
     },
     shadow: {
@@ -57,7 +57,7 @@ export const recommendations: any = {
       textClass: 'text-[#8b4513]',
       btnClass: 'bg-[#d2691e] hover:bg-[#a0522d]',
       products: [
-        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR05', img: '/product-warm.png', link: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR05' }
+        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR05', img: '/shadow-warm.png', link: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR05' }
       ]
     }
   },
@@ -71,7 +71,7 @@ export const recommendations: any = {
       textClass: 'text-[#831843]',
       btnClass: 'bg-[#db2777] hover:bg-[#9d174d]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 07 [ラスボス]', img: '/product-cool.png', link: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+07' }
+        { name: 'KATE(ケイト) リップモンスター 07 [ラスボス]', img: '/lip-cool.png', link: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+07' }
       ]
     },
     shadow: {
@@ -82,7 +82,7 @@ export const recommendations: any = {
       textClass: 'text-[#831843]',
       btnClass: 'bg-[#db2777] hover:bg-[#9d174d]',
       products: [
-        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 06', img: '/product-cool.png', link: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+06' }
+        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 06', img: '/shadow-cool.png', link: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+06' }
       ]
     }
   }
