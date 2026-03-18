@@ -115,14 +115,14 @@ export default function Home() {
             
             {/* --- 이미지 최적화 (next/image) 적용 부위 --- */}
             {/* 무드 이미지: 크기를 400x300으로 지정하고, priority를 줘서 가장 먼저 로딩하게 합니다. */}
-            <div className="w-full h-auto aspect-[4/3] rounded-[2.5rem] shadow-2xl mb-8 border-[6px] border-white overflow-hidden relative">
+            <div className="w-full h-auto aspect-[16/9] rounded-[2rem] shadow-2xl mb-8 border-[6px] border-white overflow-hidden relative bg-white">
               <Image 
                 src={resultData.moodImg} 
                 alt="Personal Color Mood" 
-                fill // 부모 요소를 꽉 채우게 합니다. aspect-[4/3]로 비율을 유지합니다.
-                className="object-cover" // 이미지가 비율에 맞게 꽉 차도록 합니다.
-                priority // 이 이미지는 결과 화면에서 가장 중요하므로 우선적으로 로딩합니다.
-                sizes="(max-w-md) 100vw, 400px" // 모바일 기기 크기에 맞춰 최적화된 크기를 보냅니다.
+                fill 
+                className="object-contain" // 'object-cover'에서 'object-contain'으로 변경!
+                priority 
+                sizes="(max-w-md) 100vw, 400px"
               />
             </div>
             {/* ------------------------------------------ */}
