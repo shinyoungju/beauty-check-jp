@@ -1,6 +1,6 @@
 // app/page.tsx
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image'; // Next.js 이미지 최적화 컴포넌트 불러오기
 import { recommendations } from './data';
 import QuizEngine from './quiz-engine';
@@ -35,13 +35,38 @@ const typedRecommendations = recommendations as Record<'warm' | 'cool', FullReco
 
 export default function Home() {
   const [mode, setMode] = useState<'menu' | 'quiz' | 'result'>('menu');
-  const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip'); 
+  const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip');
   const [resultData, setResultData] = useState<RecommendationData | null>(null);
+  const [rakutenImages, setRakutenImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!resultData) return;
+    const appId = process.env.NEXT_PUBLIC_RAKUTEN_APP_ID;
+    const affiliateId = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID;
+    const fetchImages = async () => {
+      const images = await Promise.all(
+        resultData.products.map(async (product: Product) => {
+          try {
+            const res = await fetch(
+              `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${appId}&affiliateId=${affiliateId}&keyword=${encodeURIComponent(product.name)}&hits=1&format=json`
+            );
+            const data = await res.json();
+            return data.Items?.[0]?.Item?.mediumImageUrls?.[0]?.imageUrl || product.img;
+          } catch {
+            return product.img;
+          }
+        })
+      );
+      setRakutenImages(images);
+    };
+    fetchImages();
+  }, [resultData]);
 
   const startQuiz = (type: 'lip' | 'shadow') => {
     setActiveQuizType(type);
     setMode('quiz');
     setResultData(null);
+    setRakutenImages([]);
   };
 
   const handleFinish = (type: 'warm' | 'cool') => {
@@ -137,7 +162,7 @@ export default function Home() {
           <div className="space-y-4 px-2 mb-12 relative">
             {resultData.products.map((product: Product, index: number) => (
               <div key={index} className="flex bg-white/80 backdrop-blur-sm p-5 rounded-[2rem] shadow-sm items-center gap-5 border border-white">
-                <img src={product.img} alt={product.name} className="w-20 h-20 rounded-2xl object-contain bg-white" />
+                <img src={rakutenImages[index] || product.img} alt={product.name} className="w-20 h-20 rounded-2xl object-contain bg-white" />
                 <div className="flex-1 text-left">
                   <p className="text-[11px] font-bold text-gray-900 mb-3 leading-tight">{product.name}</p>
                   <a href={product.link} target="_blank" rel="noopener noreferrer" className={`inline-block text-white text-[10px] font-bold px-6 py-2 rounded-full shadow-lg ${resultData.btnClass} transition-all active:scale-95`}>
