@@ -13,7 +13,12 @@ export async function GET(req: NextRequest) {
   const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${APP_ID}&affiliateId=${AFFILIATE_ID}&keyword=${encodeURIComponent(keyword)}&hits=1&format=json`;
 
   try {
-    const res = await fetch(url, { cache: 'no-store' });
+    const res = await fetch(url, {
+      cache: 'no-store',
+      headers: {
+        'Referer': 'https://beauty-check-jp.vercel.app',
+      },
+    });
     const text = await res.text();
 
     if (!res.ok) {
