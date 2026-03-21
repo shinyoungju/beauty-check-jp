@@ -33,6 +33,9 @@ interface RecommendationData {
 
 interface FullRecommendation {
   type: string;
+  typeTitle: string;
+  typeDescription: string;
+  colorPalette: string[];
   lip: RecommendationData;
   shadow: RecommendationData;
 }
@@ -159,7 +162,8 @@ export default function Home() {
 
   // 3. 결과 화면 (이미지 최적화 적용됨)
   if (mode === 'result' && resultData && resultType) {
-    const typeLabel = typedRecommendations[resultType].type;
+    const typeData = typedRecommendations[resultType];
+    const typeLabel = typeData.type;
     return (
       <main className={`flex min-h-screen flex-col items-center p-6 ${resultData.bgClass} text-[#1a1a1a]`}>
         <div className="max-w-md w-full mt-10">
@@ -167,25 +171,37 @@ export default function Home() {
             <span className={`inline-block text-xs font-bold tracking-[0.2em] px-4 py-1.5 rounded-full bg-white shadow-sm ${resultData.textClass}`}>
               {typeLabel}
             </span>
-            <h1 className="text-2xl font-black mt-8 mb-6 leading-tight tracking-tight">{resultData.title}</h1>
-            
-            {/* --- 이미지 최적화 (next/image) 적용 부위 --- */}
-            {/* 무드 이미지: 크기를 400x300으로 지정하고, priority를 줘서 가장 먼저 로딩하게 합니다. */}
+            <h1 className="text-2xl font-black mt-8 mb-6 leading-tight tracking-tight">{typeData.typeTitle}</h1>
+
+            {/* ムード画像 */}
             <div className="w-full h-auto aspect-[16/9] rounded-[2rem] shadow-2xl mb-8 border-[6px] border-white overflow-hidden relative bg-white">
-              <Image 
-                src={resultData.moodImg} 
-                alt="Personal Color Mood" 
-                fill 
-                className="object-contain" // 'object-cover'에서 'object-contain'으로 변경!
-                priority 
+              <Image
+                src={resultData.moodImg}
+                alt="Personal Color Mood"
+                fill
+                className="object-contain"
+                priority
                 sizes="(max-w-md) 100vw, 400px"
               />
             </div>
-            {/* ------------------------------------------ */}
 
             <p className="text-sm font-light leading-relaxed text-left bg-white/40 p-6 rounded-3xl border border-white/50">
-              {resultData.description}
+              {typeData.typeDescription}
             </p>
+
+            {/* カラーパレット */}
+            <div className="mt-8">
+              <p className="text-[10px] font-bold text-gray-400 tracking-widest mb-4 text-center uppercase">あなたに似合うカラーパレット</p>
+              <div className="flex gap-3 justify-center flex-wrap">
+                {typeData.colorPalette.map((color: string, i: number) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full shadow-md border-2 border-white"
+                    style={{ backgroundColor: color }}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           <h2 className="text-sm font-bold text-gray-400 tracking-widest mb-6 text-center uppercase relative">Recommended Item</h2>

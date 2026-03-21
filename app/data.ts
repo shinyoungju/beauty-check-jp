@@ -5,88 +5,90 @@ export const questionsPersonalColor = [
     id: 1,
     text: '手首の内側の血管の色は？',
     answers: [
-      { text: '緑・オリーブ色', type: 'warm' },
-      { text: '青・紫色', type: 'cool' }
+      { text: '緑・オリーブ色に見える', type: 'warm', score: 2 },
+      { text: '青・紫色に見える', type: 'cool', score: 2 }
     ]
   },
   {
     id: 2,
-    text: '日焼けをするとどうなる？',
+    text: '日焼けをするとどうなりますか？',
     answers: [
-      { text: 'すぐ黒くなる', type: 'warm' },
-      { text: '赤くなってすぐ白く戻る', type: 'cool' }
+      { text: 'すぐ黒くなる（元に戻りにくい）', type: 'warm', score: 2 },
+      { text: '赤くなって、しばらくすると白く戻る', type: 'cool', score: 2 }
     ]
   },
   {
     id: 3,
-    text: 'あなたの肌のトーンは？',
+    text: '素肌の色みは？',
     answers: [
-      { text: '黄みがかったベージュ・サーモン系', type: 'warm' },
-      { text: 'ピンク・赤みがかっている', type: 'cool' }
+      { text: '黄みがかったベージュ・健康的なサーモン系', type: 'warm', score: 2 },
+      { text: 'ピンクみがかっている・赤みが出やすい', type: 'cool', score: 2 }
     ]
   },
   {
     id: 4,
-    text: '白とオフホワイト、どちらが顔映りが良い？',
+    text: '白とオフホワイト、どちらが顔映りがいい？',
     answers: [
-      { text: 'オフホワイト・アイボリー', type: 'warm' },
-      { text: '真っ白・ピュアホワイト', type: 'cool' }
+      { text: 'オフホワイト・アイボリーのほうが肌になじむ', type: 'warm', score: 2 },
+      { text: '真っ白・ピュアホワイトのほうが顔が明るく見える', type: 'cool', score: 2 }
     ]
   },
   {
     id: 5,
     text: 'ゴールドとシルバー、どちらのアクセサリーが似合う？',
     answers: [
-      { text: 'ゴールド', type: 'warm' },
-      { text: 'シルバー', type: 'cool' }
+      { text: 'ゴールド（肌がなじんで血色よく見える）', type: 'warm', score: 2 },
+      { text: 'シルバー（肌が透き通って見える）', type: 'cool', score: 2 }
     ]
   },
   {
     id: 6,
-    text: '瞳の色は？',
+    text: '瞳の色・印象は？',
     answers: [
-      { text: '明るいブラウン・ハニーブラウン', type: 'warm' },
-      { text: 'ダークブラウン・黒に近い', type: 'cool' }
+      { text: '明るいブラウン・ハニーブラウン・黄みがかった茶色', type: 'warm', score: 2 },
+      { text: '暗いブラウン・黒に近い・青みがかったブラック', type: 'cool', score: 2 }
     ]
   },
   {
     id: 7,
-    text: 'よく言われる第一印象は？',
+    text: '頬や唇の血色は？',
     answers: [
-      { text: '親しみやすい・健康的・温かい', type: 'warm' },
-      { text: 'クール・エレガント・シャープ', type: 'cool' }
+      { text: 'オレンジ・コーラル・サーモンピンク系の血色', type: 'warm', score: 2 },
+      { text: 'ローズ・ピンク・ラベンダー系の血色', type: 'cool', score: 2 }
     ]
   },
   {
     id: 8,
-    text: 'イエベの中でどちらのイメージに近い？',
+    text: 'イエベさん向け：肌・全体の印象は？',
     answers: [
-      { text: '明るく華やか・可愛い・春らしい', type: 'warm_spring' },
-      { text: '落ち着いた・深み・秋らしい', type: 'warm_autumn' }
+      { text: '明るい・透明感がある・華やか・春のように軽やか', type: 'warm_spring', score: 0 },
+      { text: 'マットで深みがある・落ち着いた・秋のように重厚感', type: 'warm_autumn', score: 0 }
     ]
   },
   {
     id: 9,
-    text: 'ブルベの中でどちらのイメージに近い？',
+    text: 'ブルベさん向け：肌・全体の印象は？',
     answers: [
-      { text: '柔らかい・清楚・夏らしい', type: 'cool_summer' },
-      { text: '鮮やか・クール・冬らしい', type: 'cool_winter' }
+      { text: '柔らかい・上品・霞がかった・夏のようにふわっとした印象', type: 'cool_summer', score: 0 },
+      { text: 'ハリがある・クール・鮮明・冬のようにシャープな印象', type: 'cool_winter', score: 0 }
     ]
   },
   {
     id: 10,
-    text: '自分の印象を一言で表すと？',
+    text: '似合うと言われることが多いファッションカラーは？',
     answers: [
-      { text: '温かく柔らかい', type: 'warm' },
-      { text: 'クールで鮮明', type: 'cool' }
+      { text: 'ブラウン・オレンジ・カーキ・テラコッタ・キャメル系', type: 'warm', score: 1 },
+      { text: 'グレー・ネイビー・ラベンダー・バーガンディ・ワイン系', type: 'cool', score: 1 }
     ]
   }
 ];
 
 export const recommendations: any = {
   warm_spring: {
-    type: 'イエベ春',
-    description: '明るくクリアな黄み肌。コーラル・ピーチ・アイボリー系が得意。',
+    type: 'イエベ春 / スプリング',
+    typeTitle: '明るく華やか、春の陽光のような輝き',
+    typeDescription: '黄みを帯びた明るく透明感のある肌が特徴。瞳は明るいブラウンで、キラキラと輝くような印象。コーラルピンク・ピーチ・アイボリー・イエローグリーンなど明るくクリアな暖色系カラーがよく似合います。重くなりすぎず、軽やかで生き生きとした華やかさが魅力。',
+    colorPalette: ['#F4A460', '#FFB6C1', '#FFF8DC', '#90EE90', '#FFDAB9', '#FF7F50'],
     lip: {
       title: '春の陽光のような、コーラル＆ピーチリップ',
       description: '明るく華やかなイエベ春さんには、コーラルピンクやピーチ、フレッシュなオレンジ系がぴったり。肌を生き生きと明るく見せ、春らしい可愛らしさを演出します。',
@@ -115,8 +117,10 @@ export const recommendations: any = {
     }
   },
   warm_autumn: {
-    type: 'イエベ秋',
-    description: '深みのある黄み肌。テラコッタ・カーキ・マスタード系が得意。',
+    type: 'イエベ秋 / オータム',
+    typeTitle: '深みと温もり、秋の森のような落ち着き',
+    typeDescription: '黄みを含んだマットで落ち着いた肌が特徴。瞳や髪もダークブラウンで、全体的に深みのある印象。テラコッタ・カーキ・マスタード・キャメル・レンガ色などアースカラー系の深みあるカラーがよく似合います。成熟した高級感とナチュラルなおしゃれ感が魅力。',
+    colorPalette: ['#8B4513', '#D2691E', '#808000', '#B8860B', '#CD853F', '#A0522D'],
     lip: {
       title: '大人の深みを纏う、テラコッタ＆ブリックリップ',
       description: '落ち着いた深みのあるイエベ秋さんには、テラコッタやブリックレッド、深みのあるブラウン系がぴったり。肌に溶け込むような温かみと大人っぽさを演出します。',
@@ -145,8 +149,10 @@ export const recommendations: any = {
     }
   },
   cool_summer: {
-    type: 'ブルベ夏',
-    description: '柔らかいピンク肌。ラベンダー・ベビーピンク・ローズ系が得意。',
+    type: 'ブルベ夏 / サマー',
+    typeTitle: '柔らかく上品、夏の霞のような透明感',
+    typeDescription: '青みを帯びた柔らかなピンク系の肌が特徴。全体的にソフトでふんわりとした上品な印象。ラベンダー・ベビーピンク・スカイブルー・ローズグレーなどくすみのある淡い寒色系カラーがよく似合います。清楚で優しい女性らしさと上品な透明感が魅力。',
+    colorPalette: ['#DDA0DD', '#B0C4DE', '#E6E6FA', '#FFB6C1', '#AFEEEE', '#C0C0C0'],
     lip: {
       title: '夏の柔らかさを纏う、ローズ＆モーヴリップ',
       description: '柔らかく清楚なブルベ夏さんには、ローズピンクやモーヴ、ベビーピンク系がぴったり。透明感と優しい女性らしさを引き立て、上品で洗練された印象を与えます。',
@@ -175,8 +181,10 @@ export const recommendations: any = {
     }
   },
   cool_winter: {
-    type: 'ブルベ冬',
-    description: 'クールで透明感のある肌。バーガンディ・ネイビー・ピュアホワイト系が得意。',
+    type: 'ブルベ冬 / ウィンター',
+    typeTitle: 'クールで凛々しい、冬の星空のような鮮明さ',
+    typeDescription: '青みを帯びたクールでハリのある肌が特徴。瞳や髪はダークで、白目との対比がはっきりした印象。バーガンディ・ネイビー・ピュアホワイト・ロイヤルブルーなど鮮やかでコントラストの強いカラーがよく似合います。都会的でシャープな洗練された美しさが魅力。',
+    colorPalette: ['#800020', '#000080', '#FFFFFF', '#4169E1', '#2E0854', '#DC143C'],
     lip: {
       title: '冬の鮮明さを纏う、バーガンディ＆プラムリップ',
       description: 'クールで透明感のあるブルベ冬さんには、バーガンディやディーププラム、鮮やかなレッド系がぴったり。肌の透明感を最大限に引き出し、インパクトのある洗練された印象を与えます。',

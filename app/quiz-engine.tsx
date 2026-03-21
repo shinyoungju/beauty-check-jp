@@ -8,6 +8,7 @@ export type PersonalColorType = 'warm_spring' | 'warm_autumn' | 'cool_summer' | 
 interface Answer {
   text: string;
   type: string;
+  score: number;
 }
 
 interface Question {
@@ -36,7 +37,7 @@ export default function QuizEngine({
 
   const currentQuestion = (questionsPersonalColor as Question[])[step];
 
-  const handleAnswer = (type: string) => {
+  const handleAnswer = (type: string, score: number) => {
     // ローカル変数で最新値を追跡（Reactの非同期state更新を回避）
     let newWarm = warmScore;
     let newCool = coolScore;
@@ -44,10 +45,10 @@ export default function QuizEngine({
     let newCoolSub = coolSub;
 
     if (type === 'warm') {
-      newWarm = warmScore + 1;
+      newWarm = warmScore + score;
       setWarmScore(newWarm);
     } else if (type === 'cool') {
-      newCool = coolScore + 1;
+      newCool = coolScore + score;
       setCoolScore(newCool);
     } else if (type === 'warm_spring') {
       newWarmSub = 'spring';
@@ -66,9 +67,10 @@ export default function QuizEngine({
     if (step < questionsPersonalColor.length - 1) {
       setStep(step + 1);
     } else {
-      // Q1〜Q7とQ10のwarm/coolスコアでイエベ/ブルベを判定
+      // Q1〜Q7・Q10のwarm/coolスコアでイエベ/ブルベを判定
       // Q8の回答でイエベ春/秋、Q9の回答でブルベ夏/冬に分岐
-      const isWarm = newWarm >= newCool;
+      // 同点の場合はブルベ夏をデフォルトとする
+      const isWarm = newWarm > newCool;
       const result: PersonalColorType = isWarm
         ? (newWarmSub === 'spring' ? 'warm_spring' : 'warm_autumn')
         : (newCoolSub === 'summer' ? 'cool_summer' : 'cool_winter');
@@ -97,7 +99,7 @@ export default function QuizEngine({
         {currentQuestion.answers.map((answer: Answer, index: number) => (
           <button
             key={index}
-            onClick={() => handleAnswer(answer.type)}
+            onClick={() => handleAnswer(answer.type, answer.score)}
             className="w-full bg-white text-left border-2 border-pink-50 p-6 rounded-3xl shadow-sm hover:border-pink-200 active:scale-95 transition duration-300"
           >
             <p className="text-gray-800 font-medium">{answer.text}</p>
