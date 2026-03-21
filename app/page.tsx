@@ -58,31 +58,31 @@ export default function Home() {
       const ACCESS_KEY = process.env.NEXT_PUBLIC_RAKUTEN_ACCESS_KEY ?? '';
       const AFFILIATE_ID = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID ?? '';
 
-      const images = await Promise.all(
-        resultData.products.map(async (product: Product) => {
-          try {
-            const params = new URLSearchParams({
-              applicationId: APP_ID,
-              accessKey: ACCESS_KEY,
-              affiliateId: AFFILIATE_ID,
-              keyword: product.rakutenKeyword,
-              hits: '1',
-              imageFlag: '1',
-              format: 'json',
-            });
-            const res = await fetch(
-              `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`
-            );
-            if (!res.ok) return null;
-            const data = await res.json();
-            const item = data.Items?.[0]?.Item;
-            const raw = item?.mediumImageUrls?.[0];
-            return typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
-          } catch {
-            return null;
-          }
-        })
-      );
+      const images: (string | null)[] = [];
+      for (const product of resultData.products) {
+        try {
+          const params = new URLSearchParams({
+            applicationId: APP_ID,
+            accessKey: ACCESS_KEY,
+            affiliateId: AFFILIATE_ID,
+            keyword: product.rakutenKeyword,
+            hits: '1',
+            imageFlag: '1',
+            format: 'json',
+          });
+          const res = await fetch(
+            `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`
+          );
+          if (!res.ok) { images.push(null); continue; }
+          const data = await res.json();
+          const item = data.Items?.[0]?.Item;
+          const raw = item?.mediumImageUrls?.[0];
+          images.push(typeof raw === 'string' ? raw : (raw?.imageUrl ?? null));
+        } catch {
+          images.push(null);
+        }
+        await new Promise(r => setTimeout(r, 300));
+      }
       setRakutenImages(images);
       setImagesLoading(false);
     };
