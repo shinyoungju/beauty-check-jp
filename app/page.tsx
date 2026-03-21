@@ -140,7 +140,7 @@ function HomeContent() {
       <main className="flex min-h-screen flex-col items-center bg-[#fffafa] font-sans text-[#1a1a1a]">
         <header className="mt-10 mb-6 text-center px-5 relative">
           <p className="text-pink-400 text-[10px] font-medium tracking-[3px] mb-2 uppercase">Find Your Inner Light</p>
-          <h1 className="text-[28px] font-bold tracking-tight mb-3">Lueur (リュール)</h1>
+          <h1 className="text-[28px] font-bold tracking-tight mb-3">Lueur Beauty</h1>
           <p className="text-gray-500 text-[13px] font-normal leading-[1.7] max-w-xs mx-auto">
             あなただけに似合う、最高の輝きを。<br />
             美しさの鍵を見つける診断へようこそ。
@@ -209,7 +209,7 @@ function HomeContent() {
         </div>
         
         <footer className="mt-auto py-12 text-center">
-          <p className="text-[10px] text-gray-400 tracking-[0.2em] font-light">&copy; 2026 Lueur JP. Beauty Innovation.</p>
+          <p className="text-[10px] text-gray-400 tracking-[0.2em] font-light">&copy; 2026 Lueur Beauty. All rights reserved.</p>
         </footer>
       </main>
     );
