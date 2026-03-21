@@ -5,12 +5,20 @@ import Image from 'next/image'; // Next.js 이미지 최적화 컴포넌트 불�
 import { recommendations } from './data';
 import QuizEngine from './quiz-engine';
 
+// 상품 이미지: 로딩 스켈레톤 → 라쿠텐 이미지 → 실패 시 💄 이모지
+function ProductImage({ loading, url }: { loading: boolean; url: string | null }) {
+  const [errored, setErrored] = useState(false);
+  if (loading) return <div className="w-20 h-20 rounded-2xl bg-gray-200 animate-pulse shrink-0" />;
+  if (!url || errored) return <div className="w-20 h-20 rounded-2xl bg-pink-50 flex items-center justify-center text-3xl shrink-0">💄</div>;
+  return <img src={url} alt="" className="w-20 h-20 rounded-2xl object-contain bg-white shrink-0" onError={() => setErrored(true)} />;
+}
+
 // --- 데이터 타입 정의 (빨간 줄 방지) ---
 
 interface Product {
   name: string;
-  img: string;
-  link: string;
+  amazonLink: string;
+  rakutenKeyword: string;
 }
 
 interface RecommendationData {
@@ -37,27 +45,28 @@ export default function Home() {
   const [mode, setMode] = useState<'menu' | 'quiz' | 'result'>('menu');
   const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip');
   const [resultData, setResultData] = useState<RecommendationData | null>(null);
-  const [rakutenImages, setRakutenImages] = useState<string[]>([]);
+  const [rakutenImages, setRakutenImages] = useState<(string | null)[]>([]);
+  const [imagesLoading, setImagesLoading] = useState(false);
 
   useEffect(() => {
     if (!resultData) return;
-    const appId = process.env.NEXT_PUBLIC_RAKUTEN_APP_ID;
-    const affiliateId = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID;
+    setImagesLoading(true);
+    setRakutenImages([]);
     const fetchImages = async () => {
       const images = await Promise.all(
         resultData.products.map(async (product: Product) => {
           try {
-            const res = await fetch(
-              `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${appId}&affiliateId=${affiliateId}&keyword=${encodeURIComponent(product.name)}&hits=1&format=json`
-            );
+            const res = await fetch(`/api/rakuten?keyword=${encodeURIComponent(product.rakutenKeyword)}`);
+            if (!res.ok) return null;
             const data = await res.json();
-            return data.Items?.[0]?.Item?.mediumImageUrls?.[0]?.imageUrl || product.img;
+            return data.imageUrl ?? null;
           } catch {
-            return product.img;
+            return null;
           }
         })
       );
       setRakutenImages(images);
+      setImagesLoading(false);
     };
     fetchImages();
   }, [resultData]);
@@ -162,10 +171,10 @@ export default function Home() {
           <div className="space-y-4 px-2 mb-12 relative">
             {resultData.products.map((product: Product, index: number) => (
               <div key={index} className="flex bg-white/80 backdrop-blur-sm p-5 rounded-[2rem] shadow-sm items-center gap-5 border border-white">
-                <img src={rakutenImages[index] || product.img} alt={product.name} className="w-20 h-20 rounded-2xl object-contain bg-white" />
+                <ProductImage loading={imagesLoading} url={rakutenImages[index] ?? null} />
                 <div className="flex-1 text-left">
                   <p className="text-[11px] font-bold text-gray-900 mb-3 leading-tight">{product.name}</p>
-                  <a href={product.link} target="_blank" rel="noopener noreferrer" className={`inline-block text-white text-[10px] font-bold px-6 py-2 rounded-full shadow-lg ${resultData.btnClass} transition-all active:scale-95`}>
+                  <a href={product.amazonLink} target="_blank" rel="noopener noreferrer" className={`inline-block text-white text-[10px] font-bold px-6 py-2 rounded-full shadow-lg ${resultData.btnClass} transition-all active:scale-95`}>
                     Amazon 詳細を見る
                   </a>
                 </div>
