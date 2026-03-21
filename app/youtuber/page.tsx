@@ -1,8 +1,21 @@
 // app/youtuber/page.tsx
+'use client';
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { youtuberPicks } from '../data';
+import ShareButtons from '@/components/ShareButtons';
 
 export default function YoutuberPage() {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const contentId = searchParams.get('content');
+    if (contentId) {
+      document.getElementById(contentId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [searchParams]);
+
   const sorted = [...youtuberPicks].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
@@ -43,6 +56,7 @@ export default function YoutuberPage() {
             return (
               <div
                 key={creator.videoId}
+                id={creator.id}
                 className="bg-white overflow-hidden"
                 style={{ border: '0.5px solid #e8ddd8', borderRadius: '16px' }}
               >
@@ -180,6 +194,19 @@ export default function YoutuberPage() {
                         </div>
                       </div>
                     ))}
+                  </div>
+
+                  {/* ユーチューバーカードごとのシェアボタン */}
+                  <div className="mt-3 pt-3 border-t border-gray-100">
+                    <p className="text-xs text-gray-400 text-center mb-2">
+                      この商品をシェアする
+                    </p>
+                    <ShareButtons
+                      title={`${creator.youtuberName}のおすすめアイテムをチェック✨`}
+                      description={creator.products.map((p) => p.name).join('、')}
+                      url={`https://beauty-check-jp.vercel.app/youtuber?content=${creator.id}`}
+                      showImage={false}
+                    />
                   </div>
                 </div>
               </div>

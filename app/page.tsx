@@ -1,9 +1,11 @@
 // app/page.tsx
 'use client';
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image'; // Next.js 이미지 최적화 컴포넌트 불러오기
 import { recommendations } from './data';
 import QuizEngine, { PersonalColorType } from './quiz-engine';
+import ShareButtons from '@/components/ShareButtons';
 
 // 상품 이미지: 로딩 스켈레톤 → 라쿠텐 이미지 → 실패 시 💄 이모지
 function ProductImage({ loading, url }: { loading: boolean; url: string | null }) {
@@ -22,6 +24,7 @@ interface Product {
 }
 
 interface RecommendationData {
+  typeKey: string;
   title: string;
   description: string;
   bgClass: string;
@@ -47,6 +50,7 @@ interface RakutenData { imageUrl: string | null; affiliateUrl: string | null; }
 // --- 메인 컴포넌트 ---
 
 export default function Home() {
+  const searchParams = useSearchParams();
   const [mode, setMode] = useState<'menu' | 'quiz' | 'result'>('menu');
   const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip');
   const [diagnosisOpen, setDiagnosisOpen] = useState(false);
@@ -54,6 +58,23 @@ export default function Home() {
   const [resultType, setResultType] = useState<PersonalColorType | null>(null);
   const [rakutenImages, setRakutenImages] = useState<RakutenData[]>([]);
   const [imagesLoading, setImagesLoading] = useState(false);
+
+  // ?type= パラメータから直接結果を表示
+  useEffect(() => {
+    const typeKey = searchParams.get('type');
+    if (!typeKey) return;
+    const lastUnderscore = typeKey.lastIndexOf('_');
+    if (lastUnderscore === -1) return;
+    const colorType = typeKey.slice(0, lastUnderscore) as PersonalColorType;
+    const quizType = typeKey.slice(lastUnderscore + 1) as 'lip' | 'shadow';
+    if (typedRecommendations[colorType] && (quizType === 'lip' || quizType === 'shadow')) {
+      setActiveQuizType(quizType);
+      setResultType(colorType);
+      setResultData(typedRecommendations[colorType][quizType]);
+      setMode('result');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!resultData) return;
@@ -106,9 +127,11 @@ export default function Home() {
 
   const handleFinish = (type: PersonalColorType) => {
     const fullData = typedRecommendations[type];
+    const quizData = fullData[activeQuizType];
     setResultType(type);
-    setResultData(fullData[activeQuizType]);
+    setResultData(quizData);
     setMode('result');
+    window.history.replaceState(null, '', `/?type=${quizData.typeKey}`);
   };
 
   // 1. 메인 메뉴 화면 (동일)
@@ -236,8 +259,8 @@ export default function Home() {
           </div>
 
           <h2 className="text-[10px] font-medium text-gray-400 tracking-[2px] mb-6 text-center uppercase relative">Recommended Item</h2>
-          
-          <div className="space-y-4 px-2 mb-12 relative">
+
+          <div className="space-y-4 px-2 mb-8 relative">
             {resultData.products.map((product: Product, index: number) => (
               <div key={index} className="flex bg-white/80 backdrop-blur-sm p-5 rounded-[2rem] shadow-sm items-center gap-5 border border-white">
                 <ProductImage loading={imagesLoading} url={rakutenImages[index]?.imageUrl ?? null} />
@@ -255,7 +278,16 @@ export default function Home() {
               </div>
             ))}
           </div>
-          
+
+          <div className="px-4 mb-8">
+            <p className="text-xs text-gray-400 text-center mb-2">結果をシェアする</p>
+            <ShareButtons
+              title={`私のビューティータイプは「${typeLabel}」でした✨`}
+              description={typeData.typeDescription}
+              url={`https://beauty-check-jp.vercel.app/?type=${resultData.typeKey}`}
+            />
+          </div>
+
           <button onClick={() => setMode('menu')} className="w-full bg-white/50 text-gray-500 text-[12px] font-medium py-5 rounded-[2rem] border border-white mb-12 hover:bg-white transition-all">
             診断メニューに戻る
           </button>

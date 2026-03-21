@@ -90,6 +90,7 @@ export const recommendations: any = {
     typeDescription: '黄みを帯びた明るく透明感のある肌が特徴。瞳は明るいブラウンで、キラキラと輝くような印象。コーラルピンク・ピーチ・アイボリー・イエローグリーンなど明るくクリアな暖色系カラーがよく似合います。重くなりすぎず、軽やかで生き生きとした華やかさが魅力。',
     colorPalette: ['#F4A460', '#FFB6C1', '#FFF8DC', '#90EE90', '#FFDAB9', '#FF7F50'],
     lip: {
+      typeKey: 'warm_spring_lip',
       title: '春の陽光のような、コーラル＆ピーチリップ',
       description: '明るく華やかなイエベ春さんには、コーラルピンクやピーチ、フレッシュなオレンジ系がぴったり。肌を生き生きと明るく見せ、春らしい可愛らしさを演出します。',
       moodImg: '/warm-mood.png',
@@ -103,6 +104,7 @@ export const recommendations: any = {
       ]
     },
     shadow: {
+      typeKey: 'warm_spring_shadow',
       title: '春の輝きを纏う、ゴールド＆シャンパンシャドウ',
       description: '明るく華やかなイエベ春さんには、ゴールドパールやシャンパン、ライトブラウン系のパレットがぴったり。目元に瑞々しい輝きを与え、春らしい清潔感を演出します。',
       moodImg: '/warm-mood.png',
@@ -122,6 +124,7 @@ export const recommendations: any = {
     typeDescription: '黄みを含んだマットで落ち着いた肌が特徴。瞳や髪もダークブラウンで、全体的に深みのある印象。テラコッタ・カーキ・マスタード・キャメル・レンガ色などアースカラー系の深みあるカラーがよく似合います。成熟した高級感とナチュラルなおしゃれ感が魅力。',
     colorPalette: ['#8B4513', '#D2691E', '#808000', '#B8860B', '#CD853F', '#A0522D'],
     lip: {
+      typeKey: 'warm_autumn_lip',
       title: '大人の深みを纏う、テラコッタ＆ブリックリップ',
       description: '落ち着いた深みのあるイエベ秋さんには、テラコッタやブリックレッド、深みのあるブラウン系がぴったり。肌に溶け込むような温かみと大人っぽさを演出します。',
       moodImg: '/warm-mood.png',
@@ -135,6 +138,7 @@ export const recommendations: any = {
       ]
     },
     shadow: {
+      typeKey: 'warm_autumn_shadow',
       title: '秋の深みを宿す、ブラウン＆テラコッタシャドウ',
       description: '落ち着いた深みのあるイエベ秋さんには、テラコッタやバーントオレンジ、深みのあるカッパー系のパレットがぴったり。目元に大人の深みと温かみを演出します。',
       moodImg: '/warm-mood.png',
@@ -154,6 +158,7 @@ export const recommendations: any = {
     typeDescription: '青みを帯びた柔らかなピンク系の肌が特徴。全体的にソフトでふんわりとした上品な印象。ラベンダー・ベビーピンク・スカイブルー・ローズグレーなどくすみのある淡い寒色系カラーがよく似合います。清楚で優しい女性らしさと上品な透明感が魅力。',
     colorPalette: ['#DDA0DD', '#B0C4DE', '#E6E6FA', '#FFB6C1', '#AFEEEE', '#C0C0C0'],
     lip: {
+      typeKey: 'cool_summer_lip',
       title: '夏の柔らかさを纏う、ローズ＆モーヴリップ',
       description: '柔らかく清楚なブルベ夏さんには、ローズピンクやモーヴ、ベビーピンク系がぴったり。透明感と優しい女性らしさを引き立て、上品で洗練された印象を与えます。',
       moodImg: '/cool-mood.png',
@@ -167,6 +172,7 @@ export const recommendations: any = {
       ]
     },
     shadow: {
+      typeKey: 'cool_summer_shadow',
       title: '夏の清涼感を際立てる、ラベンダー＆ピンクシャドウ',
       description: '柔らかく清楚なブルベ夏さんには、ラベンダーやローズピンク、シルバーパールのパレットがぴったり。目元に透明感と優しい輝きを与え、洗練された印象を演出します。',
       moodImg: '/cool-mood.png',
@@ -186,6 +192,7 @@ export const recommendations: any = {
     typeDescription: '青みを帯びたクールでハリのある肌が特徴。瞳や髪はダークで、白目との対比がはっきりした印象。バーガンディ・ネイビー・ピュアホワイト・ロイヤルブルーなど鮮やかでコントラストの強いカラーがよく似合います。都会的でシャープな洗練された美しさが魅力。',
     colorPalette: ['#800020', '#000080', '#FFFFFF', '#4169E1', '#2E0854', '#DC143C'],
     lip: {
+      typeKey: 'cool_winter_lip',
       title: '冬の鮮明さを纏う、バーガンディ＆プラムリップ',
       description: 'クールで透明感のあるブルベ冬さんには、バーガンディやディーププラム、鮮やかなレッド系がぴったり。肌の透明感を最大限に引き出し、インパクトのある洗練された印象を与えます。',
       moodImg: '/cool-mood.png',
@@ -199,6 +206,7 @@ export const recommendations: any = {
       ]
     },
     shadow: {
+      typeKey: 'cool_winter_shadow',
       title: '冬の透明感を極める、パープル＆シルバーシャドウ',
       description: 'クールで透明感のあるブルベ冬さんには、ダークパープルやネイビー、シルバーパールのパレットがぴったり。目元に鮮明なコントラストと洗練された存在感を演出します。',
       moodImg: '/cool-mood.png',
@@ -216,6 +224,7 @@ export const recommendations: any = {
 
 export const youtuberPicks = [
   {
+    id: "momochi-20260321",
     youtuberName: "ももちMomochi / 牛江桃子",
     channel: "登録者数43.4万人",
     videoId: "BcDeKH8BEFw",
@@ -265,6 +274,7 @@ export const youtuberPicks = [
     ]
   },
   {
+    id: "shika-20260321",
     youtuberName: "鹿の間",
     channel: "登録者数80.6万人",
     videoId: "tzFQ6kZIZgI",
