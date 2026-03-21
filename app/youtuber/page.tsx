@@ -22,12 +22,12 @@ function YoutuberContent() {
 
   return (
     <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
-      <div className="max-w-md mx-auto px-5 pt-6 pb-8">
+      <div className="max-w-md mx-auto px-5 pt-6 pb-10">
 
         {/* 戻るリンク */}
         <Link
           href="/"
-          className="inline-flex items-center gap-1 text-[13px] font-bold tracking-widest uppercase mb-5 hover:opacity-70 transition-opacity"
+          className="inline-flex items-center gap-1 text-[13px] font-bold tracking-widest uppercase mb-6 hover:opacity-70 transition-opacity"
           style={{ color: '#c4876a' }}
         >
           ← 戻る
@@ -36,12 +36,12 @@ function YoutuberContent() {
         {/* セクションヘッダー */}
         <div className="text-center mb-8">
           <p
-            className="text-[10px] font-medium tracking-[2px] uppercase mb-1.5"
+            className="text-[10px] font-medium tracking-[2px] uppercase mb-2"
             style={{ color: '#c4876a' }}
           >
             Beauty Youtuber Picks
           </p>
-          <h1 className="text-[20px] font-bold text-[#1a1a1a] mb-1">
+          <h1 className="text-[20px] font-bold text-[#1a1a1a] mb-2">
             人気YouTuberが絶賛したコスメ
           </h1>
           <p className="text-[13px] text-gray-400 font-normal leading-[1.7]">
@@ -50,7 +50,7 @@ function YoutuberContent() {
         </div>
 
         {/* ユーチューバーカード */}
-        <div className="space-y-5">
+        <div className="space-y-4">
           {sorted.map((creator) => {
             const initial = creator.youtuberName.charAt(0);
             return (
@@ -61,7 +61,7 @@ function YoutuberContent() {
                 style={{ border: '0.5px solid #e8ddd8', borderRadius: '16px' }}
               >
                 {/* ユーチューバーヘッダー */}
-                <div className="flex items-center gap-3 px-4 pt-4 pb-3">
+                <div className="flex items-center gap-3 px-5 pt-4 pb-3">
                   {/* アバター */}
                   <div
                     className="w-11 h-11 rounded-full flex items-center justify-center text-[15px] font-medium shrink-0"
@@ -127,9 +127,9 @@ function YoutuberContent() {
                 </a>
 
                 {/* 商品リスト */}
-                <div className="px-4 pt-3.5 pb-4">
+                <div className="px-5 pt-4 pb-5">
                   <p
-                    className="text-[10px] font-medium tracking-[2px] uppercase mb-2.5"
+                    className="text-[10px] font-medium tracking-[2px] uppercase mb-3"
                     style={{ color: '#9e9e9e' }}
                   >
                     この動画で紹介されたアイテム
@@ -139,7 +139,7 @@ function YoutuberContent() {
                     {creator.products.map((product, idx) => (
                       <div
                         key={product.rank}
-                        className="flex gap-3 items-start py-2.5"
+                        className="flex gap-3 items-start py-3"
                         style={{
                           borderBottom:
                             idx < creator.products.length - 1
@@ -171,7 +171,7 @@ function YoutuberContent() {
                             「{product.comment}」
                           </p>
                           {/* 購入ボタン */}
-                          <div className="flex gap-2 mt-2">
+                          <div className="flex gap-2 mt-3">
                             <a
                               href={product.amazonLink}
                               target="_blank"
@@ -197,8 +197,8 @@ function YoutuberContent() {
                   </div>
 
                   {/* ユーチューバーカードごとのシェアボタン */}
-                  <div className="mt-3 pt-3 border-t border-gray-100">
-                    <p className="text-xs text-gray-400 text-center mb-2">
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <p className="text-xs text-gray-400 text-center mb-3">
                       この商品をシェアする
                     </p>
                     <ShareButtons
