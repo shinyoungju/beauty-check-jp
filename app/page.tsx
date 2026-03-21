@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image'; // Next.js 이미지 최적화 컴포넌트 불러오기
 import { recommendations } from './data';
-import QuizEngine from './quiz-engine';
+import QuizEngine, { PersonalColorType } from './quiz-engine';
 
 // 상품 이미지: 로딩 스켈레톤 → 라쿠텐 이미지 → 실패 시 💄 이모지
 function ProductImage({ loading, url }: { loading: boolean; url: string | null }) {
@@ -37,7 +37,7 @@ interface FullRecommendation {
   shadow: RecommendationData;
 }
 
-const typedRecommendations = recommendations as Record<'warm' | 'cool', FullRecommendation>;
+const typedRecommendations = recommendations as Record<PersonalColorType, FullRecommendation>;
 
 // --- 메인 컴포넌트 ---
 
@@ -45,6 +45,7 @@ export default function Home() {
   const [mode, setMode] = useState<'menu' | 'quiz' | 'result'>('menu');
   const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip');
   const [resultData, setResultData] = useState<RecommendationData | null>(null);
+  const [resultType, setResultType] = useState<PersonalColorType | null>(null);
   const [rakutenImages, setRakutenImages] = useState<(string | null)[]>([]);
   const [imagesLoading, setImagesLoading] = useState(false);
 
@@ -78,9 +79,9 @@ export default function Home() {
     setRakutenImages([]);
   };
 
-  const handleFinish = (type: 'warm' | 'cool') => {
-    // 선택한 진단 타입에 맞춰 데이터를 가져옵니다.
+  const handleFinish = (type: PersonalColorType) => {
     const fullData = typedRecommendations[type];
+    setResultType(type);
     setResultData(fullData[activeQuizType]);
     setMode('result');
   };
@@ -136,14 +137,14 @@ export default function Home() {
   }
 
   // 3. 결과 화면 (이미지 최적화 적용됨)
-  if (mode === 'result' && resultData) {
-    const isWarm = resultData.moodImg === '/warm-mood.png';
+  if (mode === 'result' && resultData && resultType) {
+    const typeLabel = typedRecommendations[resultType].type;
     return (
       <main className={`flex min-h-screen flex-col items-center p-6 ${resultData.bgClass} text-[#1a1a1a]`}>
         <div className="max-w-md w-full mt-10">
           <div className="text-center mb-10 px-4 relative">
             <span className={`inline-block text-xs font-bold tracking-[0.2em] px-4 py-1.5 rounded-full bg-white shadow-sm ${resultData.textClass}`}>
-              {isWarm ? 'Warm Base / イエベ' : 'Cool Base / ブルベ'}
+              {typeLabel}
             </span>
             <h1 className="text-2xl font-black mt-8 mb-6 leading-tight tracking-tight">{resultData.title}</h1>
             

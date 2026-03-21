@@ -1,8 +1,8 @@
 // app/api/rakuten/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
-const APP_ID = process.env.NEXT_PUBLIC_RAKUTEN_APP_ID ?? '7a23a89f-cc10-4817-bb25-051c2afe527b';
-const AFFILIATE_ID = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID ?? '521658b7.a1689a38.521658b7.fbb4952';
+const APP_ID = process.env.RAKUTEN_APP_ID ?? '7a23a89f-cc10-4817-bb25-051c2afe527b';
+const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '521658b7.a1689a38.521658b7.fbb4952';
 
 export async function GET(req: NextRequest) {
   const keyword = req.nextUrl.searchParams.get('keyword');
@@ -10,7 +10,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'keyword is required' }, { status: 400 });
   }
 
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${APP_ID}&affiliateId=${AFFILIATE_ID}&keyword=${encodeURIComponent(keyword)}&hits=1&format=json`;
+  console.log('[Rakuten] using applicationId:', APP_ID);
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${APP_ID}&affiliateId=${AFFILIATE_ID}&keyword=${encodeURIComponent(keyword)}&hits=1&format=json&imageFlag=1&sort=-reviewCount&genreId=100371`;
 
   try {
     const res = await fetch(url, {

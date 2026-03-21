@@ -3,110 +3,204 @@
 export const questionsPersonalColor = [
   {
     id: 1,
-    text: 'あなたの肌のトーンに最も近いのは？',
+    text: '手首の内側の血管の色は？',
     answers: [
-      { text: 'ゴールド・イエローベース (イエベ)', type: 'warm' },
-      { text: 'ピンク・ブルーベース (ブルベ)', type: 'cool' }
+      { text: '緑・オリーブ色', type: 'warm' },
+      { text: '青・紫色', type: 'cool' }
     ]
   },
   {
     id: 2,
-    text: 'よく馴染むアクセサリーの色は？',
+    text: '日焼けをするとどうなる？',
     answers: [
-      { text: 'ゴールド (暖かみがある)', type: 'warm' },
-      { text: 'シルバー (涼しげ)', type: 'cool' }
+      { text: 'すぐ黒くなる', type: 'warm' },
+      { text: '赤くなってすぐ白く戻る', type: 'cool' }
     ]
   },
   {
     id: 3,
-    text: '手のひらの色はどちらに近い？',
+    text: 'あなたの肌のトーンは？',
     answers: [
-      { text: '黄色っぽい・オレンジっぽい', type: 'warm' },
-      { text: '赤っぽい・ピンクっぽい', type: 'cool' }
+      { text: '黄みがかったベージュ・サーモン系', type: 'warm' },
+      { text: 'ピンク・赤みがかっている', type: 'cool' }
     ]
   },
   {
     id: 4,
-    text: '周りからよく言われる印象は？',
+    text: '白とオフホワイト、どちらが顔映りが良い？',
     answers: [
-      { text: '親しみやすい・ヘルシー', type: 'warm' },
-      { text: '透明感がある・エレガント', type: 'cool' }
+      { text: 'オフホワイト・アイボリー', type: 'warm' },
+      { text: '真っ白・ピュアホワイト', type: 'cool' }
     ]
   },
   {
     id: 5,
-    text: '日焼けをするとどうなりますか？',
+    text: 'ゴールドとシルバー、どちらのアクセサリーが似合う？',
     answers: [
-      { text: 'すぐ黒くなる', type: 'warm' },
-      { text: '赤くなってすぐ戻る', type: 'cool' }
+      { text: 'ゴールド', type: 'warm' },
+      { text: 'シルバー', type: 'cool' }
     ]
   },
   {
     id: 6,
-    text: '似合うと言われるファッションカラーは？',
+    text: '瞳の色は？',
     answers: [
-      { text: 'ブラウン・オレンジ・カーキ系', type: 'warm' },
-      { text: 'グレー・ネイビー・ワイン系', type: 'cool' }
+      { text: '明るいブラウン・ハニーブラウン', type: 'warm' },
+      { text: 'ダークブラウン・黒に近い', type: 'cool' }
+    ]
+  },
+  {
+    id: 7,
+    text: 'よく言われる第一印象は？',
+    answers: [
+      { text: '親しみやすい・健康的・温かい', type: 'warm' },
+      { text: 'クール・エレガント・シャープ', type: 'cool' }
+    ]
+  },
+  {
+    id: 8,
+    text: 'イエベの中でどちらのイメージに近い？',
+    answers: [
+      { text: '明るく華やか・可愛い・春らしい', type: 'warm_spring' },
+      { text: '落ち着いた・深み・秋らしい', type: 'warm_autumn' }
+    ]
+  },
+  {
+    id: 9,
+    text: 'ブルベの中でどちらのイメージに近い？',
+    answers: [
+      { text: '柔らかい・清楚・夏らしい', type: 'cool_summer' },
+      { text: '鮮やか・クール・冬らしい', type: 'cool_winter' }
+    ]
+  },
+  {
+    id: 10,
+    text: '自分の印象を一言で表すと？',
+    answers: [
+      { text: '温かく柔らかい', type: 'warm' },
+      { text: 'クールで鮮明', type: 'cool' }
     ]
   }
 ];
 
 export const recommendations: any = {
-  warm: {
-    type: 'イエベ (Warm Base)',
+  warm_spring: {
+    type: 'イエベ春',
+    description: '明るくクリアな黄み肌。コーラル・ピーチ・アイボリー系が得意。',
     lip: {
-      title: '多幸感あふれる、コーラル＆オレンジリップ',
-      description: '暖かみのあるお肌のあなたには、コーラルピンクやオレンジ系、テラコッタカラーがぴったり。肌を明るく、健康的に見せてくれます。',
+      title: '春の陽光のような、コーラル＆ピーチリップ',
+      description: '明るく華やかなイエベ春さんには、コーラルピンクやピーチ、フレッシュなオレンジ系がぴったり。肌を生き生きと明るく見せ、春らしい可愛らしさを演出します。',
       moodImg: '/warm-mood.png',
-      bgClass: 'bg-[#fff9f5]',
-      textClass: 'text-[#8b4513]',
-      btnClass: 'bg-[#d2691e] hover:bg-[#a0522d]',
+      bgClass: 'bg-[#fff9f0]',
+      textClass: 'text-[#c2631f]',
+      btnClass: 'bg-[#e8843a] hover:bg-[#c2631f]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 03 [陽炎]', img: '/lip-warm.png', link: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+03&tag=lueur0f-22' },
-        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T13 [コーラルオレンジ]', img: '/lip-warm-2.png', link: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T13&tag=lueur0f-22' },
-        { name: 'rom&nd(ロムアンド) ジューシーラスティングティント 01 Mystic Nude', img: '/lip-warm-3.png', link: 'https://www.amazon.co.jp/s?k=romand+ジューシーラスティングティント+01&tag=lueur0f-22' }
+        { name: 'KATE(ケイト) リップモンスター 03 [陽炎]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+03&tag=lueur0f-22', rakutenKeyword: 'KATEリップモンスター03' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T13 [コーラルオレンジ]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T13&tag=lueur0f-22', rakutenKeyword: 'CANMAKEステイオンバームルージュT13' },
+        { name: 'rom&nd(ロムアンド) ジューシーラスティングティント 01 [Mystic Nude]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ジューシーラスティングティント+01&tag=lueur0f-22', rakutenKeyword: 'romandジューシーラスティングティント01' }
       ]
     },
     shadow: {
-      title: '健康的な魅力を引き立てる、ゴールド＆ブラウンシャドウ',
-      description: '暖かみのあるお肌のあなたには、ゴールドパールやテラコッタ、ブラウン系のパレットがぴったり。目元に自然な立体感を与えてくれます。',
+      title: '春の輝きを纏う、ゴールド＆シャンパンシャドウ',
+      description: '明るく華やかなイエベ春さんには、ゴールドパールやシャンパン、ライトブラウン系のパレットがぴったり。目元に瑞々しい輝きを与え、春らしい清潔感を演出します。',
       moodImg: '/warm-mood.png',
-      bgClass: 'bg-[#fff9f5]',
-      textClass: 'text-[#8b4513]',
-      btnClass: 'bg-[#d2691e] hover:bg-[#a0522d]',
+      bgClass: 'bg-[#fff9f0]',
+      textClass: 'text-[#c2631f]',
+      btnClass: 'bg-[#e8843a] hover:bg-[#c2631f]',
       products: [
-        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR05', img: '/shadow-warm.png', link: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR05&tag=lueur0f-22' },
-        { name: 'KATE(ケイト) デザイニングブラウンアイズ BR-1', img: '/shadow-warm-2.png', link: 'https://www.amazon.co.jp/s?k=KATE+デザイニングブラウンアイズ+BR-1&tag=lueur0f-22' },
-        { name: 'CANMAKE(キャンメイク) パーフェクトスタイリストアイズ 17 [アーストーン]', img: '/shadow-warm-3.png', link: 'https://www.amazon.co.jp/s?k=CANMAKE+パーフェクトスタイリストアイズ+17&tag=lueur0f-22' }
+        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR01 [シャンパンゴールド]', amazonLink: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR01&tag=lueur0f-22', rakutenKeyword: 'EXCELスキニーリッチシャドウSR01' },
+        { name: 'CANMAKE(キャンメイク) パーフェクトスタイリストアイズ 17 [アーストーン]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+パーフェクトスタイリストアイズ+17&tag=lueur0f-22', rakutenKeyword: 'CANMAKEパーフェクトスタイリストアイズ17' },
+        { name: 'rom&nd(ロムアンド) ベターザンパレット 05 [ピーチコーラル]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+05&tag=lueur0f-22', rakutenKeyword: 'romandベターザンパレット05' }
       ]
     }
   },
-  cool: {
-    type: 'ブルベ (Cool Base)',
+  warm_autumn: {
+    type: 'イエベ秋',
+    description: '深みのある黄み肌。テラコッタ・カーキ・マスタード系が得意。',
     lip: {
-      title: '透明感を引き立てる、ピンク＆ローズリップ',
-      description: '涼しげで透明感のあるお肌のあなたには、ピンクローズやプラム、モーヴ系カラーがおすすめ。洗練されたエレガントな印象を与えます。',
-      moodImg: '/cool-mood.png',
-      bgClass: 'bg-[#fdf2f8]',
-      textClass: 'text-[#831843]',
-      btnClass: 'bg-[#db2777] hover:bg-[#9d174d]',
+      title: '大人の深みを纏う、テラコッタ＆ブリックリップ',
+      description: '落ち着いた深みのあるイエベ秋さんには、テラコッタやブリックレッド、深みのあるブラウン系がぴったり。肌に溶け込むような温かみと大人っぽさを演出します。',
+      moodImg: '/warm-mood.png',
+      bgClass: 'bg-[#fdf6ee]',
+      textClass: 'text-[#7c4a1e]',
+      btnClass: 'bg-[#a0522d] hover:bg-[#7c4a1e]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 07 [ラスボス]', img: '/lip-cool.png', link: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+07&tag=lueur0f-22' },
-        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T10 [スウィートハニーピンク]', img: '/lip-cool-2.png', link: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T10&tag=lueur0f-22' },
-        { name: 'KATE(ケイト) リップモンスター 11 [深夜のインプット]', img: '/lip-cool-3.png', link: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+11&tag=lueur0f-22' }
+        { name: 'KATE(ケイト) リップモンスター 08 [スモーキーテラコッタ]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+08&tag=lueur0f-22', rakutenKeyword: 'KATEリップモンスター08' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T19 [ブリックレッド]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T19&tag=lueur0f-22', rakutenKeyword: 'CANMAKEステイオンバームルージュT19' },
+        { name: 'CEZANNE(セザンヌ) ラスティングリップカラーN 12 [テラコッタブラウン]', amazonLink: 'https://www.amazon.co.jp/s?k=CEZANNE+ラスティングリップカラーN+12&tag=lueur0f-22', rakutenKeyword: 'CEZANNEラスティングリップカラーN12' }
       ]
     },
     shadow: {
-      title: '透明感を際立たせる、ピンク＆パープルシャドウ',
-      description: '涼しげで透明感のあるお肌のあなたには、ピンクローズやモーヴ系、シルバーパールのパレットがぴったり。洗練された目元を演出します。',
-      moodImg: '/cool-mood.png',
-      bgClass: 'bg-[#fdf2f8]',
-      textClass: 'text-[#831843]',
-      btnClass: 'bg-[#db2777] hover:bg-[#9d174d]',
+      title: '秋の深みを宿す、ブラウン＆テラコッタシャドウ',
+      description: '落ち着いた深みのあるイエベ秋さんには、テラコッタやバーントオレンジ、深みのあるカッパー系のパレットがぴったり。目元に大人の深みと温かみを演出します。',
+      moodImg: '/warm-mood.png',
+      bgClass: 'bg-[#fdf6ee]',
+      textClass: 'text-[#7c4a1e]',
+      btnClass: 'bg-[#a0522d] hover:bg-[#7c4a1e]',
       products: [
-        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 06', img: '/shadow-cool.png', link: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+06&tag=lueur0f-22' },
-        { name: 'rom&nd(ロムアンド) ベターザンパレット 10 Rosé Vintage', img: '/shadow-cool-2.png', link: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+10&tag=lueur0f-22' },
-        { name: 'KATE(ケイト) スモーキーファインアイズ SV-1', img: '/shadow-cool-3.png', link: 'https://www.amazon.co.jp/s?k=KATE+スモーキーファインアイズ+SV-1&tag=lueur0f-22' }
+        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR05 [テラコッタブラウン]', amazonLink: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR05&tag=lueur0f-22', rakutenKeyword: 'EXCELスキニーリッチシャドウSR05' },
+        { name: 'KATE(ケイト) デザイニングブラウンアイズ BR-1', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+デザイニングブラウンアイズ+BR-1&tag=lueur0f-22', rakutenKeyword: 'KATEデザイニングブラウンアイズBR-1' },
+        { name: 'CANMAKE(キャンメイク) パーフェクトスタイリストアイズ 16 [テラコッタブラウン]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+パーフェクトスタイリストアイズ+16&tag=lueur0f-22', rakutenKeyword: 'CANMAKEパーフェクトスタイリストアイズ16' }
+      ]
+    }
+  },
+  cool_summer: {
+    type: 'ブルベ夏',
+    description: '柔らかいピンク肌。ラベンダー・ベビーピンク・ローズ系が得意。',
+    lip: {
+      title: '夏の柔らかさを纏う、ローズ＆モーヴリップ',
+      description: '柔らかく清楚なブルベ夏さんには、ローズピンクやモーヴ、ベビーピンク系がぴったり。透明感と優しい女性らしさを引き立て、上品で洗練された印象を与えます。',
+      moodImg: '/cool-mood.png',
+      bgClass: 'bg-[#fdf4f8]',
+      textClass: 'text-[#9b4e6e]',
+      btnClass: 'bg-[#c26e8e] hover:bg-[#9b4e6e]',
+      products: [
+        { name: 'KATE(ケイト) リップモンスター 07 [ラスボス]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+07&tag=lueur0f-22', rakutenKeyword: 'KATEリップモンスター07' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T10 [スウィートハニーピンク]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T10&tag=lueur0f-22', rakutenKeyword: 'CANMAKEステイオンバームルージュT10' },
+        { name: 'rom&nd(ロムアンド) ジューシーラスティングティント 22 [ローズモーヴ]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ジューシーラスティングティント+22&tag=lueur0f-22', rakutenKeyword: 'romandジューシーラスティングティント22' }
+      ]
+    },
+    shadow: {
+      title: '夏の清涼感を際立てる、ラベンダー＆ピンクシャドウ',
+      description: '柔らかく清楚なブルベ夏さんには、ラベンダーやローズピンク、シルバーパールのパレットがぴったり。目元に透明感と優しい輝きを与え、洗練された印象を演出します。',
+      moodImg: '/cool-mood.png',
+      bgClass: 'bg-[#fdf4f8]',
+      textClass: 'text-[#9b4e6e]',
+      btnClass: 'bg-[#c26e8e] hover:bg-[#9b4e6e]',
+      products: [
+        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 06 [ラベンダーピンク]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+06&tag=lueur0f-22', rakutenKeyword: 'CANMAKEシルキースフレアイズ06' },
+        { name: 'rom&nd(ロムアンド) ベターザンパレット 10 [Rosé Vintage]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+10&tag=lueur0f-22', rakutenKeyword: 'romandベターザンパレット10' },
+        { name: 'CEZANNE(セザンヌ) トーンアップアイシャドウ 06 [ラベンダー]', amazonLink: 'https://www.amazon.co.jp/s?k=CEZANNE+トーンアップアイシャドウ+06&tag=lueur0f-22', rakutenKeyword: 'CEZANNEトーンアップアイシャドウ06' }
+      ]
+    }
+  },
+  cool_winter: {
+    type: 'ブルベ冬',
+    description: 'クールで透明感のある肌。バーガンディ・ネイビー・ピュアホワイト系が得意。',
+    lip: {
+      title: '冬の鮮明さを纏う、バーガンディ＆プラムリップ',
+      description: 'クールで透明感のあるブルベ冬さんには、バーガンディやディーププラム、鮮やかなレッド系がぴったり。肌の透明感を最大限に引き出し、インパクトのある洗練された印象を与えます。',
+      moodImg: '/cool-mood.png',
+      bgClass: 'bg-[#f8f2f8]',
+      textClass: 'text-[#6b2d6b]',
+      btnClass: 'bg-[#8b2fc9] hover:bg-[#6b2d6b]',
+      products: [
+        { name: 'KATE(ケイト) リップモンスター 11 [深夜のインプット]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+11&tag=lueur0f-22', rakutenKeyword: 'KATEリップモンスター11' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T07 [バーガンディレッド]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T07&tag=lueur0f-22', rakutenKeyword: 'CANMAKEステイオンバームルージュT07' },
+        { name: 'NYX(ニックス) ソフトマットリップクリーム [コペンハーゲン]', amazonLink: 'https://www.amazon.co.jp/s?k=NYX+ソフトマットリップクリーム+コペンハーゲン&tag=lueur0f-22', rakutenKeyword: 'NYXソフトマットリップクリームコペンハーゲン' }
+      ]
+    },
+    shadow: {
+      title: '冬の透明感を極める、パープル＆シルバーシャドウ',
+      description: 'クールで透明感のあるブルベ冬さんには、ダークパープルやネイビー、シルバーパールのパレットがぴったり。目元に鮮明なコントラストと洗練された存在感を演出します。',
+      moodImg: '/cool-mood.png',
+      bgClass: 'bg-[#f8f2f8]',
+      textClass: 'text-[#6b2d6b]',
+      btnClass: 'bg-[#8b2fc9] hover:bg-[#6b2d6b]',
+      products: [
+        { name: 'KATE(ケイト) スモーキーファインアイズ SV-1 [シルバー]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+スモーキーファインアイズ+SV-1&tag=lueur0f-22', rakutenKeyword: 'KATEスモーキーファインアイズSV-1' },
+        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 11 [プラムパープル]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+11&tag=lueur0f-22', rakutenKeyword: 'CANMAKEシルキースフレアイズ11' },
+        { name: 'rom&nd(ロムアンド) ベターザンパレット 16 [ナイトクール]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+16&tag=lueur0f-22', rakutenKeyword: 'romandベターザンパレット16' }
       ]
     }
   }
