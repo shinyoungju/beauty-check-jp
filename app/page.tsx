@@ -54,13 +54,30 @@ export default function Home() {
     setImagesLoading(true);
     setRakutenImages([]);
     const fetchImages = async () => {
+      const APP_ID = process.env.NEXT_PUBLIC_RAKUTEN_APP_ID ?? '';
+      const ACCESS_KEY = process.env.NEXT_PUBLIC_RAKUTEN_ACCESS_KEY ?? '';
+      const AFFILIATE_ID = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID ?? '';
+
       const images = await Promise.all(
         resultData.products.map(async (product: Product) => {
           try {
-            const res = await fetch(`/api/rakuten?keyword=${encodeURIComponent(product.rakutenKeyword)}`);
+            const params = new URLSearchParams({
+              applicationId: APP_ID,
+              accessKey: ACCESS_KEY,
+              affiliateId: AFFILIATE_ID,
+              keyword: product.rakutenKeyword,
+              hits: '1',
+              imageFlag: '1',
+              format: 'json',
+            });
+            const res = await fetch(
+              `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`
+            );
             if (!res.ok) return null;
             const data = await res.json();
-            return data.imageUrl ?? null;
+            const item = data.Items?.[0]?.Item;
+            const raw = item?.mediumImageUrls?.[0];
+            return typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
           } catch {
             return null;
           }
