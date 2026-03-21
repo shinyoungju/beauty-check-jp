@@ -1,8 +1,9 @@
 // app/api/rakuten/batch/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
-const APP_ID = process.env.RAKUTEN_APP_ID ?? '';
-const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '';
+// NEXT_PUBLIC_ 変数はサーバー側でも使用可能なため、既存の環境変数をそのまま利用
+const APP_ID = process.env.NEXT_PUBLIC_RAKUTEN_APP_ID ?? process.env.RAKUTEN_APP_ID ?? '';
+const AFFILIATE_ID = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID ?? process.env.RAKUTEN_AFFILIATE_ID ?? '';
 
 interface RakutenResult {
   imageUrl: string | null;
@@ -17,8 +18,6 @@ async function fetchOne(keyword: string): Promise<RakutenResult> {
     hits: '1',
     imageFlag: '1',
     format: 'json',
-    sort: '-reviewCount',
-    genreId: '100371',
   });
 
   try {
@@ -39,8 +38,7 @@ async function fetchOne(keyword: string): Promise<RakutenResult> {
       return { imageUrl: null, affiliateUrl: null };
     }
     const item = data.Items?.[0]?.Item;
-    // smallImageUrls を使用（表示サイズが80pxのため十分）
-    const raw = item?.smallImageUrls?.[0];
+    const raw = item?.mediumImageUrls?.[0];
     const imageUrl = typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
     const affiliateUrl = item?.affiliateUrl ?? null;
     console.log('[Rakuten batch] keyword:', keyword, '| imageUrl:', imageUrl);
