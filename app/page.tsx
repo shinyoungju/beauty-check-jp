@@ -1,6 +1,6 @@
 // app/page.tsx
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image'; // Next.js 이미지 최적화 컴포넌트 불러오기
 import { recommendations } from './data';
@@ -49,7 +49,7 @@ interface RakutenData { imageUrl: string | null; affiliateUrl: string | null; }
 
 // --- 메인 컴포넌트 ---
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const [mode, setMode] = useState<'menu' | 'quiz' | 'result'>('menu');
   const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip');
@@ -296,4 +296,12 @@ export default function Home() {
     );
   }
   return null;
+}
+
+export default function Home() {
+  return (
+    <Suspense>
+      <HomeContent />
+    </Suspense>
+  );
 }

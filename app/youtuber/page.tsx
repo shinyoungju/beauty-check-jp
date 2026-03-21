@@ -1,12 +1,12 @@
 // app/youtuber/page.tsx
 'use client';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { youtuberPicks } from '../data';
 import ShareButtons from '@/components/ShareButtons';
 
-export default function YoutuberPage() {
+function YoutuberContent() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -215,5 +215,13 @@ export default function YoutuberPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function YoutuberPage() {
+  return (
+    <Suspense>
+      <YoutuberContent />
+    </Suspense>
   );
 }
