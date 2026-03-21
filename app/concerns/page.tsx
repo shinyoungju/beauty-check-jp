@@ -1,6 +1,6 @@
 // app/concerns/page.tsx
 'use client';
-import { useEffect, useRef, useState, Suspense } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { skincareConcerns } from '../data';
@@ -47,6 +47,15 @@ function ConcernsContent() {
   const searchParams = useSearchParams();
   const navRef = useRef<HTMLDivElement>(null);
   const [showTop, setShowTop] = useState(false);
+  // ナビ高さ＋余白をスクロールマージンとして適用
+  const [scrollMargin, setScrollMargin] = useState(80);
+
+  // DOM描画後にナビの実際の高さを計測
+  useLayoutEffect(() => {
+    if (navRef.current) {
+      setScrollMargin(navRef.current.offsetHeight + 16);
+    }
+  }, []);
 
   // TOPボタン：200px以上スクロールで表示
   useEffect(() => {
@@ -55,31 +64,20 @@ function ConcernsContent() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // スクロールオフセット：スティッキーナビの実際の高さ＋余白
-  const getScrollOffset = () => (navRef.current?.offsetHeight ?? 60) + 16;
-
+  // シェアリンクのハッシュ／クエリでセクションへスクロール
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
     const concernId = hash || searchParams.get('concern');
-    if (concernId) {
-      // ナビがマウント・描画された後に高さを計測してスクロール
-      setTimeout(() => {
-        const el = document.getElementById(concernId);
-        if (el) {
-          const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      }, 150);
-    }
+    if (!concernId) return;
+    // ブラウザのネイティブハッシュスクロールより後に実行
+    setTimeout(() => {
+      document.getElementById(concernId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   const scrollToConcern = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -143,7 +141,12 @@ function ConcernsContent() {
               key={concern.id}
               id={concern.id}
               className="bg-white overflow-hidden"
-              style={{ border: '0.5px solid #e8ddd8', borderRadius: '16px' }}
+              style={{
+                border: '0.5px solid #e8ddd8',
+                borderRadius: '16px',
+                // スティッキーナビの高さ分だけスクロール位置をオフセット
+                scrollMarginTop: `${scrollMargin}px`,
+              }}
             >
               {/* セクションヘッダー */}
               <div className="px-5 pt-5 pb-4" style={{ borderBottom: '0.5px solid #e8ddd8' }}>
