@@ -24,7 +24,10 @@ export async function GET(req: NextRequest) {
   const url = `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`;
 
   try {
-    const res = await fetch(url, { cache: 'no-store' });
+    const res = await fetch(url, {
+      cache: 'no-store',
+      headers: { Referer: 'https://beauty-check-jp.vercel.app' },
+    });
     const text = await res.text();
 
     if (!res.ok) {
