@@ -49,6 +49,7 @@ interface RakutenData { imageUrl: string | null; affiliateUrl: string | null; }
 export default function Home() {
   const [mode, setMode] = useState<'menu' | 'quiz' | 'result'>('menu');
   const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip');
+  const [diagnosisOpen, setDiagnosisOpen] = useState(false);
   const [resultData, setResultData] = useState<RecommendationData | null>(null);
   const [resultType, setResultType] = useState<PersonalColorType | null>(null);
   const [rakutenImages, setRakutenImages] = useState<RakutenData[]>([]);
@@ -125,23 +126,53 @@ export default function Home() {
         </header>
 
         <div className="max-w-md w-full px-6 space-y-6">
-          <p className="text-xs font-bold text-gray-400 tracking-widest ml-1 mb-4 uppercase">Selection</p>
-          
-          <button onClick={() => startQuiz('lip')} className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500">
-            <div className="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">💄</div>
-            <div className="text-left flex-1">
-              <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">Popular Choice</span>
-              <h2 className="text-lg font-bold mt-1">パーソナルカラー別<br />似合うリップ診断</h2>
-            </div>
-          </button>
 
-          <button onClick={() => startQuiz('shadow')} className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500">
-            <div className="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">👁️</div>
+          {/* カード1: YouTuberおすすめ */}
+          <a href="/youtuber" className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500 block">
+            <div className="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0">🎬</div>
             <div className="text-left flex-1">
-              <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">New Release</span>
-              <h2 className="text-lg font-bold mt-1">瞳の色を際立たせる<br />アイシャドウ診断</h2>
+              <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">Youtuber Picks</span>
+              <h2 className="text-lg font-bold mt-1 leading-snug">人気YouTuberが絶賛したコスメ</h2>
+              <p className="text-xs text-gray-400 font-light mt-2 leading-relaxed">日本の人気ビューティーYouTuberが絶賛したアイテムを厳選してご紹介。</p>
             </div>
-          </button>
+          </a>
+
+          {/* カード2: パーソナルカラー診断（展開式） */}
+          <div>
+            <button
+              onClick={() => setDiagnosisOpen(v => !v)}
+              className="group w-full bg-white border border-pink-50 p-7 rounded-[2rem] shadow-sm flex items-center gap-6 hover:shadow-md hover:border-pink-100 transition-all duration-500"
+            >
+              <div className="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0">💄</div>
+              <div className="text-left flex-1">
+                <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">Diagnosis</span>
+                <h2 className="text-lg font-bold mt-1 leading-snug">あなたに似合うコスメを診断</h2>
+                <p className="text-xs text-gray-400 font-light mt-2 leading-relaxed">10の質問に答えるだけで、パーソナルカラーを診断。ぴったりのコスメをご提案します。</p>
+              </div>
+              <span className={`text-gray-300 text-lg transition-transform duration-300 shrink-0 ${diagnosisOpen ? 'rotate-180' : ''}`}>▼</span>
+            </button>
+
+            {/* 展開: リップ・アイシャドウ診断 */}
+            {diagnosisOpen && (
+              <div className="mt-3 ml-4 space-y-3">
+                <button onClick={() => startQuiz('lip')} className="group w-full bg-white border border-pink-50 p-5 rounded-[1.5rem] shadow-sm flex items-center gap-5 hover:shadow-md hover:border-pink-100 transition-all duration-500">
+                  <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform shrink-0">💄</div>
+                  <div className="text-left flex-1">
+                    <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">Popular Choice</span>
+                    <h3 className="text-base font-bold mt-0.5">パーソナルカラー別<br />似合うリップ診断</h3>
+                  </div>
+                </button>
+                <button onClick={() => startQuiz('shadow')} className="group w-full bg-white border border-pink-50 p-5 rounded-[1.5rem] shadow-sm flex items-center gap-5 hover:shadow-md hover:border-pink-100 transition-all duration-500">
+                  <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform shrink-0">👁️</div>
+                  <div className="text-left flex-1">
+                    <span className="text-[9px] text-pink-400 font-bold tracking-widest uppercase">New Release</span>
+                    <h3 className="text-base font-bold mt-0.5">瞳の色を際立たせる<br />アイシャドウ診断</h3>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+
         </div>
         
         <footer className="mt-auto py-16 text-center">

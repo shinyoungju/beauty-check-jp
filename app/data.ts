@@ -213,3 +213,55 @@ export const recommendations: any = {
     }
   }
 };
+
+export const youtuberPicks = [
+  {
+    youtuberName: "鹿の間",
+    channel: "登録者数80.6万人",
+    videoId: "tzFQ6kZIZgI",
+    videoTitle: "【🔥超厳選🖐️】高いけど、買ってよかったデパコス全部紹介❤️【買って損なし】",
+    publishedAt: "2026-03-21",
+    products: [
+      {
+        rank: 1,
+        name: "シャネル ルージュ デュオ ウルトラ トゥニュ 57 ダーリン ピンク",
+        price: "¥6,270",
+        comment: "マットカラーと透明グロスがセット。一度塗って乾かすとペイントのように強力に密着し、とにかく落ちません。健康的で華やかな唇を演出してくれます。",
+        amazonLink: "https://www.amazon.co.jp/s?k=シャネル+ルージュデュオウルトラトゥニュ+57&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fシャネル+ルージュデュオウルトラトゥニュ57%2F"
+      },
+      {
+        rank: 2,
+        name: "スナイデルビューティ アイデザイナー 02 Dress up Pink",
+        price: "¥6,600",
+        comment: "華やかなローズピンクとクールなブルーニュアンスが混ざった配色。発色が美しく、ラメの輝きが圧倒的に綺麗です。妖精のような煌めきを与えてくれるアイシャドウです。",
+        amazonLink: "https://www.amazon.co.jp/s?k=スナイデルビューティ+アイデザイナー+02&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fスナイデルビューティアイデザイナー02%2F"
+      },
+      {
+        rank: 3,
+        name: "クレ・ド・ポー ボーテ ヴォワールコレクチュールn",
+        price: "¥7,150",
+        comment: "人生で一番リピートしている下地です。保湿力が高いのにベタつかず、毛穴や赤みを自然にカバーして肌を滑らかに整えてくれます。",
+        amazonLink: "https://www.amazon.co.jp/s?k=クレドポーボーテ+ヴォワールコレクチュール&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fクレドポーボーテヴォワールコレクチュール%2F"
+      },
+      {
+        rank: 4,
+        name: "資生堂 エッセンス スキングロウ プライマー",
+        price: "¥5,280",
+        comment: "乾燥肌にとってのオアシスのような下地。美容液成分が豊富で、肌が呼吸しているような心地よさです。ファンデーションのツヤを最大限に引き出してくれます。",
+        amazonLink: "https://www.amazon.co.jp/s?k=資生堂+エッセンス+スキングロウ+プライマー&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F資生堂エッセンススキングロウプライマー%2F"
+      },
+      {
+        rank: 5,
+        name: "ディオール ディオールスキン ルージュ ブラッシュ 212 チュチュ ホログラフィック",
+        price: "¥7,480",
+        comment: "絶妙なブルーピンクにゴールドパールが入っており、透明感のある頬に。ハイライトなしでも発光しているようなツヤが出て、写真映えも抜群です。",
+        amazonLink: "https://www.amazon.co.jp/s?k=ディオール+ルージュブラッシュ+212&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fディオールルージュブラッシュ212%2F"
+      }
+    ]
+  }
+];
