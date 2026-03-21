@@ -294,7 +294,7 @@ function HomeContent() {
             <ShareButtons
               title={`私のビューティータイプは「${typeLabel}」でした✨`}
               description={typeData.typeDescription}
-              url={`https://beauty-check-jp.vercel.app/?type=${resultData.typeKey}`}
+              url={`https://www.lueur-beauty.com/?type=${resultData.typeKey}`}
             />
           </div>
 

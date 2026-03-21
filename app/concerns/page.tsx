@@ -232,7 +232,7 @@ function ConcernsContent() {
                   <ShareButtons
                     title={`${concern.title}のお悩みにおすすめのスキンケアをチェック✨`}
                     description={concern.description}
-                    url={`https://beauty-check-jp.vercel.app/concerns#${concern.id}`}
+                    url={`https://www.lueur-beauty.com/concerns#${concern.id}`}
                     showImage={false}
                   />
                 </div>

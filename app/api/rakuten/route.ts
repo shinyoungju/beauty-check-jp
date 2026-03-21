@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
   try {
     const res = await fetch(url, {
       cache: 'no-store',
-      headers: { Referer: 'https://beauty-check-jp.vercel.app' },
+      headers: { Referer: 'https://www.lueur-beauty.com' },
     });
     const text = await res.text();
 

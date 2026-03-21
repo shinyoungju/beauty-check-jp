@@ -25,7 +25,7 @@ async function fetchOne(keyword: string): Promise<RakutenResult> {
       `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`,
       {
         next: { revalidate: 86400 }, // 24時間キャッシュ
-        headers: { Referer: 'https://beauty-check-jp.vercel.app' },
+        headers: { Referer: 'https://www.lueur-beauty.com' },
       }
     );
     if (!res.ok) {

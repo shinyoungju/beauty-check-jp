@@ -230,7 +230,7 @@ function YoutuberContent() {
                     <ShareButtons
                       title={`${creator.youtuberName}のおすすめアイテムをチェック✨`}
                       description={creator.products.map((p) => p.name).join('、')}
-                      url={`https://beauty-check-jp.vercel.app/youtuber?content=${creator.id}`}
+                      url={`https://www.lueur-beauty.com/youtuber?content=${creator.id}`}
                       showImage={false}
                     />
                   </div>

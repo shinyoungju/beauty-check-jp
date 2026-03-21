@@ -12,7 +12,7 @@ interface ShareButtonsProps {
 export default function ShareButtons({
   title,
   description,
-  url = "https://beauty-check-jp.vercel.app",
+  url = "https://www.lueur-beauty.com",
   showImage = false,
 }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
