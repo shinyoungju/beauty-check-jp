@@ -81,7 +81,7 @@ export default function Home() {
         } catch {
           images.push(null);
         }
-        await new Promise(r => setTimeout(r, 300));
+        await new Promise(r => setTimeout(r, 1200));
       }
       setRakutenImages(images);
       setImagesLoading(false);
