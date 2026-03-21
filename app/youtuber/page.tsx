@@ -1,13 +1,39 @@
 // app/youtuber/page.tsx
 'use client';
-import { useEffect, Suspense } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { youtuberPicks } from '../data';
 import ShareButtons from '@/components/ShareButtons';
 
+// TOPボタン
+function TopButton({ show }: { show: boolean }) {
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="ページトップへ"
+      className="fixed bottom-6 right-5 z-50 w-11 h-11 rounded-full shadow-lg flex items-center justify-center text-white text-[13px] font-bold transition-all duration-300"
+      style={{
+        background: '#c4876a',
+        opacity: show ? 1 : 0,
+        pointerEvents: show ? 'auto' : 'none',
+        transform: show ? 'translateY(0)' : 'translateY(12px)',
+      }}
+    >
+      ↑
+    </button>
+  );
+}
+
 function YoutuberContent() {
   const searchParams = useSearchParams();
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 200);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const contentId = searchParams.get('content');
@@ -214,6 +240,8 @@ function YoutuberContent() {
           })}
         </div>
       </div>
+
+      <TopButton show={showTop} />
     </main>
   );
 }

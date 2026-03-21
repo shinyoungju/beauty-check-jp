@@ -1,6 +1,6 @@
 // app/concerns/page.tsx
 'use client';
-import { useEffect, useRef, Suspense } from 'react';
+import { useEffect, useRef, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { skincareConcerns } from '../data';
@@ -24,30 +24,60 @@ function RankBadge({ rank }: { rank: number }) {
   );
 }
 
+// TOPボタン
+function TopButton({ show }: { show: boolean }) {
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="ページトップへ"
+      className="fixed bottom-6 right-5 z-50 w-11 h-11 rounded-full shadow-lg flex items-center justify-center text-white text-[13px] font-bold transition-all duration-300"
+      style={{
+        background: '#c4876a',
+        opacity: show ? 1 : 0,
+        pointerEvents: show ? 'auto' : 'none',
+        transform: show ? 'translateY(0)' : 'translateY(12px)',
+      }}
+    >
+      ↑
+    </button>
+  );
+}
+
 function ConcernsContent() {
   const searchParams = useSearchParams();
   const navRef = useRef<HTMLDivElement>(null);
+  const [showTop, setShowTop] = useState(false);
+
+  // TOPボタン：200px以上スクロールで表示
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 200);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // スクロールオフセット：スティッキーナビの実際の高さ＋余白
+  const getScrollOffset = () => (navRef.current?.offsetHeight ?? 60) + 16;
 
   useEffect(() => {
-    // URLハッシュまたはクエリパラメータで対象セクションにスクロール
     const hash = window.location.hash.replace('#', '');
     const concernId = hash || searchParams.get('concern');
     if (concernId) {
-      // ヘッダーとナビ分のオフセットを考慮した遅延スクロール
+      // ナビがマウント・描画された後に高さを計測してスクロール
       setTimeout(() => {
         const el = document.getElementById(concernId);
         if (el) {
-          const top = el.getBoundingClientRect().top + window.scrollY - 120;
+          const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
           window.scrollTo({ top, behavior: 'smooth' });
         }
-      }, 100);
+      }, 150);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   const scrollToConcern = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 120;
+      const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
       window.scrollTo({ top, behavior: 'smooth' });
     }
   };
@@ -145,11 +175,9 @@ function ConcernsContent() {
                             : 'none',
                       }}
                     >
-                      {/* ランクバッジ */}
                       <RankBadge rank={product.rank} />
 
                       <div className="flex-1 min-w-0">
-                        {/* 商品名・価格 */}
                         <p className="text-[14px] font-semibold leading-snug">
                           {product.name}
                         </p>
@@ -159,7 +187,6 @@ function ConcernsContent() {
                         >
                           {product.price}
                         </p>
-                        {/* reason テキスト（イタリック引用スタイル） */}
                         <blockquote
                           className="mt-2 pl-3 text-[13px] leading-[1.7] italic"
                           style={{
@@ -169,7 +196,6 @@ function ConcernsContent() {
                         >
                           {product.reason}
                         </blockquote>
-                        {/* 購入ボタン */}
                         <div className="flex flex-wrap gap-2 mt-3">
                           <a
                             href={product.amazonLink}
@@ -212,6 +238,8 @@ function ConcernsContent() {
           ))}
         </div>
       </div>
+
+      <TopButton show={showTop} />
     </main>
   );
 }
