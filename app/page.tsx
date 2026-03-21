@@ -198,9 +198,9 @@ export default function Home() {
                   <p className="text-[11px] font-bold text-gray-900 mb-3 leading-tight">{product.name}</p>
                   <div className="flex gap-2 flex-wrap">
                     <a href={product.amazonLink} target="_blank" rel="noopener noreferrer" className={`inline-block text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-lg ${resultData.btnClass} transition-all active:scale-95`}>
-                      Amazon 詳細を見る
+                      Amazonで見る
                     </a>
-                    <a href={rakutenImages[index]?.affiliateUrl ?? `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(product.rakutenKeyword)}/?affiliateId=521658b7.a1689a38.521658b7.fbb4952`} target="_blank" rel="noopener noreferrer" className="inline-block text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-lg bg-[#BF0000] hover:bg-[#990000] transition-all active:scale-95">
+                    <a href={rakutenImages[index]?.affiliateUrl ?? `https://hb.afl.rakuten.co.jp/ichiba/521658b7.a1689a38.521658b7.fbb4952/?pc=${encodeURIComponent('https://search.rakuten.co.jp/search/mall/' + encodeURIComponent(product.rakutenKeyword) + '/')}&link_type=hybrid_url`} target="_blank" rel="noopener noreferrer" className="inline-block text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-lg bg-[#BF0000] hover:bg-[#990000] transition-all active:scale-95">
                       楽天で見る
                     </a>
                   </div>
