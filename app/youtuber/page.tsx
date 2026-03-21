@@ -9,12 +9,12 @@ export default function YoutuberPage() {
 
   return (
     <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
-      <div className="max-w-md mx-auto px-4 py-8">
+      <div className="max-w-md mx-auto px-5 pt-6 pb-8">
 
         {/* 戻るリンク */}
         <Link
           href="/"
-          className="inline-flex items-center gap-1 text-xs font-bold tracking-widest uppercase mb-6 hover:opacity-70 transition-opacity"
+          className="inline-flex items-center gap-1 text-[13px] font-bold tracking-widest uppercase mb-5 hover:opacity-70 transition-opacity"
           style={{ color: '#c4876a' }}
         >
           ← 戻る
@@ -23,15 +23,15 @@ export default function YoutuberPage() {
         {/* セクションヘッダー */}
         <div className="text-center mb-8">
           <p
-            className="text-[11px] font-bold tracking-[0.2em] uppercase mb-1.5"
+            className="text-[10px] font-medium tracking-[2px] uppercase mb-1.5"
             style={{ color: '#c4876a' }}
           >
             Beauty Youtuber Picks
           </p>
-          <h1 className="text-xl font-medium text-[#1a1a1a] mb-1">
+          <h1 className="text-[20px] font-bold text-[#1a1a1a] mb-1">
             人気YouTuberが絶賛したコスメ
           </h1>
-          <p className="text-[13px] text-gray-400">
+          <p className="text-[13px] text-gray-400 font-normal leading-[1.7]">
             話題のビューティー動画から厳選した本当に使えるアイテムをご紹介
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function YoutuberPage() {
                     {initial}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium leading-tight">{creator.youtuberName}</p>
+                    <p className="text-[15px] font-semibold leading-tight">{creator.youtuberName}</p>
                     <p className="text-xs text-gray-400 mt-0.5">{creator.channel}</p>
                   </div>
                   {/* YouTubeバッジ */}
@@ -115,7 +115,7 @@ export default function YoutuberPage() {
                 {/* 商品リスト */}
                 <div className="px-4 pt-3.5 pb-4">
                   <p
-                    className="text-[11px] tracking-[0.08em] uppercase mb-2.5"
+                    className="text-[10px] font-medium tracking-[2px] uppercase mb-2.5"
                     style={{ color: '#9e9e9e' }}
                   >
                     この動画で紹介されたアイテム
@@ -143,17 +143,17 @@ export default function YoutuberPage() {
 
                         <div className="flex-1 min-w-0">
                           {/* 商品名・価格 */}
-                          <p className="text-[13px] font-medium leading-snug">
+                          <p className="text-[14px] font-semibold leading-snug">
                             {product.name}
                           </p>
                           <p
-                            className="text-xs font-bold mt-0.5"
-                            style={{ color: '#c4876a' }}
+                            className="text-[13px] font-medium mt-0.5"
+                            style={{ color: '#333' }}
                           >
                             {product.price}
                           </p>
                           {/* コメント */}
-                          <p className="text-xs text-gray-400 mt-1.5 leading-relaxed">
+                          <p className="text-[13px] text-gray-400 font-normal mt-1.5 leading-[1.7]">
                             「{product.comment}」
                           </p>
                           {/* 購入ボタン */}
@@ -162,7 +162,7 @@ export default function YoutuberPage() {
                               href={product.amazonLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-white text-[11px] font-medium px-3 py-1.5 rounded-full hover:opacity-80 transition-opacity"
+                              className="text-white text-[12px] font-medium px-4 py-2 rounded-[20px] hover:opacity-80 transition-opacity"
                               style={{ background: '#FF9900' }}
                             >
                               Amazon で見る
@@ -171,7 +171,7 @@ export default function YoutuberPage() {
                               href={product.rakutenLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-white text-[11px] font-medium px-3 py-1.5 rounded-full hover:opacity-80 transition-opacity"
+                              className="text-white text-[12px] font-medium px-4 py-2 rounded-[20px] hover:opacity-80 transition-opacity"
                               style={{ background: '#BF0000' }}
                             >
                               楽天で見る

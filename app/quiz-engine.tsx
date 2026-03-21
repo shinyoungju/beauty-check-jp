@@ -87,11 +87,11 @@ export default function QuizEngine({
         />
       </div>
 
-      <p className="text-pink-400 font-bold mb-2 text-center text-xs tracking-widest uppercase">
+      <p className="text-pink-400 font-medium mb-2 text-center text-[10px] tracking-[2px] uppercase">
         Question {currentQuestion.id}
       </p>
 
-      <h1 className="text-2xl font-bold text-gray-950 mb-12 text-center leading-tight">
+      <h1 className="text-[18px] font-semibold text-gray-950 mb-12 text-center leading-[1.5]">
         {currentQuestion.text}
       </h1>
 
@@ -100,9 +100,9 @@ export default function QuizEngine({
           <button
             key={index}
             onClick={() => handleAnswer(answer.type, answer.score)}
-            className="w-full bg-white text-left border-2 border-pink-50 p-6 rounded-3xl shadow-sm hover:border-pink-200 active:scale-95 transition duration-300"
+            className="w-full bg-white text-left border-2 border-pink-50 py-4 px-5 rounded-xl shadow-sm hover:border-pink-200 active:scale-95 transition duration-300 min-h-[44px]"
           >
-            <p className="text-gray-800 font-medium">{answer.text}</p>
+            <p className="text-[14px] text-gray-800 font-medium">{answer.text}</p>
           </button>
         ))}
       </div>
