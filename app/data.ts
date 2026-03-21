@@ -216,6 +216,55 @@ export const recommendations: any = {
 
 export const youtuberPicks = [
   {
+    youtuberName: "ももちMomochi / 牛江桃子",
+    channel: "登録者数43.4万人",
+    videoId: "BcDeKH8BEFw",
+    videoTitle: "【イエベ大優勝】大人っぽ多幸感🌼🪽ふんわり透明感な春のコーラルメイク🍑✧⠜⁎꙳",
+    publishedAt: "2026-03-21",
+    products: [
+      {
+        rank: 1,
+        name: "セザンヌ UVウルトラフィットベースEX 02 ピーチピンク",
+        price: "¥748",
+        comment: "血色感をアップしてくれるカラーで、伸びが良くツヤも出ます。毛穴もしっかり埋まって肌をふわっと見せてくれる「優勝」下地です。",
+        amazonLink: "https://www.amazon.co.jp/s?k=セザンヌ+UVウルトラフィットベースEX+02&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FセザンヌUVウルトラフィットベースEX02%2F"
+      },
+      {
+        rank: 2,
+        name: "セザンヌ ミネラルカバーBBクリーム 00 & 10",
+        price: "¥748",
+        comment: "石鹸落ちする肌に優しいBBクリーム。00番と10番を混ぜて使うと自分の肌色にぴったり合い、少量でもハイカバーで毛穴の埋まり具合が凄いです。",
+        amazonLink: "https://www.amazon.co.jp/s?k=セザンヌ+ミネラルカバーBBクリーム&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FセザンヌミネラルカバーBBクリーム%2F"
+      },
+      {
+        rank: 3,
+        name: "キャンメイク パウダーチークス P03",
+        price: "¥660",
+        comment: "この春に向けて絶対に買った方がいいアイテム！ハイライトを塗っていない状態でもツヤ感が凄く、多幸感のある印象を作ってくれます。",
+        amazonLink: "https://www.amazon.co.jp/s?k=キャンメイク+パウダーチークス+P03&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FキャンメイクパウダーチークスP03%2F"
+      },
+      {
+        rank: 4,
+        name: "セザンヌ フェイスアイパレット 01",
+        price: "¥660",
+        comment: "パレット左側のチークカラーをアイホール全体と涙袋に塗ると統一感が出て可愛いです。これ一つでアイメイクが完成するほど優秀なパレットです。",
+        amazonLink: "https://www.amazon.co.jp/s?k=セザンヌ+フェイスアイパレット+01&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌフェイスアイパレット01%2F"
+      },
+      {
+        rank: 5,
+        name: "キャンメイク むちぷるティント 01",
+        price: "¥770",
+        comment: "ヌーディーな大人多幸感カラー。唇にむっちりと密着し、透け感があるので濃くなりすぎず、デイリー使いにぴったりです。",
+        amazonLink: "https://www.amazon.co.jp/s?k=キャンメイク+むちぷるティント+01&tag=lueur0f-22",
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクむちぷるティント01%2F"
+      }
+    ]
+  },
+  {
     youtuberName: "鹿の間",
     channel: "登録者数80.6万人",
     videoId: "tzFQ6kZIZgI",
