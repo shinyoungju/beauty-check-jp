@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
     format: 'json',
   });
 
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?${params}`;
+  const url = `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`;
 
   try {
     const res = await fetch(url, { cache: 'no-store' });
