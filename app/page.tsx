@@ -150,6 +150,16 @@ function HomeContent() {
 
         <div className="max-w-md w-full px-5 space-y-4">
 
+          {/* カード0: お悩み別特集 */}
+          <a href="/concerns" className="group w-full bg-white border border-pink-50 py-4 px-5 rounded-[2rem] shadow-sm flex items-center gap-4 hover:shadow-md hover:border-pink-100 transition-all duration-500 block">
+            <div className="w-10 h-10 bg-pink-50 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform shrink-0">💆</div>
+            <div className="text-left flex-1">
+              <span className="text-[10px] text-pink-400 font-medium tracking-[2px] uppercase mb-1 block">Skincare by Concern</span>
+              <h2 className="text-[16px] font-semibold leading-[1.4]">お悩み別スキンケア特集</h2>
+              <p className="text-[12px] text-gray-400 font-normal mt-1 leading-[1.6]">乾燥・毛穴・ニキビなど、あなたの肌悩みに合ったアイテムを厳選紹介。</p>
+            </div>
+          </a>
+
           {/* カード1: YouTuberおすすめ */}
           <a href="/youtuber" className="group w-full bg-white border border-pink-50 py-4 px-5 rounded-[2rem] shadow-sm flex items-center gap-4 hover:shadow-md hover:border-pink-100 transition-all duration-500 block">
             <div className="w-10 h-10 bg-pink-50 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform shrink-0">🎬</div>
