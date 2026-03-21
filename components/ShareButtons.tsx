@@ -44,7 +44,7 @@ export default function ShareButtons({
         href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium text-white min-h-[44px] px-2"
+        className="flex-1 flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium text-white min-h-[44px] px-2 whitespace-nowrap"
         style={{ backgroundColor: "#000000" }}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -58,7 +58,7 @@ export default function ShareButtons({
         href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium text-white min-h-[44px] px-2"
+        className="flex-1 flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium text-white min-h-[44px] px-2 whitespace-nowrap"
         style={{ backgroundColor: "#06C755" }}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -70,7 +70,7 @@ export default function ShareButtons({
       {/* URLをコピー */}
       <button
         onClick={handleCopy}
-        className="flex-1 flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium text-white min-h-[44px] px-2 transition-colors"
+        className="flex-1 flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium text-white min-h-[44px] px-2 transition-colors whitespace-nowrap"
         style={{ backgroundColor: copied ? "#555555" : "#888888" }}
       >
         {copied ? (
