@@ -1,8 +1,9 @@
 // app/api/rakuten/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
-const APP_ID = process.env.RAKUTEN_APP_ID ?? '7a23a89f-cc10-4817-bb25-051c2afe527b';
-const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '521658b7.a1689a38.521658b7.fbb4952';
+const APP_ID = process.env.RAKUTEN_APP_ID ?? '';
+const ACCESS_KEY = process.env.RAKUTEN_ACCESS_KEY ?? '';
+const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '';
 
 export async function GET(req: NextRequest) {
   const keyword = req.nextUrl.searchParams.get('keyword');
@@ -10,16 +11,20 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'keyword is required' }, { status: 400 });
   }
 
-  console.log('[Rakuten] using applicationId:', APP_ID);
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${APP_ID}&affiliateId=${AFFILIATE_ID}&keyword=${encodeURIComponent(keyword)}&hits=1&format=json&imageFlag=1&sort=-reviewCount&genreId=100371`;
+  const params = new URLSearchParams({
+    applicationId: APP_ID,
+    accessKey: ACCESS_KEY,
+    affiliateId: AFFILIATE_ID,
+    keyword,
+    hits: '1',
+    imageFlag: '1',
+    format: 'json',
+  });
+
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?${params}`;
 
   try {
-    const res = await fetch(url, {
-      cache: 'no-store',
-      headers: {
-        'Referer': 'https://beauty-check-jp.vercel.app',
-      },
-    });
+    const res = await fetch(url, { cache: 'no-store' });
     const text = await res.text();
 
     if (!res.ok) {
@@ -35,11 +40,10 @@ export async function GET(req: NextRequest) {
     }
 
     const item = data.Items?.[0]?.Item;
-    // mediumImageUrls は [{imageUrl: "..."}] または ["..."] の2パターンに対応
     const raw = item?.mediumImageUrls?.[0];
     const imageUrl = typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
 
-    console.log('[Rakuten] keyword:', keyword, '| imageUrl:', imageUrl, '| total items:', data.count);
+    console.log('[Rakuten] keyword:', keyword, '| imageUrl:', imageUrl);
     return NextResponse.json({ imageUrl });
   } catch (e) {
     console.error('[Rakuten] fetch error:', e);
