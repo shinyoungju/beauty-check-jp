@@ -39,6 +39,8 @@ interface FullRecommendation {
 
 const typedRecommendations = recommendations as Record<PersonalColorType, FullRecommendation>;
 
+interface RakutenData { imageUrl: string | null; affiliateUrl: string | null; }
+
 // --- 메인 컴포넌트 ---
 
 export default function Home() {
@@ -46,7 +48,7 @@ export default function Home() {
   const [activeQuizType, setActiveQuizType] = useState<'lip' | 'shadow'>('lip');
   const [resultData, setResultData] = useState<RecommendationData | null>(null);
   const [resultType, setResultType] = useState<PersonalColorType | null>(null);
-  const [rakutenImages, setRakutenImages] = useState<(string | null)[]>([]);
+  const [rakutenImages, setRakutenImages] = useState<RakutenData[]>([]);
   const [imagesLoading, setImagesLoading] = useState(false);
 
   useEffect(() => {
@@ -58,7 +60,7 @@ export default function Home() {
       const ACCESS_KEY = process.env.NEXT_PUBLIC_RAKUTEN_ACCESS_KEY ?? '';
       const AFFILIATE_ID = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID ?? '';
 
-      const images: (string | null)[] = [];
+      const images: RakutenData[] = [];
       for (const product of resultData.products) {
         try {
           const params = new URLSearchParams({
@@ -73,13 +75,15 @@ export default function Home() {
           const res = await fetch(
             `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`
           );
-          if (!res.ok) { images.push(null); continue; }
+          if (!res.ok) { images.push({ imageUrl: null, affiliateUrl: null }); continue; }
           const data = await res.json();
           const item = data.Items?.[0]?.Item;
           const raw = item?.mediumImageUrls?.[0];
-          images.push(typeof raw === 'string' ? raw : (raw?.imageUrl ?? null));
+          const imageUrl = typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
+          const affiliateUrl = item?.affiliateUrl ?? null;
+          images.push({ imageUrl, affiliateUrl });
         } catch {
-          images.push(null);
+          images.push({ imageUrl: null, affiliateUrl: null });
         }
         await new Promise(r => setTimeout(r, 1200));
       }
@@ -189,12 +193,17 @@ export default function Home() {
           <div className="space-y-4 px-2 mb-12 relative">
             {resultData.products.map((product: Product, index: number) => (
               <div key={index} className="flex bg-white/80 backdrop-blur-sm p-5 rounded-[2rem] shadow-sm items-center gap-5 border border-white">
-                <ProductImage loading={imagesLoading} url={rakutenImages[index] ?? null} />
+                <ProductImage loading={imagesLoading} url={rakutenImages[index]?.imageUrl ?? null} />
                 <div className="flex-1 text-left">
                   <p className="text-[11px] font-bold text-gray-900 mb-3 leading-tight">{product.name}</p>
-                  <a href={product.amazonLink} target="_blank" rel="noopener noreferrer" className={`inline-block text-white text-[10px] font-bold px-6 py-2 rounded-full shadow-lg ${resultData.btnClass} transition-all active:scale-95`}>
-                    Amazon 詳細を見る
-                  </a>
+                  <div className="flex gap-2 flex-wrap">
+                    <a href={product.amazonLink} target="_blank" rel="noopener noreferrer" className={`inline-block text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-lg ${resultData.btnClass} transition-all active:scale-95`}>
+                      Amazon 詳細を見る
+                    </a>
+                    <a href={rakutenImages[index]?.affiliateUrl ?? `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(product.rakutenKeyword)}/?affiliateId=521658b7.a1689a38.521658b7.fbb4952`} target="_blank" rel="noopener noreferrer" className="inline-block text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-lg bg-[#BF0000] hover:bg-[#990000] transition-all active:scale-95">
+                      楽天で見る
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
