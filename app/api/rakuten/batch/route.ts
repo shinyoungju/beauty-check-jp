@@ -1,7 +1,7 @@
 // app/api/rakuten/batch/route.ts
 import { NextRequest, NextResponse } from 'next/server';
+import https from 'node:https';
 
-// NEXT_PUBLIC_ 変数はサーバー側でも使用可能なため、既存の環境変数をそのまま利用
 const APP_ID = process.env.RAKUTEN_APP_ID ?? '';
 const ACCESS_KEY = process.env.RAKUTEN_ACCESS_KEY ?? '';
 const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '';
@@ -11,46 +11,61 @@ interface RakutenResult {
   affiliateUrl: string | null;
 }
 
-async function fetchOne(keyword: string): Promise<RakutenResult> {
-  const params = new URLSearchParams({
-    applicationId: APP_ID,
-    accessKey: ACCESS_KEY,
-    affiliateId: AFFILIATE_ID,
-    keyword,
-    hits: '1',
-    imageFlag: '1',
-    format: 'json',
-  });
+function fetchOne(keyword: string): Promise<RakutenResult> {
+  return new Promise((resolve) => {
+    const params = new URLSearchParams({
+      applicationId: APP_ID,
+      accessKey: ACCESS_KEY,
+      affiliateId: AFFILIATE_ID,
+      keyword,
+      hits: '1',
+      imageFlag: '1',
+      format: 'json',
+    });
 
-  try {
-    const res = await fetch(
-      `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`,
+    const path = `/ichibams/api/IchibaItem/Search/20220601?${params}`;
+
+    const req = https.request(
       {
-        next: { revalidate: 86400 }, // 24時間キャッシュ
-        referrer: 'https://www.lueur-beauty.com',
-        referrerPolicy: 'unsafe-url',
+        hostname: 'openapi.rakuten.co.jp',
+        path,
+        method: 'GET',
+        headers: {
+          Referer: 'https://www.lueur-beauty.com',
+        },
+      },
+      (res) => {
+        let body = '';
+        res.on('data', (chunk) => (body += chunk));
+        res.on('end', () => {
+          if (res.statusCode !== 200) {
+            console.error('[Rakuten batch] HTTP error:', res.statusCode, keyword, '| body:', body);
+            resolve({ imageUrl: null, affiliateUrl: null });
+            return;
+          }
+          try {
+            const data = JSON.parse(body);
+            const item = data.Items?.[0]?.Item;
+            const raw = item?.mediumImageUrls?.[0];
+            const imageUrl = typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
+            const affiliateUrl = item?.affiliateUrl ?? null;
+            console.log('[Rakuten batch] keyword:', keyword, '| imageUrl:', imageUrl);
+            resolve({ imageUrl, affiliateUrl });
+          } catch (e) {
+            console.error('[Rakuten batch] parse error:', e, keyword);
+            resolve({ imageUrl: null, affiliateUrl: null });
+          }
+        });
       }
     );
-    if (!res.ok) {
-      const body = await res.text();
-      console.error('[Rakuten batch] HTTP error:', res.status, keyword, '| body:', body);
-      return { imageUrl: null, affiliateUrl: null };
-    }
-    const data = await res.json();
-    if (data.error) {
-      console.error('[Rakuten batch] API error:', data.error, keyword);
-      return { imageUrl: null, affiliateUrl: null };
-    }
-    const item = data.Items?.[0]?.Item;
-    const raw = item?.mediumImageUrls?.[0];
-    const imageUrl = typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
-    const affiliateUrl = item?.affiliateUrl ?? null;
-    console.log('[Rakuten batch] keyword:', keyword, '| imageUrl:', imageUrl);
-    return { imageUrl, affiliateUrl };
-  } catch (e) {
-    console.error('[Rakuten batch] fetch error:', e, keyword);
-    return { imageUrl: null, affiliateUrl: null };
-  }
+
+    req.on('error', (e) => {
+      console.error('[Rakuten batch] request error:', e, keyword);
+      resolve({ imageUrl: null, affiliateUrl: null });
+    });
+
+    req.end();
+  });
 }
 
 export async function GET(req: NextRequest) {
