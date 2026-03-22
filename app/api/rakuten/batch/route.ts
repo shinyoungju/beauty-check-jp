@@ -27,7 +27,8 @@ async function fetchOne(keyword: string): Promise<RakutenResult> {
       `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601?${params}`,
       {
         next: { revalidate: 86400 }, // 24時間キャッシュ
-        headers: { Referer: 'https://www.lueur-beauty.com' },
+        referrer: 'https://www.lueur-beauty.com',
+        referrerPolicy: 'unsafe-url',
       }
     );
     if (!res.ok) {
@@ -61,9 +62,9 @@ export async function GET(req: NextRequest) {
   const keywords = keywordsParam.split(',').map(k => k.trim()).filter(Boolean);
   const results: RakutenResult[] = [];
 
-  // レート制限対策として600ms間隔で順次リクエスト
+  // レート制限対策として1200ms間隔で順次リクエスト
   for (let i = 0; i < keywords.length; i++) {
-    if (i > 0) await new Promise(r => setTimeout(r, 600));
+    if (i > 0) await new Promise(r => setTimeout(r, 1200));
     results.push(await fetchOne(keywords[i]));
   }
 
