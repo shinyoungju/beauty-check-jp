@@ -1,0 +1,180 @@
+// app/about/page.tsx
+'use client';
+import Link from 'next/link';
+import BottomNav from '@/components/BottomNav';
+import TopButton from '@/components/TopButton';
+
+export default function AboutPage() {
+  return (
+    <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
+      <div className="max-w-md mx-auto px-5 pt-6 pb-32">
+
+        {/* 戻るリンク */}
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1 text-[13px] font-bold tracking-widest uppercase mb-6 hover:opacity-70 transition-opacity"
+          style={{ color: '#c4876a' }}
+        >
+          ← 戻る
+        </Link>
+
+        {/* ページヘッダー */}
+        <div className="text-center mb-8">
+          <p
+            className="text-[9px] font-semibold tracking-[3px] uppercase mb-2"
+            style={{ color: '#c4876a' }}
+          >
+            ABOUT LUEUR
+          </p>
+          <h1 className="text-[22px] font-bold text-[#1a1a1a] mb-2 tracking-tight">
+            Lueurについて
+          </h1>
+          <div
+            className="w-8 h-[1.5px] mx-auto mt-4"
+            style={{ background: '#c4876a', opacity: 0.4 }}
+          />
+        </div>
+
+        {/* セクション1: ブランド名の意味 */}
+        <div
+          className="rounded-2xl p-7 mb-5 text-center"
+          style={{
+            background: 'linear-gradient(135deg, #f8e1d4, #f5e6dd)',
+            border: '0.5px solid #e8ddd8',
+          }}
+        >
+          <p
+            className="text-[38px] font-bold tracking-tight mb-1"
+            style={{ color: '#c4876a' }}
+          >
+            Lueur
+          </p>
+          <p className="text-[13px] mb-4" style={{ color: '#b0876a' }}>
+            リュール
+          </p>
+          <p className="text-[12px] leading-[1.8]" style={{ color: '#7a6058' }}>
+            フランス語で
+          </p>
+          <p
+            className="text-[16px] font-semibold leading-[1.8] mt-1"
+            style={{ color: '#1a1a1a' }}
+          >
+            「かすかな光・ほのかな輝き」
+          </p>
+        </div>
+
+        {/* セクション2: ブランドストーリー */}
+        <div
+          className="rounded-2xl p-6 mb-5"
+          style={{
+            background: '#ffffff',
+            border: '0.5px solid #e8ddd8',
+          }}
+        >
+          <p
+            className="text-[9px] font-semibold tracking-[3px] uppercase mb-4"
+            style={{ color: '#c4876a' }}
+          >
+            BRAND STORY
+          </p>
+          <p className="text-[14px] leading-[2] text-[#3a3a3a]">
+            すべての人の中に、<br />
+            その人だけの輝きが宿っている。<br />
+            メイクを変えるたびに気づく、<br />
+            「あ、これが私だ」という瞬間。<br />
+            鏡の前でふと輝いて見える、<br />
+            あの一瞬のかすかな光。
+          </p>
+          <p className="text-[14px] leading-[2] text-[#3a3a3a] mt-4">
+            Lueurは、そんな「あなただけの輝き」を<br />
+            引き出すためのビューティーガイドです。<br />
+            韓国コスメの力を借りて、<br />
+            あなたの内側に眠る美しさを<br />
+            一緒に見つけていきましょう。
+          </p>
+        </div>
+
+        {/* セクション3: Lueurでできること */}
+        <div
+          className="rounded-2xl p-6 mb-5"
+          style={{
+            background: '#ffffff',
+            border: '0.5px solid #e8ddd8',
+          }}
+        >
+          <p
+            className="text-[9px] font-semibold tracking-[3px] uppercase mb-5"
+            style={{ color: '#c4876a' }}
+          >
+            WHAT YOU CAN DO
+          </p>
+          <div className="flex flex-col gap-4">
+            {[
+              {
+                icon: '💄',
+                title: 'パーソナル診断',
+                desc: 'あなたの個性に合ったコスメを\n10の質問で診断します',
+              },
+              {
+                icon: '🎬',
+                title: 'YouTuber PICKS',
+                desc: '人気ビューティーYouTuberが\n本当に使っているアイテムを厳選紹介',
+              },
+              {
+                icon: '💆',
+                title: 'お悩み別特集',
+                desc: '乾燥・毛穴・ニキビなど\n肌悩みに合ったスキンケアをご提案',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="flex items-start gap-4 rounded-xl p-4"
+                style={{ background: '#fdf8f5' }}
+              >
+                <span className="text-[28px] leading-none shrink-0 mt-0.5">{item.icon}</span>
+                <div>
+                  <p className="text-[14px] font-semibold text-[#1a1a1a] mb-1">{item.title}</p>
+                  <p className="text-[12px] leading-[1.7]" style={{ color: '#9e9e9e' }}>
+                    {item.desc.split('\n').map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        {i === 0 && <br />}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* セクション4: メッセージ */}
+        <div
+          className="rounded-2xl p-8 mb-5 text-center"
+          style={{
+            background: '#f5ede8',
+            border: '0.5px solid #e8ddd8',
+          }}
+        >
+          <p
+            className="text-[14px] leading-[2] italic"
+            style={{ color: '#7a6058' }}
+          >
+            「あなたの中に輝きはある。<br />
+            Lueurは、それを見つける<br />
+            お手伝いをします。」
+          </p>
+        </div>
+
+        {/* フッター */}
+        <p className="text-center text-[11px] mt-8" style={{ color: '#c0b0a8' }}>
+          © 2026 Lueur Beauty. All rights reserved.
+        </p>
+
+      </div>
+
+      <TopButton />
+      <BottomNav />
+    </main>
+  );
+}

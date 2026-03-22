@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120">
+  <!-- 팔레트 본체 -->
+  <rect x="20" y="30" width="90" height="70" rx="12" fill="#d4b0e8" opacity="0.8"/>
+  <!-- 섀도 칸 4개 -->
+  <rect x="28" y="38" width="35" height="26" rx="7" fill="#c49edd"/>
+  <rect x="67" y="38" width="35" height="26" rx="7" fill="#b898d4"/>
+  <rect x="28" y="68" width="35" height="26" rx="7" fill="#e0c8f0"/>
+  <rect x="67" y="68" width="35" height="26" rx="7" fill="#c8a8e4"/>
+  <!-- 팔레트 하이라이트 -->
+  <rect x="20" y="30" width="90" height="12" rx="12" fill="#e8d0f4" opacity="0.5"/>
+  <!-- 브러시 -->
+  <rect x="122" y="15" width="10" height="70" rx="5" fill="#d4b0e8" opacity="0.85"/>
+  <ellipse cx="127" cy="88" rx="9" ry="14" fill="#b898d4" opacity="0.8"/>
+  <!-- 별/반짝임 -->
+  <circle cx="15" cy="25" r="4" fill="#9b7ec8" opacity="0.45"/>
+  <circle cx="25" cy="14" r="2.5" fill="#9b7ec8" opacity="0.35"/>
+  <circle cx="148" cy="20" r="3.5" fill="#9b7ec8" opacity="0.4"/>
+  <circle cx="155" cy="34" r="2" fill="#9b7ec8" opacity="0.3"/>
+  <circle cx="10" cy="55" r="2" fill="#9b7ec8" opacity="0.25"/>
+</svg>

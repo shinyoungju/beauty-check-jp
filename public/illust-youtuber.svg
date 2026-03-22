@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120">
+  <!-- 스마트폰 프레임 -->
+  <rect x="30" y="10" width="70" height="100" rx="12" fill="#f8bbd0" opacity="0.8"/>
+  <rect x="36" y="18" width="58" height="84" rx="8" fill="#f48fb1" opacity="0.45"/>
+  <!-- 재생 버튼 -->
+  <circle cx="65" cy="60" r="20" fill="white" opacity="0.85"/>
+  <polygon points="59,50 59,70 82,60" fill="#f06292" opacity="0.9"/>
+  <!-- 화면 상단 바 -->
+  <rect x="36" y="18" width="58" height="12" rx="4" fill="#f06292" opacity="0.35"/>
+  <!-- 하트 아이콘들 -->
+  <path d="M120,30 Q120,25 115,25 Q110,25 110,30 Q110,36 120,43 Q130,36 130,30 Q130,25 125,25 Q120,25 120,30Z" fill="#f48fb1" opacity="0.7"/>
+  <path d="M138,55 Q138,52 135,52 Q132,52 132,55 Q132,58 138,62 Q144,58 144,55 Q144,52 141,52 Q138,52 138,55Z" fill="#f06292" opacity="0.5"/>
+  <!-- 별 반짝임 -->
+  <circle cx="140" cy="25" r="3.5" fill="#f06292" opacity="0.55"/>
+  <circle cx="150" cy="38" r="2" fill="#f06292" opacity="0.4"/>
+  <circle cx="18" cy="35" r="3" fill="#f48fb1" opacity="0.4"/>
+  <circle cx="10" cy="50" r="2" fill="#f48fb1" opacity="0.3"/>
+  <!-- 팝업 코멘트 버블 -->
+  <rect x="95" y="72" width="52" height="22" rx="8" fill="white" opacity="0.75"/>
+  <path d="M100,94 L95,100 L110,94Z" fill="white" opacity="0.75"/>
+  <rect x="100" y="77" width="32" height="4" rx="2" fill="#f48fb1" opacity="0.6"/>
+  <rect x="100" y="85" width="24" height="4" rx="2" fill="#f48fb1" opacity="0.4"/>
+</svg>

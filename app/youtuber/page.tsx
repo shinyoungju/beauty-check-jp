@@ -5,23 +5,31 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { youtuberPicks } from '../data';
 import ShareButtons from '@/components/ShareButtons';
+import BottomNav from '@/components/BottomNav';
+import TopButton from '@/components/TopButton';
 
-// TOPボタン
-function TopButton({ show }: { show: boolean }) {
+// 상품 이미지 컴포넌트
+function ProductThumb({ imageUrl, name }: { imageUrl?: string; name: string }) {
+  const [errored, setErrored] = useState(false);
+  if (!imageUrl || errored) {
+    return (
+      <div
+        className="w-16 h-16 rounded-xl flex items-center justify-center text-2xl shrink-0"
+        style={{ background: '#f5e6dd' }}
+      >
+        💄
+      </div>
+    );
+  }
   return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      aria-label="ページトップへ"
-      className="fixed bottom-6 right-5 z-50 w-11 h-11 rounded-full shadow-lg flex items-center justify-center text-white text-[13px] font-bold transition-all duration-300"
-      style={{
-        background: '#c4876a',
-        opacity: show ? 1 : 0,
-        pointerEvents: show ? 'auto' : 'none',
-        transform: show ? 'translateY(0)' : 'translateY(12px)',
-      }}
-    >
-      ↑
-    </button>
+    <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0" style={{ background: '#faf7f5' }}>
+      <img
+        src={imageUrl}
+        alt={name}
+        className="w-full h-full object-contain"
+        onError={() => setErrored(true)}
+      />
+    </div>
   );
 }
 
@@ -48,7 +56,7 @@ function YoutuberContent() {
 
   return (
     <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
-      <div className="max-w-md mx-auto px-5 pt-6 pb-10">
+      <div className="max-w-md mx-auto px-5 pt-6 pb-6">
 
         {/* 戻るリンク */}
         <Link
@@ -59,24 +67,28 @@ function YoutuberContent() {
           ← 戻る
         </Link>
 
-        {/* セクションヘッダー */}
+        {/* ページヘッダー */}
         <div className="text-center mb-8">
           <p
-            className="text-[10px] font-medium tracking-[2px] uppercase mb-2"
+            className="text-[9px] font-semibold tracking-[3px] uppercase mb-2"
             style={{ color: '#c4876a' }}
           >
             Beauty Youtuber Picks
           </p>
-          <h1 className="text-[20px] font-bold text-[#1a1a1a] mb-2">
+          <h1 className="text-[22px] font-bold text-[#1a1a1a] mb-2 tracking-tight">
             人気YouTuberが絶賛したコスメ
           </h1>
-          <p className="text-[13px] text-gray-400 font-normal leading-[1.7]">
+          <p className="text-[12px] leading-[1.7]" style={{ color: '#9e9e9e' }}>
             話題のビューティー動画から厳選した本当に使えるアイテムをご紹介
           </p>
+          <div
+            className="w-8 h-[1.5px] mx-auto mt-4"
+            style={{ background: '#c4876a', opacity: 0.4 }}
+          />
         </div>
 
         {/* ユーチューバーカード */}
-        <div className="space-y-4">
+        <div className="space-y-5">
           {sorted.map((creator) => {
             const initial = creator.youtuberName.charAt(0);
             return (
@@ -84,27 +96,30 @@ function YoutuberContent() {
                 key={creator.videoId}
                 id={creator.id}
                 className="bg-white overflow-hidden"
-                style={{ border: '0.5px solid #e8ddd8', borderRadius: '16px' }}
+                style={{ border: '0.5px solid #e8ddd8', borderRadius: '24px' }}
               >
-                {/* ユーチューバーヘッダー */}
-                <div className="flex items-center gap-3 px-5 pt-4 pb-3">
-                  {/* アバター */}
+                {/* グラデーションバナー + ユーチューバーヘッダー */}
+                <div
+                  className="px-5 pt-5 pb-4 flex items-center gap-3"
+                  style={{ background: 'linear-gradient(135deg, #fdf0ea 0%, #f5e6dd 100%)' }}
+                >
+                  {/* アバター (大きく) */}
                   <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center text-[15px] font-medium shrink-0"
-                    style={{ background: '#f0e6e0', color: '#c4876a' }}
+                    className="w-14 h-14 rounded-full flex items-center justify-center text-[18px] font-semibold shrink-0 shadow-sm"
+                    style={{ background: '#fff', color: '#c4876a', border: '2px solid #f0d9c8' }}
                   >
                     {initial}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[15px] font-semibold leading-tight">{creator.youtuberName}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{creator.channel}</p>
+                    <p className="text-[15px] font-bold leading-tight text-[#1a1a1a]">{creator.youtuberName}</p>
+                    <p className="text-[11px] mt-0.5" style={{ color: '#9e9e9e' }}>{creator.channel}</p>
                   </div>
                   {/* YouTubeバッジ */}
                   <span
-                    className="inline-flex items-center gap-1 text-white text-[11px] font-medium px-2 py-1 rounded shrink-0"
+                    className="inline-flex items-center gap-1 text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg shrink-0"
                     style={{ background: '#ff0000' }}
                   >
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="white">
+                    <svg width="13" height="9" viewBox="0 0 14 10" fill="white">
                       <path d="M13.7 1.6S13.5.6 13 .2C12.5-.3 11.8-.3 11.5-.3 9.6-.4 7-.4 7-.4S4.4-.4 2.5-.3C2.2-.3 1.5-.3 1 .2.5.6.3 1.6.3 1.6S.1 2.7.1 3.9v1.1c0 1.2.2 2.3.2 2.3s.2 1 .7 1.4c.5.4 1.2.4 1.5.5C3.5 9.4 7 9.4 7 9.4s2.6 0 4.5-.2c.3 0 1-.1 1.5-.5.5-.4.7-1.4.7-1.4s.2-1.1.2-2.3V3.9c0-1.2-.2-2.3-.2-2.3zM5.6 6.8V2.8l3.8 2-3.8 2z" />
                     </svg>
                     YouTube
@@ -155,8 +170,8 @@ function YoutuberContent() {
                 {/* 商品リスト */}
                 <div className="px-5 pt-4 pb-5">
                   <p
-                    className="text-[10px] font-medium tracking-[2px] uppercase mb-3"
-                    style={{ color: '#9e9e9e' }}
+                    className="text-[9px] font-semibold tracking-[2.5px] uppercase mb-3"
+                    style={{ color: '#c4876a' }}
                   >
                     この動画で紹介されたアイテム
                   </p>
@@ -165,44 +180,50 @@ function YoutuberContent() {
                     {creator.products.map((product, idx) => (
                       <div
                         key={product.rank}
-                        className="flex gap-3 items-start py-3"
+                        className="flex gap-3 items-start py-3.5"
                         style={{
                           borderBottom:
                             idx < creator.products.length - 1
-                              ? '0.5px solid #e8ddd8'
+                              ? '0.5px solid #f0e8e3'
                               : 'none',
                         }}
                       >
-                        {/* 順位バッジ */}
-                        <div
-                          className="w-[22px] h-[22px] rounded-full text-xs font-medium flex items-center justify-center shrink-0 mt-0.5"
-                          style={{ background: '#fdf0ea', color: '#c4876a' }}
-                        >
-                          {product.rank}
-                        </div>
+                        {/* 상품 이미지 */}
+                        <ProductThumb
+                          imageUrl={(product as { imageUrl?: string }).imageUrl}
+                          name={product.name}
+                        />
 
                         <div className="flex-1 min-w-0">
-                          {/* 商品名・価格 */}
-                          <p className="text-[14px] font-semibold leading-snug">
-                            {product.name}
-                          </p>
+                          {/* 순위 배지 + 상품명 */}
+                          <div className="flex items-center gap-2 mb-1">
+                            <span
+                              className="w-5 h-5 rounded-full text-[11px] font-bold flex items-center justify-center shrink-0"
+                              style={{ background: '#f5e6dd', color: '#c4876a' }}
+                            >
+                              {product.rank}
+                            </span>
+                            <p className="text-[14px] font-semibold leading-snug text-[#1a1a1a]">
+                              {product.name}
+                            </p>
+                          </div>
                           <p
-                            className="text-[13px] font-medium mt-0.5"
-                            style={{ color: '#333' }}
+                            className="text-[13px] font-semibold mb-1"
+                            style={{ color: '#c4876a' }}
                           >
                             {product.price}
                           </p>
                           {/* コメント */}
-                          <p className="text-[13px] text-gray-400 font-normal mt-1.5 leading-[1.7]">
+                          <p className="text-[12px] leading-[1.7]" style={{ color: '#9e9e9e' }}>
                             「{product.comment}」
                           </p>
                           {/* 購入ボタン */}
-                          <div className="flex gap-2 mt-3">
+                          <div className="flex gap-2 mt-3 flex-wrap">
                             <a
                               href={product.amazonLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-white text-[12px] font-medium px-4 py-2 rounded-[20px] hover:opacity-80 transition-opacity"
+                              className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
                               style={{ background: '#FF9900' }}
                             >
                               Amazon で見る
@@ -211,7 +232,7 @@ function YoutuberContent() {
                               href={product.rakutenLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-white text-[12px] font-medium px-4 py-2 rounded-[20px] hover:opacity-80 transition-opacity"
+                              className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
                               style={{ background: '#BF0000' }}
                             >
                               楽天で見る
@@ -222,9 +243,12 @@ function YoutuberContent() {
                     ))}
                   </div>
 
-                  {/* ユーチューバーカードごとのシェアボタン */}
-                  <div className="mt-4 pt-4 border-t border-gray-100">
-                    <p className="text-xs text-gray-400 text-center mb-3">
+                  {/* シェアボタン */}
+                  <div
+                    className="mt-4 pt-4"
+                    style={{ borderTop: '0.5px solid #f0e8e3' }}
+                  >
+                    <p className="text-[11px] text-center mb-3" style={{ color: '#9e9e9e' }}>
                       この商品をシェアする
                     </p>
                     <ShareButtons
@@ -242,6 +266,7 @@ function YoutuberContent() {
       </div>
 
       <TopButton show={showTop} />
+      <BottomNav />
     </main>
   );
 }
