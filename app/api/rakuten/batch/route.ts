@@ -2,8 +2,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // NEXT_PUBLIC_ 変数はサーバー側でも使用可能なため、既存の環境変数をそのまま利用
-const APP_ID = process.env.NEXT_PUBLIC_RAKUTEN_APP_ID ?? process.env.RAKUTEN_APP_ID ?? '';
-const AFFILIATE_ID = process.env.NEXT_PUBLIC_RAKUTEN_AFFILIATE_ID ?? process.env.RAKUTEN_AFFILIATE_ID ?? '';
+const APP_ID = process.env.RAKUTEN_APP_ID ?? '';
+const ACCESS_KEY = process.env.RAKUTEN_ACCESS_KEY ?? '';
+const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '';
 
 interface RakutenResult {
   imageUrl: string | null;
@@ -13,6 +14,7 @@ interface RakutenResult {
 async function fetchOne(keyword: string): Promise<RakutenResult> {
   const params = new URLSearchParams({
     applicationId: APP_ID,
+    accessKey: ACCESS_KEY,
     affiliateId: AFFILIATE_ID,
     keyword,
     hits: '1',

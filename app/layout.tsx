@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lueur | リュール - 韓国コスメ・美容診断サイト",
-  description: "あなたのパーソナルカラーを診断して、似合う韓国コスメをご提案します。リップ・アイシャドウ診断であなたに合ったカラーを見つけよう。",
+  title: "Lueur | リュール - あなたに似合うコスメを見つけるビューティーガイド",
+  description: "肌悩み・口コミ・診断から、本当に使えるコスメだけをご提案。あなたに似合う一本を、一緒に見つけましょう。",
   metadataBase: new URL("https://lueur-beauty.com"),
   openGraph: {
-    title: "Lueur | リュール - 韓国コスメ・美容診断サイト",
-    description: "あなたのパーソナルカラーを診断して、似合う韓国コスメをご提案します。",
+    title: "Lueur | リュール - あなたに似合うコスメを見つけるビューティーガイド",
+    description: "肌悩み・口コミ・診断から、本当に使えるコスメだけをご提案。",
     url: "https://lueur-beauty.com",
     siteName: "Lueur | リュール",
     locale: "ja_JP",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lueur | リュール - 韓国コスメ・美容診断サイト",
-    description: "あなたのパーソナルカラーを診断して、似合う韓国コスメをご提案します。",
+    title: "Lueur | リュール - あなたに似合うコスメを見つけるビューティーガイド",
+    description: "肌悩み・口コミ・診断から、本当に使えるコスメだけをご提案。",
   },
 };
 

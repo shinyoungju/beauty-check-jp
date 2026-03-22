@@ -86,8 +86,9 @@ export default function Home() {
             Lueur
           </h1>
           <p className="text-[12px] leading-[1.8]" style={{ color: '#9e9e9e' }}>
-            あなただけに似合う、最高の輝きを。<br />
-            美しさの鍵を見つける診断へようこそ。
+            あなたに似合うコスメを、見つけよう。<br />
+            肌悩み・口コミ・診断から、<br />
+            本当に使えるコスメだけをご提案します。
           </p>
           <div
             className="w-8 h-[1.5px] mx-auto mt-5"
@@ -125,7 +126,7 @@ export default function Home() {
             illust="/illust-diagnosis.svg"
             labelEn="Diagnosis"
             title="あなたに似合うコスメを診断"
-            description="10の質問に答えるだけでパーソナルカラーを診断。"
+            description="パーソナルカラー・肌タイプから、あなただけのコスメを提案。"
           />
 
         </div>

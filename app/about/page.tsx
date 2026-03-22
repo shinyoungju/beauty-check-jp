@@ -87,18 +87,17 @@ export default function AboutPage() {
             BRAND STORY
           </p>
           <p className="text-[14px] leading-[2] text-[#3a3a3a]">
-            すべての人の中に、<br />
-            その人だけの輝きが宿っている。<br />
-            メイクを変えるたびに気づく、<br />
-            「あ、これが私だ」という瞬間。<br />
-            鏡の前でふと輝いて見える、<br />
-            あの一瞬のかすかな光。
+            コスメの情報は、あふれるほどある。<br />
+            でも「自分に本当に合うもの」は、<br />
+            なかなか見つからない。
           </p>
           <p className="text-[14px] leading-[2] text-[#3a3a3a] mt-4">
-            Lueurは、そんな「あなただけの輝き」を<br />
-            引き出すためのビューティーガイドです。<br />
-            韓国コスメの力を借りて、<br />
-            あなたの内側に眠る美しさを<br />
+            Lueurは、そんなあなたのための<br />
+            ビューティー・キュレーションガイドです。<br />
+            人気YouTuberのリアルな声、<br />
+            肌悩み別の本音レビュー、<br />
+            そしてパーソナルカラー診断による提案。<br />
+            「これが私に似合う」と感じる一本を、<br />
             一緒に見つけていきましょう。
           </p>
         </div>
@@ -120,19 +119,19 @@ export default function AboutPage() {
           <div className="flex flex-col gap-4">
             {[
               {
-                icon: '💄',
-                title: 'パーソナル診断',
-                desc: 'あなたの個性に合ったコスメを\n10の質問で診断します',
+                icon: '💆',
+                title: 'お悩み別スキンケア',
+                desc: '乾燥・毛穴・ニキビなど\n肌悩みに合ったアイテムを本音でご提案',
               },
               {
                 icon: '🎬',
                 title: 'YouTuber PICKS',
-                desc: '人気ビューティーYouTuberが\n本当に使っているアイテムを厳選紹介',
+                desc: '人気ビューティーYouTuberが\n実際に使っているアイテムを厳選紹介',
               },
               {
-                icon: '💆',
-                title: 'お悩み別特集',
-                desc: '乾燥・毛穴・ニキビなど\n肌悩みに合ったスキンケアをご提案',
+                icon: '💄',
+                title: 'パーソナル診断',
+                desc: '10の質問に答えるだけで\nあなたに似合うコスメを診断',
               },
             ].map((item) => (
               <div
@@ -169,9 +168,9 @@ export default function AboutPage() {
             className="text-[14px] leading-[2] italic"
             style={{ color: '#7a6058' }}
           >
-            「あなたの中に輝きはある。<br />
-            Lueurは、それを見つける<br />
-            お手伝いをします。」
+            「情報に迷ったとき、Lueurを開いてください。<br />
+            あなたに似合う一本が、<br />
+            きっと見つかります。」
           </p>
         </div>
 
