@@ -1,10 +1,19 @@
 // app/about/page.tsx
 'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
 
 export default function AboutPage() {
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 200);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
       <div className="max-w-md mx-auto px-5 pt-6 pb-32">
@@ -173,7 +182,7 @@ export default function AboutPage() {
 
       </div>
 
-      <TopButton />
+      <TopButton show={showTop} />
       <BottomNav />
     </main>
   );
