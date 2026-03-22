@@ -31,7 +31,8 @@ async function fetchOne(keyword: string): Promise<RakutenResult> {
       }
     );
     if (!res.ok) {
-      console.error('[Rakuten batch] HTTP error:', res.status, keyword);
+      const body = await res.text();
+      console.error('[Rakuten batch] HTTP error:', res.status, keyword, '| body:', body);
       return { imageUrl: null, affiliateUrl: null };
     }
     const data = await res.json();
