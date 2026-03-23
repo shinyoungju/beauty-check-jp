@@ -11,7 +11,7 @@ function generateFlowers(count: number, pageKey: number): Flower[] {
   return Array.from({ length: count }, (_, i) => {
     const rand = (o: number) => {
       const x = Math.sin(pageKey + i * 127.1 + o * 311.7) * 43758.5453;
-      return x - Math.floor(x);
+      return Math.round((x - Math.floor(x)) * 1e4) / 1e4;
     };
     return {
       x: rand(0) * 90 + 2,
