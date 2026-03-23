@@ -235,7 +235,8 @@ export const skincareConcerns = [
         price: '¥660',
         reason: '高濃度ヒアルロン酸とセラミド配合で、洗顔後すぐに使えるとろみ化粧水。コスパ最強で敏感肌でも使いやすく、口コミで長年愛されているロングセラー。',
         amazonLink: 'https://www.amazon.co.jp/s?k=セザンヌ+スキンコンディショナー+ハイモイスト&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌスキンコンディショナーハイモイスト%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌスキンコンディショナーハイモイスト%2F',
+        rakutenKeyword: 'セザンヌ スキンコンディショナー ハイモイスト'
       },
       {
         rank: 2,
@@ -243,7 +244,8 @@ export const skincareConcerns = [
         price: '¥1,980',
         reason: '皮膚科医監修のセラミド補給クリーム。乾燥が特に気になる部位に重ね使いすることで、外部刺激からしっかりバリアしてくれる頼もしい存在。',
         amazonLink: 'https://www.amazon.co.jp/s?k=キュレル+潤浸保湿+フェイスクリーム&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキュレル潤浸保湿フェイスクリーム%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキュレル潤浸保湿フェイスクリーム%2F',
+        rakutenKeyword: 'キュレル 潤浸保湿 フェイスクリーム'
       },
       {
         rank: 3,
@@ -251,7 +253,8 @@ export const skincareConcerns = [
         price: '¥880',
         reason: 'オールインワンタイプで化粧水・乳液・クリームの役割を兼ねる万能ゲル。時間がない朝でもこれ一つで保湿が完結し、みずみずしいうるおいが続く。',
         amazonLink: 'https://www.amazon.co.jp/s?k=ニベア+ディープモイスチャーゲル&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fニベアディープモイスチャーゲル%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fニベアディープモイスチャーゲル%2F',
+        rakutenKeyword: 'ニベア ディープモイスチャーゲル'
       }
     ]
   },
@@ -267,7 +270,8 @@ export const skincareConcerns = [
         price: '¥660',
         reason: '毛穴をふんわりとカバーしながら皮脂を吸収。ベースメイク前に使うだけでファンデの崩れをぐっと防いでくれる、メイクの土台作りに欠かせない定番下地。',
         amazonLink: 'https://www.amazon.co.jp/s?k=セザンヌ+皮脂テカリ防止下地&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌ皮脂テカリ防止下地%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌ皮脂テカリ防止下地%2F',
+        rakutenKeyword: 'セザンヌ 皮脂テカリ防止下地'
       },
       {
         rank: 2,
@@ -275,7 +279,8 @@ export const skincareConcerns = [
         price: '¥858',
         reason: '洗顔しながら毛穴の汚れを溶かし出すジェルクレンザー。毎日使い続けることで毛穴の黒ずみが徐々に目立たなくなり、なめらかな肌へと導いてくれる。',
         amazonLink: 'https://www.amazon.co.jp/s?k=ビオレ+おうちdeエステ+毛穴クリア&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fビオレおうちdeエステ毛穴クリア%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fビオレおうちdeエステ毛穴クリア%2F',
+        rakutenKeyword: 'ビオレ おうちdeエステ 毛穴クリア'
       },
       {
         rank: 3,
@@ -283,7 +288,8 @@ export const skincareConcerns = [
         price: '¥770',
         reason: '毛穴の汚れをしっかり落としながらも肌に優しい洗顔ジェル。濃密な泡立ちで毛穴の奥まで丁寧にケアでき、洗い上がりはつるつる&さっぱり。',
         amazonLink: 'https://www.amazon.co.jp/s?k=キャンメイク+ポアレスクリアゲルウォッシュ&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクポアレスクリアゲルウォッシュ%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクポアレスクリアゲルウォッシュ%2F',
+        rakutenKeyword: 'キャンメイク ポアレスクリアゲルウォッシュ'
       }
     ]
   },
@@ -299,7 +305,8 @@ export const skincareConcerns = [
         price: '¥1,430',
         reason: 'セラミド機能成分配合で、洗顔しながらバリア機能をケアできる泡洗顔。肌荒れが続く時期でも使い続けられる、低刺激処方の信頼できる一本。',
         amazonLink: 'https://www.amazon.co.jp/s?k=キュレル+潤浸保湿+泡洗顔料&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキュレル潤浸保湿泡洗顔料%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキュレル潤浸保湿泡洗顔料%2F',
+        rakutenKeyword: 'キュレル 潤浸保湿 泡洗顔料'
       },
       {
         rank: 2,
@@ -307,7 +314,8 @@ export const skincareConcerns = [
         price: '¥1,430',
         reason: '敏感肌の聖地アベンヌ温泉水をそのままスプレーできる美容水。化粧水の前やメイクの上からでも使え、赤みやほてりをひんやりしずめてくれる万能アイテム。',
         amazonLink: 'https://www.amazon.co.jp/s?k=アベンヌウォーター+150g&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fアベンヌウォーター150g%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fアベンヌウォーター150g%2F',
+        rakutenKeyword: 'アベンヌ ウォーター 150g'
       },
       {
         rank: 3,
@@ -315,7 +323,8 @@ export const skincareConcerns = [
         price: '¥2,090',
         reason: '資生堂の敏感肌ブランドによる薬用ライン。アレルギーテスト済みで、かゆみ・炎症・乾燥を同時にケアできるため、肌荒れが繰り返す方にとってのお守り的存在。',
         amazonLink: 'https://www.amazon.co.jp/s?k=イハダ+薬用スキンケア&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fイハダ薬用スキンケア%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fイハダ薬用スキンケア%2F',
+        rakutenKeyword: 'イハダ 薬用スキンケアセット'
       }
     ]
   },
@@ -331,7 +340,8 @@ export const skincareConcerns = [
         price: '¥950',
         reason: '有効成分ビタミンCが高濃度配合されたプチプラ美容液。毛穴の黒ずみにも効果的で、継続使用することでくすみが取れてワントーン明るい肌へと変わる、SNSで長年バズり続けている名品。',
         amazonLink: 'https://www.amazon.co.jp/s?k=メラノCC+美容液&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FメラノCC美容液%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FメラノCC美容液%2F',
+        rakutenKeyword: 'メラノCC 薬用しみ集中対策美容液'
       },
       {
         rank: 2,
@@ -339,7 +349,8 @@ export const skincareConcerns = [
         price: '¥990',
         reason: 'トラネキサム酸配合で薬用美白効果が認められた医薬部外品。とろみのあるテクスチャーでしっかり保湿しながら透明感を底上げ。詰め替え用があるのも嬉しいポイント。',
         amazonLink: 'https://www.amazon.co.jp/s?k=ちふれ+ホワイトニング化粧水&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fちふれホワイトニング化粧水%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fちふれホワイトニング化粧水%2F',
+        rakutenKeyword: 'ちふれ ホワイトニング化粧水 とてもしっとり'
       },
       {
         rank: 3,
@@ -347,7 +358,8 @@ export const skincareConcerns = [
         price: '¥770',
         reason: '頬骨や鼻筋にひと塗りするだけで、内側から発光しているような自然な透明感が生まれる。ファインパール配合でギラつかず、デイリーメイクに馴染む上品な輝き。',
         amazonLink: 'https://www.amazon.co.jp/s?k=キャンメイク+グロウフルールハイライター+01&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクグロウフルールハイライター01%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクグロウフルールハイライター01%2F',
+        rakutenKeyword: 'キャンメイク グロウフルールハイライター 01'
       }
     ]
   },
@@ -363,7 +375,8 @@ export const skincareConcerns = [
         price: '¥1,210',
         reason: '毛穴に詰まった皮脂や角栓をやさしくオフするスクラブ洗顔。ニキビの原因菌にアプローチする殺菌成分配合で、洗い上がりはつるんとなめらか。週2〜3回の使用で肌が整う。',
         amazonLink: 'https://www.amazon.co.jp/s?k=イハダ+薬用クリア+スクラブウォッシュ&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fイハダ薬用クリアスクラブウォッシュ%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fイハダ薬用クリアスクラブウォッシュ%2F',
+        rakutenKeyword: 'イハダ 薬用クリア スクラブウォッシュ'
       },
       {
         rank: 2,
@@ -371,7 +384,8 @@ export const skincareConcerns = [
         price: '¥3,520',
         reason: '皮膚科医が薦めるニキビ跡・色素沈着ケアの定番クリーム。LHA・グリコール酸・ナイアシンアミド配合で、できてしまったニキビ跡を徐々に薄くしてクリアな肌へ。',
         amazonLink: 'https://www.amazon.co.jp/s?k=ラロッシュポゼ+エファクラDUO&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FラロッシュポゼエファクラDUO%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FラロッシュポゼエファクラDUO%2F',
+        rakutenKeyword: 'ラロッシュポゼ エファクラ DUO'
       },
       {
         rank: 3,
@@ -379,7 +393,8 @@ export const skincareConcerns = [
         price: '¥880',
         reason: '洗顔しながらコットンパックのような保湿ケアができる泡洗顔。ニキビの原因となる皮脂汚れをしっかり落としながらも乾燥させない、洗い上がりのバランスが絶妙な一本。',
         amazonLink: 'https://www.amazon.co.jp/s?k=ビフェスタ+泡洗顔+アクネケア&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fビフェスタ泡洗顔アクネケア%2F'
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fビフェスタ泡洗顔アクネケア%2F',
+        rakutenKeyword: 'ビフェスタ 泡洗顔 アクネケア'
       }
     ]
   }
@@ -400,7 +415,8 @@ export const youtuberPicks = [
         price: "¥748",
         comment: "血色感をアップしてくれるカラーで、伸びが良くツヤも出ます。毛穴もしっかり埋まって肌をふわっと見せてくれる「優勝」下地です。",
         amazonLink: "https://www.amazon.co.jp/s?k=セザンヌ+UVウルトラフィットベースEX+02&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FセザンヌUVウルトラフィットベースEX02%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FセザンヌUVウルトラフィットベースEX02%2F",
+        rakutenKeyword: "セザンヌ UVウルトラフィットベースEX"
       },
       {
         rank: 2,
@@ -408,7 +424,8 @@ export const youtuberPicks = [
         price: "¥748",
         comment: "石鹸落ちする肌に優しいBBクリーム。00番と10番を混ぜて使うと自分の肌色にぴったり合い、少量でもハイカバーで毛穴の埋まり具合が凄いです。",
         amazonLink: "https://www.amazon.co.jp/s?k=セザンヌ+ミネラルカバーBBクリーム&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FセザンヌミネラルカバーBBクリーム%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FセザンヌミネラルカバーBBクリーム%2F",
+        rakutenKeyword: "セザンヌ ミネラルカバーBBクリーム"
       },
       {
         rank: 3,
@@ -416,7 +433,8 @@ export const youtuberPicks = [
         price: "¥660",
         comment: "この春に向けて絶対に買った方がいいアイテム！ハイライトを塗っていない状態でもツヤ感が凄く、多幸感のある印象を作ってくれます。",
         amazonLink: "https://www.amazon.co.jp/s?k=キャンメイク+パウダーチークス+P03&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FキャンメイクパウダーチークスP03%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FキャンメイクパウダーチークスP03%2F",
+        rakutenKeyword: "キャンメイク パウダーチークス P03"
       },
       {
         rank: 4,
@@ -424,7 +442,8 @@ export const youtuberPicks = [
         price: "¥660",
         comment: "パレット左側のチークカラーをアイホール全体と涙袋に塗ると統一感が出て可愛いです。これ一つでアイメイクが完成するほど優秀なパレットです。",
         amazonLink: "https://www.amazon.co.jp/s?k=セザンヌ+フェイスアイパレット+01&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌフェイスアイパレット01%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌフェイスアイパレット01%2F",
+        rakutenKeyword: "セザンヌ フェイスアイパレット 01"
       },
       {
         rank: 5,
@@ -432,7 +451,8 @@ export const youtuberPicks = [
         price: "¥770",
         comment: "ヌーディーな大人多幸感カラー。唇にむっちりと密着し、透け感があるので濃くなりすぎず、デイリー使いにぴったりです。",
         amazonLink: "https://www.amazon.co.jp/s?k=キャンメイク+むちぷるティント+01&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクむちぷるティント01%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクむちぷるティント01%2F",
+        rakutenKeyword: "キャンメイク むちぷるティント 01"
       }
     ]
   },
@@ -450,7 +470,8 @@ export const youtuberPicks = [
         price: "¥6,270",
         comment: "マットカラーと透明グロスがセット。一度塗って乾かすとペイントのように強力に密着し、とにかく落ちません。健康的で華やかな唇を演出してくれます。",
         amazonLink: "https://www.amazon.co.jp/s?k=シャネル+ルージュデュオウルトラトゥニュ+57&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fシャネル+ルージュデュオウルトラトゥニュ57%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fシャネル+ルージュデュオウルトラトゥニュ57%2F",
+        rakutenKeyword: "シャネル ルージュ デュオ ウルトラ トゥニュ 57"
       },
       {
         rank: 2,
@@ -458,7 +479,8 @@ export const youtuberPicks = [
         price: "¥6,600",
         comment: "華やかなローズピンクとクールなブルーニュアンスが混ざった配色。発色が美しく、ラメの輝きが圧倒的に綺麗です。妖精のような煌めきを与えてくれるアイシャドウです。",
         amazonLink: "https://www.amazon.co.jp/s?k=スナイデルビューティ+アイデザイナー+02&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fスナイデルビューティアイデザイナー02%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fスナイデルビューティアイデザイナー02%2F",
+        rakutenKeyword: "スナイデルビューティ アイデザイナー 02"
       },
       {
         rank: 3,
@@ -466,7 +488,8 @@ export const youtuberPicks = [
         price: "¥7,150",
         comment: "人生で一番リピートしている下地です。保湿力が高いのにベタつかず、毛穴や赤みを自然にカバーして肌を滑らかに整えてくれます。",
         amazonLink: "https://www.amazon.co.jp/s?k=クレドポーボーテ+ヴォワールコレクチュール&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fクレドポーボーテヴォワールコレクチュール%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fクレドポーボーテヴォワールコレクチュール%2F",
+        rakutenKeyword: "クレドポーボーテ ヴォワールコレクチュール"
       },
       {
         rank: 4,
@@ -474,7 +497,8 @@ export const youtuberPicks = [
         price: "¥5,280",
         comment: "乾燥肌にとってのオアシスのような下地。美容液成分が豊富で、肌が呼吸しているような心地よさです。ファンデーションのツヤを最大限に引き出してくれます。",
         amazonLink: "https://www.amazon.co.jp/s?k=資生堂+エッセンス+スキングロウ+プライマー&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F資生堂エッセンススキングロウプライマー%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F資生堂エッセンススキングロウプライマー%2F",
+        rakutenKeyword: "資生堂 エッセンス スキングロウ プライマー"
       },
       {
         rank: 5,
@@ -482,7 +506,8 @@ export const youtuberPicks = [
         price: "¥7,480",
         comment: "絶妙なブルーピンクにゴールドパールが入っており、透明感のある頬に。ハイライトなしでも発光しているようなツヤが出て、写真映えも抜群です。",
         amazonLink: "https://www.amazon.co.jp/s?k=ディオール+ルージュブラッシュ+212&tag=lueur0f-22",
-        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fディオールルージュブラッシュ212%2F"
+        rakutenLink: "https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fディオールルージュブラッシュ212%2F",
+        rakutenKeyword: "ディオール ルージュ ブラッシュ 212"
       }
     ]
   }

@@ -66,6 +66,27 @@ function ConcernsContent() {
   const [showTop, setShowTop] = useState(false);
   const [activeConcern, setActiveConcern] = useState<string | null>(null);
   const [scrollMargin, setScrollMargin] = useState(160);
+  const [rakutenImages, setRakutenImages] = useState<Record<string, { imageUrl: string | null; affiliateUrl: string | null }>>({});
+  const [imagesLoading, setImagesLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAllImages = async () => {
+      const allKeywords = skincareConcerns.flatMap((c) => c.products).map((p) => (p as { rakutenKeyword?: string }).rakutenKeyword ?? '').filter(Boolean).join(',');
+      try {
+        const res = await fetch(`/api/rakuten/batch?keywords=${encodeURIComponent(allKeywords)}`);
+        const data = await res.json();
+        const map: Record<string, { imageUrl: string | null; affiliateUrl: string | null }> = {};
+        allKeywords.split(',').forEach((kw, i) => {
+          map[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null };
+        });
+        setRakutenImages(map);
+      } catch {
+        // エラー時はそのまま
+      }
+      setImagesLoading(false);
+    };
+    fetchAllImages();
+  }, []);
 
   useLayoutEffect(() => {
     if (navRef.current) {
@@ -214,7 +235,7 @@ function ConcernsContent() {
                     >
                       {/* 상품 이미지 */}
                       <ProductThumb
-                        imageUrl={(product as { imageUrl?: string }).imageUrl}
+                        imageUrl={imagesLoading ? undefined : (rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.imageUrl ?? undefined)}
                         name={product.name}
                       />
 
