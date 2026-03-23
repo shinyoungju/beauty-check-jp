@@ -23,6 +23,7 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
       format: 'json',
     });
 
+    console.log('[Rakuten batch] APP_ID:', APP_ID, '| ACCESS_KEY:', ACCESS_KEY?.slice(0, 8), '...');
     const path = `/ichibams/api/IchibaItem/Search/20220601?${params}`;
 
     const req = https.request(
@@ -31,7 +32,8 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
         path,
         method: 'GET',
         headers: {
-          Referer: 'https://www.lueur-beauty.com',
+          referer: 'https://www.lueur-beauty.com',
+          'user-agent': 'Mozilla/5.0 (compatible)',
         },
       },
       (res) => {
