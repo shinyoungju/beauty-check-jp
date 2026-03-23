@@ -43,7 +43,7 @@ interface FullRecommendation {
 
 const typedRecommendations = recommendations as Record<PersonalColorType, FullRecommendation>;
 
-interface RakutenData { imageUrl: string | null; affiliateUrl: string | null; }
+interface RakutenData { imageUrl: string | null; affiliateUrl: string | null; price: string | null; }
 
 // --- 진단 페이지 컴포넌트 ---
 
@@ -94,10 +94,11 @@ function DiagnosisContent() {
           (data.results as RakutenData[]).map((r: RakutenData) => ({
             imageUrl: r.imageUrl ?? null,
             affiliateUrl: r.affiliateUrl ?? null,
+            price: r.price ?? null,
           }))
         );
       } catch {
-        setRakutenImages(resultData.products.map(() => ({ imageUrl: null, affiliateUrl: null })));
+        setRakutenImages(resultData.products.map(() => ({ imageUrl: null, affiliateUrl: null, price: null })));
       }
       setImagesLoading(false);
     };
@@ -348,9 +349,9 @@ function DiagnosisContent() {
                 <ProductImage loading={imagesLoading} url={rakutenImages[index]?.imageUrl} size={80} />
                 <div className="flex-1 text-left">
                   <p className="text-[14px] font-semibold text-gray-900 mb-2 leading-tight">{product.name}</p>
-                  {product.price && (
+                  {rakutenImages[index]?.price && (
                     <p className="text-[13px] font-semibold mb-2" style={{ color: '#c4876a' }}>
-                      {product.price}
+                      {rakutenImages[index].price}
                     </p>
                   )}
                   <div className="flex gap-2 flex-wrap">

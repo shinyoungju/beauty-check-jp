@@ -9,7 +9,7 @@ import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
 import FlowerBg from '@/components/FlowerBg';
 
-type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string | null }>;
+type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string | null; price: string | null }>;
 
 // 상품 이미지 컴포넌트
 function ProductThumb({ imageUrl, name }: { imageUrl?: string; name: string }) {
@@ -69,7 +69,7 @@ function CreatorCard({
             setRakutenImages((prev) => {
               const next = { ...prev };
               keywords.split(',').forEach((kw, i) => {
-                next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null };
+                next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null, price: null };
               });
               return next;
             });
@@ -193,12 +193,11 @@ function CreatorCard({
                     {product.name}
                   </p>
                 </div>
-                <p
-                  className="text-[13px] font-semibold mb-1"
-                  style={{ color: '#c4876a' }}
-                >
-                  {product.price}
-                </p>
+                {rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.price && (
+                  <p className="text-[13px] font-semibold mb-1" style={{ color: '#c4876a' }}>
+                    {rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.price}
+                  </p>
+                )}
                 <p className="text-[12px] leading-[1.7]" style={{ color: '#9e9e9e' }}>
                   「{product.comment}」
                 </p>

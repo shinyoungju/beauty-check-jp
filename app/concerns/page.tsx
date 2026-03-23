@@ -19,7 +19,7 @@ const concernGradients: Record<string, string> = {
   acne:        'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)',
 };
 
-type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string | null }>;
+type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string | null; price: string | null }>;
 
 // ランクバッジの色設定
 function RankBadge({ rank }: { rank: number }) {
@@ -74,7 +74,7 @@ function ConcernSection({
             setRakutenImages((prev) => {
               const next = { ...prev };
               keywords.split(',').forEach((kw, i) => {
-                next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null };
+                next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null, price: null };
               });
               return next;
             });
@@ -146,12 +146,11 @@ function ConcernSection({
                     {product.name}
                   </p>
                 </div>
-                <p
-                  className="text-[13px] font-semibold mb-2"
-                  style={{ color: '#c4876a' }}
-                >
-                  {product.price}
-                </p>
+                {rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.price && (
+                  <p className="text-[13px] font-semibold mb-2" style={{ color: '#c4876a' }}>
+                    {rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.price}
+                  </p>
+                )}
                 <div
                   className="relative px-4 py-2.5 rounded-2xl rounded-tl-sm text-[12px] leading-[1.7]"
                   style={{ background: '#fdf0ea', color: '#7a6a5a' }}

@@ -9,6 +9,7 @@ const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '';
 interface RakutenResult {
   imageUrl: string | null;
   affiliateUrl: string | null;
+  price: string | null;
 }
 
 function fetchOne(keyword: string): Promise<RakutenResult> {
@@ -43,7 +44,7 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
         res.on('end', () => {
           if (res.statusCode !== 200) {
             console.error('[Rakuten batch] HTTP error:', res.statusCode, keyword, '| body:', body);
-            resolve({ imageUrl: null, affiliateUrl: null });
+            resolve({ imageUrl: null, affiliateUrl: null, price: null });
             return;
           }
           try {
@@ -52,11 +53,13 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
             const raw = item?.mediumImageUrls?.[0];
             const imageUrl = typeof raw === 'string' ? raw : (raw?.imageUrl ?? null);
             const affiliateUrl = item?.affiliateUrl ?? null;
+            const priceNum = item?.itemPrice ?? null;
+            const price = priceNum ? `¥${Number(priceNum).toLocaleString('ja-JP')}` : null;
             console.log('[Rakuten batch] keyword:', keyword, '| imageUrl:', imageUrl);
-            resolve({ imageUrl, affiliateUrl });
+            resolve({ imageUrl, affiliateUrl, price });
           } catch (e) {
             console.error('[Rakuten batch] parse error:', e, keyword);
-            resolve({ imageUrl: null, affiliateUrl: null });
+            resolve({ imageUrl: null, affiliateUrl: null, price: null });
           }
         });
       }
@@ -64,7 +67,7 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
 
     req.on('error', (e) => {
       console.error('[Rakuten batch] request error:', e, keyword);
-      resolve({ imageUrl: null, affiliateUrl: null });
+      resolve({ imageUrl: null, affiliateUrl: null, price: null });
     });
 
     req.end();
