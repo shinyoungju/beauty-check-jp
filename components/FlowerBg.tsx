@@ -14,7 +14,7 @@ function generateFlowers(): Flower[] {
   return Array.from({ length: 20 }, () => ({
     x: Math.random() * 92 + 2,
     y: Math.random() * 92 + 2,
-    size: 0.022 + Math.random() * 0.018,
+    size: 0.06 + Math.random() * 0.05,
     rotate: Math.random() * 60,
     color: COLORS[Math.floor(Math.random() * COLORS.length)],
     opacity: 0.07 + Math.random() * 0.07,
