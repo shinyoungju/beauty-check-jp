@@ -43,12 +43,14 @@ function RankBadge({ rank }: { rank: number }) {
 // お悩みセクション — IntersectionObserver で遅延取得
 function ConcernSection({
   concern,
+  index,
   scrollMargin,
   rakutenImages,
   setRakutenImages,
   fetchedIds,
 }: {
   concern: (typeof skincareConcerns)[number];
+  index: number;
   scrollMargin: number;
   rakutenImages: RakutenMap;
   setRakutenImages: React.Dispatch<React.SetStateAction<RakutenMap>>;
@@ -59,33 +61,47 @@ function ConcernSection({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const fetchSingleConcern = (c: (typeof skincareConcerns)[number]) => {
+      const keywords = c.products
+        .map((p) => (p as { rakutenKeyword?: string }).rakutenKeyword ?? '')
+        .filter(Boolean)
+        .join(',');
+      return fetch(`/api/rakuten/batch?keywords=${encodeURIComponent(keywords)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setRakutenImages((prev) => {
+            const next = { ...prev };
+            keywords.split(',').forEach((kw, i) => {
+              next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null, price: null };
+            });
+            return next;
+          });
+        })
+        .catch(() => {});
+    };
+
+    const fetchConcernImages = async (c: (typeof skincareConcerns)[number], idx: number) => {
+      if (fetchedIds.current.has(c.id)) return;
+      fetchedIds.current.add(c.id);
+      await fetchSingleConcern(c);
+      const next = skincareConcerns[idx + 1];
+      if (next && !fetchedIds.current.has(next.id)) {
+        fetchSingleConcern(next); // await しない（バックグラウンドで実行）
+      }
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || fetchedIds.current.has(concern.id)) return;
-        fetchedIds.current.add(concern.id);
+        if (!entry.isIntersecting) return;
         observer.disconnect();
-        const keywords = concern.products
-          .map((p) => (p as { rakutenKeyword?: string }).rakutenKeyword ?? '')
-          .filter(Boolean)
-          .join(',');
-        fetch(`/api/rakuten/batch?keywords=${encodeURIComponent(keywords)}`)
-          .then((res) => res.json())
-          .then((data) => {
-            setRakutenImages((prev) => {
-              const next = { ...prev };
-              keywords.split(',').forEach((kw, i) => {
-                next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null, price: null };
-              });
-              return next;
-            });
-          })
-          .catch(() => {});
+        fetchConcernImages(concern, index);
       },
       { threshold: 0.1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [concern, fetchedIds, setRakutenImages]);
+  }, [concern, index, fetchedIds, setRakutenImages]);
 
   return (
     <div
@@ -310,10 +326,11 @@ function ConcernsContent() {
 
         {/* お悩みセクション一覧 */}
         <div className="space-y-6">
-          {skincareConcerns.map((concern) => (
+          {skincareConcerns.map((concern, index) => (
             <ConcernSection
               key={concern.id}
               concern={concern}
+              index={index}
               scrollMargin={scrollMargin}
               rakutenImages={rakutenImages}
               setRakutenImages={setRakutenImages}

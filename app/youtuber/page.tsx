@@ -15,11 +15,15 @@ type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string
 // クリエイターカード — IntersectionObserver で遅延取得
 function CreatorCard({
   creator,
+  index,
+  allCreators,
   rakutenImages,
   setRakutenImages,
   fetchedIds,
 }: {
   creator: (typeof youtuberPicks)[number];
+  index: number;
+  allCreators: (typeof youtuberPicks)[number][];
   rakutenImages: RakutenMap;
   setRakutenImages: React.Dispatch<React.SetStateAction<RakutenMap>>;
   fetchedIds: { current: Set<string> };
@@ -30,33 +34,47 @@ function CreatorCard({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const fetchSingleCreator = (c: (typeof youtuberPicks)[number]) => {
+      const keywords = c.products
+        .map((p) => (p as { rakutenKeyword?: string }).rakutenKeyword ?? '')
+        .filter(Boolean)
+        .join(',');
+      return fetch(`/api/rakuten/batch?keywords=${encodeURIComponent(keywords)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setRakutenImages((prev) => {
+            const next = { ...prev };
+            keywords.split(',').forEach((kw, i) => {
+              next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null, price: null };
+            });
+            return next;
+          });
+        })
+        .catch(() => {});
+    };
+
+    const fetchCreatorImages = async (c: (typeof youtuberPicks)[number], idx: number) => {
+      if (fetchedIds.current.has(c.videoId)) return;
+      fetchedIds.current.add(c.videoId);
+      await fetchSingleCreator(c);
+      const nextCreator = allCreators[idx + 1];
+      if (nextCreator && !fetchedIds.current.has(nextCreator.videoId)) {
+        fetchSingleCreator(nextCreator); // await しない（バックグラウンドで実行）
+      }
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || fetchedIds.current.has(creator.videoId)) return;
-        fetchedIds.current.add(creator.videoId);
+        if (!entry.isIntersecting) return;
         observer.disconnect();
-        const keywords = creator.products
-          .map((p) => (p as { rakutenKeyword?: string }).rakutenKeyword ?? '')
-          .filter(Boolean)
-          .join(',');
-        fetch(`/api/rakuten/batch?keywords=${encodeURIComponent(keywords)}`)
-          .then((res) => res.json())
-          .then((data) => {
-            setRakutenImages((prev) => {
-              const next = { ...prev };
-              keywords.split(',').forEach((kw, i) => {
-                next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null, price: null };
-              });
-              return next;
-            });
-          })
-          .catch(() => {});
+        fetchCreatorImages(creator, index);
       },
       { threshold: 0.1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [creator, fetchedIds, setRakutenImages]);
+  }, [creator, index, allCreators, fetchedIds, setRakutenImages]);
 
   return (
     <div
@@ -281,10 +299,12 @@ function YoutuberContent() {
 
         {/* ユーチューバーカード */}
         <div className="space-y-5">
-          {sorted.map((creator) => (
+          {sorted.map((creator, index) => (
             <CreatorCard
               key={creator.videoId}
               creator={creator}
+              index={index}
+              allCreators={sorted}
               rakutenImages={rakutenImages}
               setRakutenImages={setRakutenImages}
               fetchedIds={fetchedIds}
