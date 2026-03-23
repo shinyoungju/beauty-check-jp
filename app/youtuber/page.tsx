@@ -8,33 +8,9 @@ import ShareButtons from '@/components/ShareButtons';
 import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
 import FlowerBg from '@/components/FlowerBg';
+import ProductImage from '@/components/ProductImage';
 
 type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string | null; price: string | null }>;
-
-// 상품 이미지 컴포넌트
-function ProductThumb({ imageUrl, name }: { imageUrl?: string; name: string }) {
-  const [errored, setErrored] = useState(false);
-  if (!imageUrl || errored) {
-    return (
-      <div
-        className="w-16 h-16 rounded-xl flex items-center justify-center text-2xl shrink-0"
-        style={{ background: '#f5e6dd' }}
-      >
-        💄
-      </div>
-    );
-  }
-  return (
-    <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0" style={{ background: '#faf7f5' }}>
-      <img
-        src={imageUrl}
-        alt={name}
-        className="w-full h-full object-contain"
-        onError={() => setErrored(true)}
-      />
-    </div>
-  );
-}
 
 // クリエイターカード — IntersectionObserver で遅延取得
 function CreatorCard({
@@ -176,9 +152,9 @@ function CreatorCard({
                     : 'none',
               }}
             >
-              <ProductThumb
-                imageUrl={rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.imageUrl ?? undefined}
-                name={product.name}
+              <ProductImage
+                loading={!rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']}
+                url={rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.imageUrl ?? null}
               />
 
               <div className="flex-1 min-w-0">
