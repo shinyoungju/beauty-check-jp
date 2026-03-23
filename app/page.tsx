@@ -70,7 +70,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5', position: 'relative' }}>
-      <FlowerBg pageKey={1} />
+      <FlowerBg />
       <div className="max-w-md mx-auto px-5 pt-8 pb-6" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* 헤더 */}

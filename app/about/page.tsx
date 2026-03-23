@@ -17,7 +17,7 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5', position: 'relative' }}>
-      <FlowerBg pageKey={5} />
+      <FlowerBg />
       <div className="max-w-md mx-auto px-5 pt-6 pb-32" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* 戻るリンク */}

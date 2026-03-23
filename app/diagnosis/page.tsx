@@ -123,7 +123,7 @@ function DiagnosisContent() {
   if (mode === 'menu') {
     return (
       <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5', position: 'relative' }}>
-        <FlowerBg pageKey={4} />
+        <FlowerBg />
         <div className="max-w-md mx-auto px-5 pt-6 pb-6" style={{ position: 'relative', zIndex: 1 }}>
 
           {/* 戻るリンク */}
@@ -286,7 +286,7 @@ function DiagnosisContent() {
   if (mode === 'quiz') {
     return (
       <main className="flex min-h-screen flex-col items-center p-6" style={{ background: '#fdf8f5', position: 'relative' }}>
-        <FlowerBg pageKey={4} />
+        <FlowerBg />
         <div style={{ position: 'relative', zIndex: 1, width: '100%' }}>
           <QuizEngine onFinish={handleFinish} onCancel={() => setMode('menu')} />
         </div>
@@ -300,7 +300,7 @@ function DiagnosisContent() {
     const typeLabel = typeData.type;
     return (
       <main className={`flex min-h-screen flex-col items-center px-5 pt-6 pb-10 ${resultData.bgClass} text-[#1a1a1a]`} style={{ position: 'relative' }}>
-        <FlowerBg pageKey={4} />
+        <FlowerBg />
         <div className="max-w-md w-full mt-10" style={{ position: 'relative', zIndex: 1 }}>
           <div className="text-center mb-8 px-4 relative">
             <span className={`inline-block text-[10px] font-medium tracking-[2px] px-4 py-1.5 rounded-full bg-white shadow-sm ${resultData.textClass}`}>
