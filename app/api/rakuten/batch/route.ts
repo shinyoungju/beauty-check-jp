@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import https from 'node:https';
 
 const APP_ID = process.env.RAKUTEN_APP_ID ?? '';
+const ACCESS_KEY = process.env.RAKUTEN_ACCESS_KEY ?? '';
 const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '';
 
 interface RakutenResult {
@@ -14,6 +15,7 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
   return new Promise((resolve) => {
     const params = new URLSearchParams({
       applicationId: APP_ID,
+      accessKey: ACCESS_KEY,
       affiliateId: AFFILIATE_ID,
       keyword,
       hits: '1',
@@ -21,11 +23,11 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
       format: 'json',
     });
 
-    const path = `/services/api/IchibaItem/Search/20220601?${params}`;
+    const path = `/ichibams/api/IchibaItem/Search/20220601?${params}`;
 
     const req = https.request(
       {
-        hostname: 'app.rakuten.co.jp',
+        hostname: 'openapi.rakuten.co.jp',
         path,
         method: 'GET',
         headers: {
