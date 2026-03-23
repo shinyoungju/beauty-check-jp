@@ -32,8 +32,9 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
         path,
         method: 'GET',
         headers: {
-          referer: 'https://www.lueur-beauty.com',
-          'user-agent': 'Mozilla/5.0 (compatible)',
+          referer: 'https://lueur-beauty.com/',
+          origin: 'https://lueur-beauty.com',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         },
       },
       (res) => {
