@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
   try {
     const res = await fetch(url, {
       cache: 'no-store',
-      headers: { Referer: 'https://www.lueur-beauty.com' },
+      headers: { Referer: 'https://lueur-beauty.com' },
     });
     const text = await res.text();
 
