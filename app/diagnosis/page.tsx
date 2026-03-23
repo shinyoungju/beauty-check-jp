@@ -9,14 +9,8 @@ import QuizEngine, { PersonalColorType } from '../quiz-engine';
 import ShareButtons from '@/components/ShareButtons';
 import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
-
-// 상품 이미지: 로딩 스켈레톤 → 라쿠텐 이미지 → 실패 시 💄 이모지
-function ProductImage({ loading, url }: { loading: boolean; url: string | null }) {
-  const [errored, setErrored] = useState(false);
-  if (loading) return <div className="w-20 h-20 rounded-2xl bg-gray-200 animate-pulse shrink-0" />;
-  if (!url || errored) return <div className="w-20 h-20 rounded-2xl bg-pink-50 flex items-center justify-center text-3xl shrink-0">💄</div>;
-  return <img src={url} alt="" className="w-20 h-20 rounded-2xl object-contain bg-white shrink-0" onError={() => setErrored(true)} />;
-}
+import ProductImage from '@/components/ProductImage';
+import FlowerBg from '@/components/FlowerBg';
 
 // --- データ型定義 ---
 
@@ -128,7 +122,8 @@ function DiagnosisContent() {
   // 1. 선택 화면
   if (mode === 'menu') {
     return (
-      <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
+      <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5', position: 'relative' }}>
+        <FlowerBg />
         <div className="max-w-md mx-auto px-5 pt-6 pb-6">
 
           {/* 戻るリンク */}
@@ -290,7 +285,8 @@ function DiagnosisContent() {
   // 2. 퀴즈 화면
   if (mode === 'quiz') {
     return (
-      <main className="flex min-h-screen flex-col items-center p-6" style={{ background: '#fdf8f5' }}>
+      <main className="flex min-h-screen flex-col items-center p-6" style={{ background: '#fdf8f5', position: 'relative' }}>
+        <FlowerBg />
         <QuizEngine onFinish={handleFinish} onCancel={() => setMode('menu')} />
       </main>
     );
@@ -301,7 +297,8 @@ function DiagnosisContent() {
     const typeData = typedRecommendations[resultType];
     const typeLabel = typeData.type;
     return (
-      <main className={`flex min-h-screen flex-col items-center px-5 pt-6 pb-10 ${resultData.bgClass} text-[#1a1a1a]`}>
+      <main className={`flex min-h-screen flex-col items-center px-5 pt-6 pb-10 ${resultData.bgClass} text-[#1a1a1a]`} style={{ position: 'relative' }}>
+        <FlowerBg />
         <div className="max-w-md w-full mt-10">
           <div className="text-center mb-8 px-4 relative">
             <span className={`inline-block text-[10px] font-medium tracking-[2px] px-4 py-1.5 rounded-full bg-white shadow-sm ${resultData.textClass}`}>
@@ -345,7 +342,7 @@ function DiagnosisContent() {
           <div className="space-y-4 px-2 mb-6 relative">
             {resultData.products.map((product: Product, index: number) => (
               <div key={index} className="flex bg-white/80 backdrop-blur-sm p-4 rounded-[2rem] shadow-sm items-center gap-4 border border-white">
-                <ProductImage loading={imagesLoading} url={rakutenImages[index]?.imageUrl ?? null} />
+                <ProductImage loading={imagesLoading} url={rakutenImages[index]?.imageUrl} size={80} />
                 <div className="flex-1 text-left">
                   <p className="text-[14px] font-semibold text-gray-900 mb-2 leading-tight">{product.name}</p>
                   <div className="flex gap-2 flex-wrap">

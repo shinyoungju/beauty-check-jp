@@ -7,6 +7,8 @@ import { skincareConcerns } from '../data';
 import ShareButtons from '@/components/ShareButtons';
 import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
+import ProductImage from '@/components/ProductImage';
+import FlowerBg from '@/components/FlowerBg';
 
 // 고민별 파스텔 그라데이션
 const concernGradients: Record<string, string> = {
@@ -37,30 +39,6 @@ function RankBadge({ rank }: { rank: number }) {
   );
 }
 
-// 상품 이미지 컴포넌트
-function ProductThumb({ imageUrl, name }: { imageUrl?: string; name: string }) {
-  const [errored, setErrored] = useState(false);
-  if (!imageUrl || errored) {
-    return (
-      <div
-        className="w-16 h-16 rounded-xl flex items-center justify-center text-2xl shrink-0"
-        style={{ background: '#f5e6dd' }}
-      >
-        ✨
-      </div>
-    );
-  }
-  return (
-    <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0" style={{ background: '#faf7f5' }}>
-      <img
-        src={imageUrl}
-        alt={name}
-        className="w-full h-full object-contain"
-        onError={() => setErrored(true)}
-      />
-    </div>
-  );
-}
 
 // お悩みセクション — IntersectionObserver で遅延取得
 function ConcernSection({
@@ -156,9 +134,9 @@ function ConcernSection({
                     : 'none',
               }}
             >
-              <ProductThumb
-                imageUrl={rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.imageUrl ?? undefined}
-                name={product.name}
+              <ProductImage
+                loading={!rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']}
+                url={rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.imageUrl}
               />
 
               <div className="flex-1 min-w-0">
@@ -263,7 +241,8 @@ function ConcernsContent() {
   };
 
   return (
-    <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
+    <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5', position: 'relative' }}>
+      <FlowerBg />
       <div className="max-w-md mx-auto px-5 pt-6 pb-6">
 
         {/* 戻るリンク */}
