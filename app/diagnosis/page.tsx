@@ -16,6 +16,7 @@ import FlowerBg from '@/components/FlowerBg';
 
 interface Product {
   name: string;
+  price?: string;
   amazonLink: string;
   rakutenKeyword: string;
 }
@@ -347,6 +348,11 @@ function DiagnosisContent() {
                 <ProductImage loading={imagesLoading} url={rakutenImages[index]?.imageUrl} size={80} />
                 <div className="flex-1 text-left">
                   <p className="text-[14px] font-semibold text-gray-900 mb-2 leading-tight">{product.name}</p>
+                  {product.price && (
+                    <p className="text-[13px] font-semibold mb-2" style={{ color: '#c4876a' }}>
+                      {product.price}
+                    </p>
+                  )}
                   <div className="flex gap-2 flex-wrap">
                     <a href={product.amazonLink} target="_blank" rel="noopener noreferrer" className={`inline-block text-white text-[12px] font-medium px-4 py-2 rounded-full shadow-lg ${resultData.btnClass} transition-all active:scale-95`}>
                       Amazonで見る

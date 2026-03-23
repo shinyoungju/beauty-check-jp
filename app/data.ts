@@ -98,9 +98,9 @@ export const recommendations: any = {
       textClass: 'text-[#c2631f]',
       btnClass: 'bg-[#e8843a] hover:bg-[#c2631f]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 03 [陽炎]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+03&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 03' },
-        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T13 [コーラルオレンジ]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T13&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T13' },
-        { name: 'rom&nd(ロムアンド) ジューシーラスティングティント 01 [Mystic Nude]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ジューシーラスティングティント+01&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ジューシーラスティングティント 01' }
+        { name: 'KATE(ケイト) リップモンスター 03 [陽炎]', price: '¥748', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+03&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 03' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T13 [コーラルオレンジ]', price: '¥660', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T13&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T13' },
+        { name: 'rom&nd(ロムアンド) ジューシーラスティングティント 01 [Mystic Nude]', price: '¥1,320', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ジューシーラスティングティント+01&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ジューシーラスティングティント 01' }
       ]
     },
     shadow: {
@@ -112,9 +112,9 @@ export const recommendations: any = {
       textClass: 'text-[#c2631f]',
       btnClass: 'bg-[#e8843a] hover:bg-[#c2631f]',
       products: [
-        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR01 [シャンパンゴールド]', amazonLink: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR01&tag=lueur0f-22', rakutenKeyword: 'エクセル スキニーリッチシャドウ SR01' },
-        { name: 'CANMAKE(キャンメイク) パーフェクトスタイリストアイズ 17 [アーストーン]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+パーフェクトスタイリストアイズ+17&tag=lueur0f-22', rakutenKeyword: 'キャンメイク パーフェクトスタイリストアイズ 17' },
-        { name: 'rom&nd(ロムアンド) ベターザンパレット 05 [ピーチコーラル]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+05&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ベターザンパレット 05' }
+        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR01 [シャンパンゴールド]', price: '¥1,650', amazonLink: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR01&tag=lueur0f-22', rakutenKeyword: 'エクセル スキニーリッチシャドウ SR01' },
+        { name: 'CANMAKE(キャンメイク) パーフェクトスタイリストアイズ 17 [アーストーン]', price: '¥858', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+パーフェクトスタイリストアイズ+17&tag=lueur0f-22', rakutenKeyword: 'キャンメイク パーフェクトスタイリストアイズ 17' },
+        { name: 'rom&nd(ロムアンド) ベターザンパレット 05 [ピーチコーラル]', price: '¥1,650', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+05&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ベターザンパレット 05' }
       ]
     }
   },
@@ -132,9 +132,9 @@ export const recommendations: any = {
       textClass: 'text-[#7c4a1e]',
       btnClass: 'bg-[#a0522d] hover:bg-[#7c4a1e]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 08 [スモーキーテラコッタ]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+08&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 08' },
-        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T19 [ブリックレッド]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T19&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T19' },
-        { name: 'CEZANNE(セザンヌ) ラスティングリップカラーN 12 [テラコッタブラウン]', amazonLink: 'https://www.amazon.co.jp/s?k=CEZANNE+ラスティングリップカラーN+12&tag=lueur0f-22', rakutenKeyword: 'セザンヌ ラスティングリップカラー 12' }
+        { name: 'KATE(ケイト) リップモンスター 08 [スモーキーテラコッタ]', price: '¥748', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+08&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 08' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T19 [ブリックレッド]', price: '¥660', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T19&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T19' },
+        { name: 'CEZANNE(セザンヌ) ラスティングリップカラーN 12 [テラコッタブラウン]', price: '¥440', amazonLink: 'https://www.amazon.co.jp/s?k=CEZANNE+ラスティングリップカラーN+12&tag=lueur0f-22', rakutenKeyword: 'セザンヌ ラスティングリップカラー 12' }
       ]
     },
     shadow: {
@@ -146,9 +146,9 @@ export const recommendations: any = {
       textClass: 'text-[#7c4a1e]',
       btnClass: 'bg-[#a0522d] hover:bg-[#7c4a1e]',
       products: [
-        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR05 [テラコッタブラウン]', amazonLink: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR05&tag=lueur0f-22', rakutenKeyword: 'エクセル スキニーリッチシャドウ SR05' },
-        { name: 'KATE(ケイト) デザイニングブラウンアイズ BR-1', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+デザイニングブラウンアイズ+BR-1&tag=lueur0f-22', rakutenKeyword: 'ケイト デザイニングブラウンアイズ BR-1' },
-        { name: 'CANMAKE(キャンメイク) パーフェクトスタイリストアイズ 16 [テラコッタブラウン]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+パーフェクトスタイリストアイズ+16&tag=lueur0f-22', rakutenKeyword: 'キャンメイク パーフェクトスタイリストアイズ 16' }
+        { name: 'EXCEL(エクセル) スキニーリッチシャドウ SR05 [テラコッタブラウン]', price: '¥1,650', amazonLink: 'https://www.amazon.co.jp/s?k=EXCEL+スキニーリッチシャドウ+SR05&tag=lueur0f-22', rakutenKeyword: 'エクセル スキニーリッチシャドウ SR05' },
+        { name: 'KATE(ケイト) デザイニングブラウンアイズ BR-1', price: '¥1,078', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+デザイニングブラウンアイズ+BR-1&tag=lueur0f-22', rakutenKeyword: 'ケイト デザイニングブラウンアイズ BR-1' },
+        { name: 'CANMAKE(キャンメイク) パーフェクトスタイリストアイズ 16 [テラコッタブラウン]', price: '¥858', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+パーフェクトスタイリストアイズ+16&tag=lueur0f-22', rakutenKeyword: 'キャンメイク パーフェクトスタイリストアイズ 16' }
       ]
     }
   },
@@ -166,9 +166,9 @@ export const recommendations: any = {
       textClass: 'text-[#9b4e6e]',
       btnClass: 'bg-[#c26e8e] hover:bg-[#9b4e6e]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 07 [ラスボス]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+07&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 07' },
-        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T10 [スウィートハニーピンク]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T10&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T10' },
-        { name: 'rom&nd(ロムアンド) ジューシーラスティングティント 22 [ローズモーヴ]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ジューシーラスティングティント+22&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ジューシーラスティングティント 22' }
+        { name: 'KATE(ケイト) リップモンスター 07 [ラスボス]', price: '¥748', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+07&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 07' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T10 [スウィートハニーピンク]', price: '¥660', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T10&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T10' },
+        { name: 'rom&nd(ロムアンド) ジューシーラスティングティント 22 [ローズモーヴ]', price: '¥1,320', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ジューシーラスティングティント+22&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ジューシーラスティングティント 22' }
       ]
     },
     shadow: {
@@ -180,9 +180,9 @@ export const recommendations: any = {
       textClass: 'text-[#9b4e6e]',
       btnClass: 'bg-[#c26e8e] hover:bg-[#9b4e6e]',
       products: [
-        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 06 [ラベンダーピンク]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+06&tag=lueur0f-22', rakutenKeyword: 'キャンメイク シルキースフレアイズ 06' },
-        { name: 'rom&nd(ロムアンド) ベターザンパレット 10 [Rosé Vintage]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+10&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ベターザンパレット 10' },
-        { name: 'CEZANNE(セザンヌ) トーンアップアイシャドウ 06 [ラベンダー]', amazonLink: 'https://www.amazon.co.jp/s?k=CEZANNE+トーンアップアイシャドウ+06&tag=lueur0f-22', rakutenKeyword: 'セザンヌ トーンアップアイシャドウ 06' }
+        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 06 [ラベンダーピンク]', price: '¥880', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+06&tag=lueur0f-22', rakutenKeyword: 'キャンメイク シルキースフレアイズ 06' },
+        { name: 'rom&nd(ロムアンド) ベターザンパレット 10 [Rosé Vintage]', price: '¥1,650', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+10&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ベターザンパレット 10' },
+        { name: 'CEZANNE(セザンヌ) トーンアップアイシャドウ 06 [ラベンダー]', price: '¥660', amazonLink: 'https://www.amazon.co.jp/s?k=CEZANNE+トーンアップアイシャドウ+06&tag=lueur0f-22', rakutenKeyword: 'セザンヌ トーンアップアイシャドウ 06' }
       ]
     }
   },
@@ -200,9 +200,9 @@ export const recommendations: any = {
       textClass: 'text-[#6b2d6b]',
       btnClass: 'bg-[#8b2fc9] hover:bg-[#6b2d6b]',
       products: [
-        { name: 'KATE(ケイト) リップモンスター 11 [深夜のインプット]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+11&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 11' },
-        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T07 [バーガンディレッド]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T07&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T07' },
-        { name: 'NYX(ニックス) ソフトマットリップクリーム [コペンハーゲン]', amazonLink: 'https://www.amazon.co.jp/s?k=NYX+ソフトマットリップクリーム+コペンハーゲン&tag=lueur0f-22', rakutenKeyword: 'NYX ソフトマットリップ コペンハーゲン' }
+        { name: 'KATE(ケイト) リップモンスター 11 [深夜のインプット]', price: '¥748', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+リップモンスター+11&tag=lueur0f-22', rakutenKeyword: 'ケイト リップモンスター 11' },
+        { name: 'CANMAKE(キャンメイク) ステイオンバームルージュ T07 [バーガンディレッド]', price: '¥660', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+ステイオンバームルージュ+T07&tag=lueur0f-22', rakutenKeyword: 'キャンメイク ステイオンバームルージュ T07' },
+        { name: 'NYX(ニックス) ソフトマットリップクリーム [コペンハーゲン]', price: '¥1,320', amazonLink: 'https://www.amazon.co.jp/s?k=NYX+ソフトマットリップクリーム+コペンハーゲン&tag=lueur0f-22', rakutenKeyword: 'NYX ソフトマットリップ コペンハーゲン' }
       ]
     },
     shadow: {
@@ -214,9 +214,9 @@ export const recommendations: any = {
       textClass: 'text-[#6b2d6b]',
       btnClass: 'bg-[#8b2fc9] hover:bg-[#6b2d6b]',
       products: [
-        { name: 'KATE(ケイト) スモーキーファインアイズ SV-1 [シルバー]', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+スモーキーファインアイズ+SV-1&tag=lueur0f-22', rakutenKeyword: 'ケイト スモーキーファインアイズ SV-1' },
-        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 11 [プラムパープル]', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+11&tag=lueur0f-22', rakutenKeyword: 'キャンメイク シルキースフレアイズ 11' },
-        { name: 'rom&nd(ロムアンド) ベターザンパレット 16 [ナイトクール]', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+16&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ベターザンパレット 16' }
+        { name: 'KATE(ケイト) スモーキーファインアイズ SV-1 [シルバー]', price: '¥1,078', amazonLink: 'https://www.amazon.co.jp/s?k=KATE+スモーキーファインアイズ+SV-1&tag=lueur0f-22', rakutenKeyword: 'ケイト スモーキーファインアイズ SV-1' },
+        { name: 'CANMAKE(キャンメイク) シルキースフレアイズ 11 [プラムパープル]', price: '¥880', amazonLink: 'https://www.amazon.co.jp/s?k=CANMAKE+シルキースフレアイズ+11&tag=lueur0f-22', rakutenKeyword: 'キャンメイク シルキースフレアイズ 11' },
+        { name: 'rom&nd(ロムアンド) ベターザンパレット 16 [ナイトクール]', price: '¥1,650', amazonLink: 'https://www.amazon.co.jp/s?k=romand+ベターザンパレット+16&tag=lueur0f-22', rakutenKeyword: 'ロムアンド ベターザンパレット 16' }
       ]
     }
   }
