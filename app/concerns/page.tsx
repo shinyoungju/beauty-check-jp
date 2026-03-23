@@ -17,6 +17,8 @@ const concernGradients: Record<string, string> = {
   acne:        'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)',
 };
 
+type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string | null }>;
+
 // ランクバッジの色設定
 function RankBadge({ rank }: { rank: number }) {
   const styles: Record<number, { bg: string; color: string; label: string }> = {
@@ -60,33 +62,177 @@ function ProductThumb({ imageUrl, name }: { imageUrl?: string; name: string }) {
   );
 }
 
+// お悩みセクション — IntersectionObserver で遅延取得
+function ConcernSection({
+  concern,
+  scrollMargin,
+  rakutenImages,
+  setRakutenImages,
+  fetchedIds,
+}: {
+  concern: (typeof skincareConcerns)[number];
+  scrollMargin: number;
+  rakutenImages: RakutenMap;
+  setRakutenImages: React.Dispatch<React.SetStateAction<RakutenMap>>;
+  fetchedIds: { current: Set<string> };
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || fetchedIds.current.has(concern.id)) return;
+        fetchedIds.current.add(concern.id);
+        observer.disconnect();
+        const keywords = concern.products
+          .map((p) => (p as { rakutenKeyword?: string }).rakutenKeyword ?? '')
+          .filter(Boolean)
+          .join(',');
+        fetch(`/api/rakuten/batch?keywords=${encodeURIComponent(keywords)}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setRakutenImages((prev) => {
+              const next = { ...prev };
+              keywords.split(',').forEach((kw, i) => {
+                next[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null };
+              });
+              return next;
+            });
+          })
+          .catch(() => {});
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [concern, fetchedIds, setRakutenImages]);
+
+  return (
+    <div
+      ref={ref}
+      id={concern.id}
+      className="bg-white overflow-hidden"
+      style={{
+        border: '0.5px solid #e8ddd8',
+        borderRadius: '24px',
+        scrollMarginTop: `${scrollMargin}px`,
+      }}
+    >
+      {/* セクションヘッダー (グラデーション) */}
+      <div
+        className="px-5 pt-5 pb-4"
+        style={{
+          background: concernGradients[concern.id] ?? '#f5e6dd',
+          borderBottom: '0.5px solid #e8ddd8',
+        }}
+      >
+        <div className="flex items-center gap-3 mb-1.5">
+          <span className="text-[28px]">{concern.icon}</span>
+          <h2 className="text-[18px] font-bold leading-tight text-[#1a1a1a]">{concern.title}</h2>
+        </div>
+        <p className="text-[12px] leading-[1.7]" style={{ color: '#7a6a5a' }}>{concern.description}</p>
+      </div>
+
+      {/* 商品リスト */}
+      <div className="px-5 pt-4 pb-5">
+        <p
+          className="text-[9px] font-semibold tracking-[2.5px] uppercase mb-3"
+          style={{ color: '#c4876a' }}
+        >
+          おすすめアイテム RANKING
+        </p>
+
+        <div>
+          {concern.products.map((product, idx) => (
+            <div
+              key={product.rank}
+              className="flex gap-3 items-start py-3.5"
+              style={{
+                borderBottom:
+                  idx < concern.products.length - 1
+                    ? '0.5px solid #f0e8e3'
+                    : 'none',
+              }}
+            >
+              <ProductThumb
+                imageUrl={rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.imageUrl ?? undefined}
+                name={product.name}
+              />
+
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start gap-2 mb-1">
+                  <RankBadge rank={product.rank} />
+                  <p className="text-[14px] font-semibold leading-snug text-[#1a1a1a]">
+                    {product.name}
+                  </p>
+                </div>
+                <p
+                  className="text-[13px] font-semibold mb-2"
+                  style={{ color: '#c4876a' }}
+                >
+                  {product.price}
+                </p>
+                <div
+                  className="relative px-4 py-2.5 rounded-2xl rounded-tl-sm text-[12px] leading-[1.7]"
+                  style={{ background: '#fdf0ea', color: '#7a6a5a' }}
+                >
+                  {product.reason}
+                </div>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  <a
+                    href={product.amazonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
+                    style={{ background: '#FF9900' }}
+                  >
+                    Amazonで見る
+                  </a>
+                  <a
+                    href={product.rakutenLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
+                    style={{ background: '#BF0000' }}
+                  >
+                    楽天で見る
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* シェアボタン */}
+        <div
+          className="mt-4 pt-4"
+          style={{ borderTop: '0.5px solid #f0e8e3' }}
+        >
+          <p className="text-[11px] text-center mb-3" style={{ color: '#9e9e9e' }}>
+            この特集をシェアする
+          </p>
+          <ShareButtons
+            title={`${concern.title}のお悩みにおすすめのスキンケアをチェック✨`}
+            description={concern.description}
+            url={`https://www.lueur-beauty.com/concerns#${concern.id}`}
+            showImage={false}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ConcernsContent() {
   const searchParams = useSearchParams();
   const navRef = useRef<HTMLDivElement>(null);
   const [showTop, setShowTop] = useState(false);
   const [activeConcern, setActiveConcern] = useState<string | null>(null);
   const [scrollMargin, setScrollMargin] = useState(160);
-  const [rakutenImages, setRakutenImages] = useState<Record<string, { imageUrl: string | null; affiliateUrl: string | null }>>({});
-  const [imagesLoading, setImagesLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchAllImages = async () => {
-      const allKeywords = skincareConcerns.flatMap((c) => c.products).map((p) => (p as { rakutenKeyword?: string }).rakutenKeyword ?? '').filter(Boolean).join(',');
-      try {
-        const res = await fetch(`/api/rakuten/batch?keywords=${encodeURIComponent(allKeywords)}`);
-        const data = await res.json();
-        const map: Record<string, { imageUrl: string | null; affiliateUrl: string | null }> = {};
-        allKeywords.split(',').forEach((kw, i) => {
-          map[kw.trim()] = data.results[i] ?? { imageUrl: null, affiliateUrl: null };
-        });
-        setRakutenImages(map);
-      } catch {
-        // エラー時はそのまま
-      }
-      setImagesLoading(false);
-    };
-    fetchAllImages();
-  }, []);
+  const [rakutenImages, setRakutenImages] = useState<RakutenMap>({});
+  const fetchedIds = useRef<Set<string>>(new Set());
 
   useLayoutEffect(() => {
     if (navRef.current) {
@@ -149,7 +295,7 @@ function ConcernsContent() {
           />
         </div>
 
-        {/* 고민 선택 — 2열 그리드 카드 */}
+        {/* 고민 선택 — 3열 그리드 카드 */}
         <div
           ref={navRef}
           className="sticky top-0 z-10 py-4 mb-6 -mx-5 px-5"
@@ -187,124 +333,14 @@ function ConcernsContent() {
         {/* お悩みセクション一覧 */}
         <div className="space-y-6">
           {skincareConcerns.map((concern) => (
-            <div
+            <ConcernSection
               key={concern.id}
-              id={concern.id}
-              className="bg-white overflow-hidden"
-              style={{
-                border: '0.5px solid #e8ddd8',
-                borderRadius: '24px',
-                scrollMarginTop: `${scrollMargin}px`,
-              }}
-            >
-              {/* セクションヘッダー (グラデーション) */}
-              <div
-                className="px-5 pt-5 pb-4"
-                style={{
-                  background: concernGradients[concern.id] ?? '#f5e6dd',
-                  borderBottom: '0.5px solid #e8ddd8',
-                }}
-              >
-                <div className="flex items-center gap-3 mb-1.5">
-                  <span className="text-[28px]">{concern.icon}</span>
-                  <h2 className="text-[18px] font-bold leading-tight text-[#1a1a1a]">{concern.title}</h2>
-                </div>
-                <p className="text-[12px] leading-[1.7]" style={{ color: '#7a6a5a' }}>{concern.description}</p>
-              </div>
-
-              {/* 商品リスト */}
-              <div className="px-5 pt-4 pb-5">
-                <p
-                  className="text-[9px] font-semibold tracking-[2.5px] uppercase mb-3"
-                  style={{ color: '#c4876a' }}
-                >
-                  おすすめアイテム RANKING
-                </p>
-
-                <div>
-                  {concern.products.map((product, idx) => (
-                    <div
-                      key={product.rank}
-                      className="flex gap-3 items-start py-3.5"
-                      style={{
-                        borderBottom:
-                          idx < concern.products.length - 1
-                            ? '0.5px solid #f0e8e3'
-                            : 'none',
-                      }}
-                    >
-                      {/* 상품 이미지 */}
-                      <ProductThumb
-                        imageUrl={imagesLoading ? undefined : (rakutenImages[(product as { rakutenKeyword?: string }).rakutenKeyword ?? '']?.imageUrl ?? undefined)}
-                        name={product.name}
-                      />
-
-                      <div className="flex-1 min-w-0">
-                        {/* 순위 + 상품명 */}
-                        <div className="flex items-start gap-2 mb-1">
-                          <RankBadge rank={product.rank} />
-                          <p className="text-[14px] font-semibold leading-snug text-[#1a1a1a]">
-                            {product.name}
-                          </p>
-                        </div>
-                        <p
-                          className="text-[13px] font-semibold mb-2"
-                          style={{ color: '#c4876a' }}
-                        >
-                          {product.price}
-                        </p>
-                        {/* reason — 말풍선 스타일 */}
-                        <div
-                          className="relative px-4 py-2.5 rounded-2xl rounded-tl-sm text-[12px] leading-[1.7]"
-                          style={{
-                            background: '#fdf0ea',
-                            color: '#7a6a5a',
-                          }}
-                        >
-                          {product.reason}
-                        </div>
-                        <div className="flex flex-wrap gap-2 mt-3">
-                          <a
-                            href={product.amazonLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
-                            style={{ background: '#FF9900' }}
-                          >
-                            Amazonで見る
-                          </a>
-                          <a
-                            href={product.rakutenLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
-                            style={{ background: '#BF0000' }}
-                          >
-                            楽天で見る
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* シェアボタン */}
-                <div
-                  className="mt-4 pt-4"
-                  style={{ borderTop: '0.5px solid #f0e8e3' }}
-                >
-                  <p className="text-[11px] text-center mb-3" style={{ color: '#9e9e9e' }}>
-                    この特集をシェアする
-                  </p>
-                  <ShareButtons
-                    title={`${concern.title}のお悩みにおすすめのスキンケアをチェック✨`}
-                    description={concern.description}
-                    url={`https://www.lueur-beauty.com/concerns#${concern.id}`}
-                    showImage={false}
-                  />
-                </div>
-              </div>
-            </div>
+              concern={concern}
+              scrollMargin={scrollMargin}
+              rakutenImages={rakutenImages}
+              setRakutenImages={setRakutenImages}
+              fetchedIds={fetchedIds}
+            />
           ))}
         </div>
       </div>

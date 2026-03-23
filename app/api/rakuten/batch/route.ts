@@ -80,9 +80,9 @@ export async function GET(req: NextRequest) {
   const keywords = keywordsParam.split(',').map(k => k.trim()).filter(Boolean);
   const results: RakutenResult[] = [];
 
-  // レート制限対策として2000ms間隔で順次リクエスト
+  // レート制限対策として1200ms間隔で順次リクエスト
   for (let i = 0; i < keywords.length; i++) {
-    if (i > 0) await new Promise(r => setTimeout(r, 2000));
+    if (i > 0) await new Promise(r => setTimeout(r, 1200));
     results.push(await fetchOne(keywords[i]));
   }
 
