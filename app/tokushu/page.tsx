@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
+import FlowerBg from '@/components/FlowerBg';
 
 interface FeatureCardProps {
   icon: string;
@@ -68,7 +69,8 @@ export default function TokushuPage() {
   }, []);
 
   return (
-    <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5' }}>
+    <main className="min-h-screen font-sans text-[#1a1a1a]" style={{ background: '#fdf8f5', position: 'relative' }}>
+      <FlowerBg pageKey={6} />
       <div className="max-w-md mx-auto px-5 pt-6 pb-6">
 
         {/* ページヘッダー */}
