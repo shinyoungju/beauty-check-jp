@@ -1,21 +1,34 @@
 // components/FlowerBg.tsx
 'use client';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 
 const PETALS = [0, 60, 120, 180, 240, 300];
 const COLORS = ['#c4876a', '#d49e82', '#e8c4a8'];
 
+interface Flower {
+  x: number; y: number; size: number;
+  rotate: number; color: string; opacity: number;
+}
+
+function generateFlowers(): Flower[] {
+  return Array.from({ length: 20 }, () => ({
+    x: Math.random() * 92 + 2,
+    y: Math.random() * 92 + 2,
+    size: 0.022 + Math.random() * 0.018,
+    rotate: Math.random() * 60,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    opacity: 0.07 + Math.random() * 0.07,
+  }));
+}
+
 export default function FlowerBg() {
-  const flowers = useMemo(() => {
-    return Array.from({ length: 20 }, () => ({
-      x: Math.random() * 92 + 2,
-      y: Math.random() * 92 + 2,
-      size: 0.022 + Math.random() * 0.018,
-      rotate: Math.random() * 60,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      opacity: 0.07 + Math.random() * 0.07,
-    }));
+  const [flowers, setFlowers] = useState<Flower[]>([]);
+
+  useEffect(() => {
+    setFlowers(generateFlowers());
   }, []);
+
+  if (flowers.length === 0) return null;
 
   return (
     <div
