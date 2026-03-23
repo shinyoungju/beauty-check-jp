@@ -2,6 +2,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import https from 'node:https';
 
+const cache = new Map<string, {
+  imageUrl: string | null;
+  affiliateUrl: string | null;
+  price: string | null;
+  cachedAt: number;
+}>();
+const CACHE_TTL = 1000 * 60 * 60 * 6; // 6時間
+
 const APP_ID = process.env.RAKUTEN_APP_ID ?? '';
 const ACCESS_KEY = process.env.RAKUTEN_ACCESS_KEY ?? '';
 const AFFILIATE_ID = process.env.RAKUTEN_AFFILIATE_ID ?? '';
@@ -14,6 +22,11 @@ interface RakutenResult {
 
 function fetchOne(keyword: string): Promise<RakutenResult> {
   return new Promise((resolve) => {
+    const cached = cache.get(keyword);
+    if (cached && Date.now() - cached.cachedAt < CACHE_TTL) {
+      return resolve({ imageUrl: cached.imageUrl, affiliateUrl: cached.affiliateUrl, price: cached.price });
+    }
+
     const params = new URLSearchParams({
       applicationId: APP_ID,
       accessKey: ACCESS_KEY,
@@ -56,6 +69,7 @@ function fetchOne(keyword: string): Promise<RakutenResult> {
             const priceNum = item?.itemPrice ?? null;
             const price = priceNum ? `¥${Number(priceNum).toLocaleString('ja-JP')}` : null;
             console.log('[Rakuten batch] keyword:', keyword, '| imageUrl:', imageUrl);
+            cache.set(keyword, { imageUrl, affiliateUrl, price, cachedAt: Date.now() });
             resolve({ imageUrl, affiliateUrl, price });
           } catch (e) {
             console.error('[Rakuten batch] parse error:', e, keyword);
