@@ -341,9 +341,8 @@ function DiagnosisContent() {
             </div>
           </div>
 
-          <p className="text-[10px] text-center mb-3" style={{ color: '#b0a09a' }}>
-            ✨ 画像・価格はリアルタイムで取得中。<br />
-            表示されない場合も、各ボタンから最新情報をご確認いただけます。
+          <p className="text-[10px] text-center mb-3 leading-[1.8]" style={{ color: '#b0a09a' }}>
+            ✨ 画像・価格はリアルタイムで取得中。表示されない場合も、各ボタンから最新情報をご確認いただけます。
           </p>
           <h2 className="text-[10px] font-medium text-gray-400 tracking-[2px] mb-4 text-center uppercase relative">Recommended Item</h2>
 
