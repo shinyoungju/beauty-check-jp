@@ -88,12 +88,16 @@ export default function BottomNav() {
 
       {/* 하단 네비게이션 바 */}
       <nav
-        className="fixed bottom-0 left-0 right-0 flex justify-around items-center h-[64px]"
+        className="flex justify-around items-center"
         style={{
-          background: '#ffffff',
-          borderTop: '0.5px solid #e8ddd8',
-          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
           zIndex: 50,
+          background: '#fff',
+          borderTop: '0.5px solid #e8ddd8',
+          paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 0px)',
         }}
       >
         {navTabs.map((tab) => {
