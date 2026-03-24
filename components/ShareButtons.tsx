@@ -38,7 +38,7 @@ export default function ShareButtons({
   };
 
   return (
-    <div className="flex gap-2 w-full">
+    <div className="flex flex-wrap justify-center gap-2 w-full">
       {/* Xでシェア */}
       <a
         href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}

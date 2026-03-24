@@ -88,11 +88,12 @@ export default function BottomNav() {
 
       {/* 하단 네비게이션 바 */}
       <nav
-        className="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center h-[64px]"
+        className="fixed bottom-0 left-0 right-0 flex justify-around items-center h-[64px]"
         style={{
           background: '#ffffff',
           borderTop: '0.5px solid #e8ddd8',
-          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+          zIndex: 50,
         }}
       >
         {navTabs.map((tab) => {
