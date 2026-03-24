@@ -151,6 +151,9 @@ function CreatorCard({
 
       {/* 商品リスト */}
       <div className="px-5 pt-4 pb-5">
+        <p className="text-[10px] text-center mb-3" style={{ color: '#b0a09a' }}>
+          ✨ 画像・価格はリアルタイムで取得しています
+        </p>
         <p
           className="text-[9px] font-semibold tracking-[2.5px] uppercase mb-3"
           style={{ color: '#c4876a' }}
