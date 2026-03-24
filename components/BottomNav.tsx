@@ -97,7 +97,8 @@ export default function BottomNav() {
           zIndex: 50,
           background: '#fff',
           borderTop: '0.5px solid #e8ddd8',
-          paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 0px)',
+          paddingTop: '8px',
+          paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 8px)',
         }}
       >
         {navTabs.map((tab) => {
@@ -106,7 +107,7 @@ export default function BottomNav() {
             <Link
               key={tab.href}
               href={tab.href}
-              className="flex flex-col items-center gap-0.5 px-4 py-1 transition-opacity relative"
+              className="flex flex-col items-center gap-0.5 px-4 py-2 transition-opacity relative"
               style={{ opacity: isActive ? 1 : 0.45 }}
             >
               <span className="text-[20px] leading-none">{tab.icon}</span>
@@ -128,7 +129,7 @@ export default function BottomNav() {
 
         {/* もっと タブ */}
         <button
-          className="flex flex-col items-center gap-0.5 px-4 py-1 transition-opacity relative"
+          className="flex flex-col items-center gap-0.5 px-4 py-2 transition-opacity relative"
           style={{ opacity: isMoreActive ? 1 : 0.45 }}
           onClick={() => setMenuOpen((prev) => !prev)}
         >
