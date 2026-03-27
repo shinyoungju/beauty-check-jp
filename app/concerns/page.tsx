@@ -132,7 +132,7 @@ function ConcernSection({
 
       {/* 商品リスト */}
       <div className="px-5 pt-4 pb-5">
-        <p className="text-[10px] text-center mb-3 leading-[1.8]" style={{ color: '#b0a09a' }}>
+        <p className="text-[10px] text-left mb-3 leading-[1.8]" style={{ color: '#b0a09a' }}>
           ✨ 画像・価格はリアルタイムで取得中。表示されない場合も、各ボタンから最新情報をご確認いただけます。
         </p>
         <p
