@@ -231,32 +231,29 @@ export const skincareConcerns = [
     products: [
       {
         rank: 1,
-        name: 'セザンヌ スキンコンディショナー ハイモイスト',
-        price: '¥660',
-        reason: '高濃度ヒアルロン酸とセラミド配合で、洗顔後すぐに使えるとろみ化粧水。コスパ最強で敏感肌でも使いやすく、口コミで長年愛されているロングセラー。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=セザンヌ+スキンコンディショナー+ハイモイスト&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌスキンコンディショナーハイモイスト%2F',
-        rakutenKeyword: 'セザンヌ スキンコンディショナー',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/019/4939553040019.jpg?_ex=128x128'
+        name: 'ミノン アミノモイスト モイストチャージ ローション II',
+        reason: 'アミノ酸9種配合で洗顔後すぐにとろりとなじむ高保湿化粧水。@cosmeで5/7の高評価を誇り皮膚科でも推奨される実力派で、敏感肌でも安心の低刺激処方。継続使用でしっとり感が長続きする。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=ミノン+アミノモイスト+モイストチャージ+ローション+II&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fミノンアミノモイストモイストチャージローション%2F',
+        rakutenKeyword: 'ミノン アミノモイスト モイストチャージローション',
+        imageUrl: null
       },
       {
         rank: 2,
-        name: 'キュレル 潤浸保湿 フェイスクリーム',
-        price: '¥1,980',
-        reason: '皮膚科医監修のセラミド補給クリーム。乾燥が特に気になる部位に重ね使いすることで、外部刺激からしっかりバリアしてくれる頼もしい存在。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=キュレル+潤浸保湿+フェイスクリーム&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキュレル潤浸保湿フェイスクリーム%2F',
-        rakutenKeyword: 'キュレル 潤浸保湿 フェイスクリーム',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/sundrug/cabinet/202512_1/4901301236210.jpg?_ex=128x128'
+        name: 'キュレル 潤浸保湿化粧水 III とてもしっとり',
+        reason: 'セラミド機能成分でバリア機能をケアし、乾燥性敏感肌を内側からうるおす化粧水。価格.com化粧水ランキング長期1位を誇る定番中の定番で、皮膚科医監修の信頼性が高い一本。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=キュレル+潤浸保湿化粧水+III+とてもしっとり&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキュレル潤浸保湿化粧水IIIとてもしっとり%2F',
+        rakutenKeyword: 'キュレル 潤浸保湿化粧水 III とてもしっとり',
+        imageUrl: null
       },
       {
         rank: 3,
-        name: 'ニベア 花王 ディープモイスチャーゲル',
-        price: '¥880',
-        reason: 'オールインワンタイプで化粧水・乳液・クリームの役割を兼ねる万能ゲル。時間がない朝でもこれ一つで保湿が完結し、みずみずしいうるおいが続く。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=ニベア+ディープモイスチャーゲル&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fニベアディープモイスチャーゲル%2F',
-        rakutenKeyword: 'ニベア ディープモイスチャーゲル',
+        name: 'エトヴォス モイスチャライジングローション',
+        reason: 'ヒト型セラミド5種配合でシリーズ累計180万個突破の人気アイテム。2025年リニューアル済みでアレルギーテスト・スティンギングテスト済みの安心設計。敏感肌でもしっとり感が実感できる。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=ETVOS+モイスチャライジングローション&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fエトヴォスモイスチャライジングローション%2F',
+        rakutenKeyword: 'エトヴォス モイスチャライジングローション',
         imageUrl: null
       }
     ]
@@ -269,32 +266,29 @@ export const skincareConcerns = [
     products: [
       {
         rank: 1,
-        name: 'セザンヌ 皮脂テカリ防止下地',
-        price: '¥660',
-        reason: '毛穴をふんわりとカバーしながら皮脂を吸収。ベースメイク前に使うだけでファンデの崩れをぐっと防いでくれる、メイクの土台作りに欠かせない定番下地。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=セザンヌ+皮脂テカリ防止下地&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fセザンヌ皮脂テカリ防止下地%2F',
-        rakutenKeyword: 'セザンヌ 皮脂テカリ防止下地',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/rakutensokuhaimart/cabinet/rakuten24/542/4939553041542.jpg?_ex=128x128'
+        name: 'DUO ザ クレンジングバーム ブラックリペア',
+        reason: '@cosmeベストコスメアワード2025上半期 クレンジング部門1位を受賞。AHAを含む7種フルーツエキスが角栓を溶かしてつるん肌へと導く、SNSで話題のバームクレンジング。毛穴レスな仕上がりが実感できる。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=DUO+クレンジングバーム+ブラックリペア&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FDUOザクレンジングバームブラックリペア%2F',
+        rakutenKeyword: 'DUO ザ クレンジングバーム ブラックリペア',
+        imageUrl: null
       },
       {
         rank: 2,
-        name: 'ビオレ おうちdeエステ 毛穴クリア洗顔ジェル',
-        price: '¥858',
-        reason: '洗顔しながら毛穴の汚れを溶かし出すジェルクレンザー。毎日使い続けることで毛穴の黒ずみが徐々に目立たなくなり、なめらかな肌へと導いてくれる。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=ビオレ+おうちdeエステ+毛穴クリア&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fビオレおうちdeエステ毛穴クリア%2F',
-        rakutenKeyword: 'ビオレ おうちdeエステ 毛穴クリア',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/stacon/cabinet/2017-4/4901301342904_1.jpg?_ex=128x128'
+        name: 'The Ordinary ナイアシンアミド10% + 亜鉛1%セラム',
+        reason: '高濃度ナイアシンアミド10%配合で過剰皮脂にアプローチし毛穴を目立たなくする美容液。2024上半期ベストコスメ プチプラスキンケア部門受賞の実力派で、コスパ抜群の毛穴ケアとして話題。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=The+Ordinary+Niacinamide+10%25+Zinc+1%25&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTheOrdinaryナイアシンアミド10%25亜鉛%2F',
+        rakutenKeyword: 'The Ordinary ナイアシンアミド10% 亜鉛',
+        imageUrl: null
       },
       {
         rank: 3,
-        name: 'キャンメイク ポアレスクリアゲルウォッシュ',
-        price: '¥770',
-        reason: '毛穴の汚れをしっかり落としながらも肌に優しい洗顔ジェル。濃密な泡立ちで毛穴の奥まで丁寧にケアでき、洗い上がりはつるつる&さっぱり。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=キャンメイク+ポアレスクリアゲルウォッシュ&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクポアレスクリアゲルウォッシュ%2F',
-        rakutenKeyword: 'キャンメイク ポアレスクリアゲルウォッシュ',
+        name: 'ソフィーナiP ポア クリアリング ジェル ウォッシュ',
+        reason: '置き去り角栓を内側から崩壊し洗浄する集中ケア洗顔料。LIPS「毛穴の開きスキンケア」特集に多数登場する人気アイテムで、週1〜2回の使用で毛穴の詰まりが改善されていく。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=ソフィーナ+iP+ポア+クリアリング+ジェル+ウォッシュ&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FソフィーナiPポアクリアリングジェルウォッシュ%2F',
+        rakutenKeyword: 'ソフィーナiP ポアクリアリングジェルウォッシュ',
         imageUrl: null
       }
     ]
@@ -308,32 +302,29 @@ export const skincareConcerns = [
       {
         rank: 1,
         name: 'キュレル 潤浸保湿 泡洗顔料',
-        price: '¥1,430',
-        reason: 'セラミド機能成分配合で、洗顔しながらバリア機能をケアできる泡洗顔。肌荒れが続く時期でも使い続けられる、低刺激処方の信頼できる一本。',
+        reason: 'セラミド機能成分配合で洗顔しながらバリア機能をケアできる泡洗顔。敏感肌スキンケアブランドランキング上位の定番ロングセラーで、肌荒れ時も安心して使い続けられる低刺激処方。',
         amazonLink: 'https://www.amazon.co.jp/s?k=キュレル+潤浸保湿+泡洗顔料&tag=lueur0f-22',
         rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキュレル潤浸保湿泡洗顔料%2F',
         rakutenKeyword: 'キュレル 潤浸保湿 泡洗顔料',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/tsuruha/cabinet/shouhin69/10153751.jpg?_ex=128x128'
+        imageUrl: null
       },
       {
         rank: 2,
-        name: 'アベンヌ ウォーター 150g',
-        price: '¥1,430',
-        reason: '敏感肌の聖地アベンヌ温泉水をそのままスプレーできる美容水。化粧水の前やメイクの上からでも使え、赤みやほてりをひんやりしずめてくれる万能アイテム。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=アベンヌウォーター+150g&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fアベンヌウォーター150g%2F',
-        rakutenKeyword: 'アベンヌ ウォーター 150g',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/581/4964259399581.jpg?_ex=128x128'
+        name: 'ミノン アミノモイスト 薬用アクネケア ローション',
+        reason: 'トラネキサム酸・グリチルリチン酸2Kの2種のニキビ予防有効成分を配合した医薬部外品。肌荒れや敏感肌でもニキビケアができる薬用ラインで、荒れやすい肌でも安心して継続使用できる。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=ミノン+アミノモイスト+薬用アクネケア+ローション&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fミノンアミノモイスト薬用アクネケアローション%2F',
+        rakutenKeyword: 'ミノン アミノモイスト 薬用アクネケアローション',
+        imageUrl: null
       },
       {
         rank: 3,
-        name: 'イハダ 薬用スキンケアセット（化粧水＋乳液）',
-        price: '¥2,090',
-        reason: '資生堂の敏感肌ブランドによる薬用ライン。アレルギーテスト済みで、かゆみ・炎症・乾燥を同時にケアできるため、肌荒れが繰り返す方にとってのお守り的存在。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=イハダ+薬用スキンケア&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fイハダ薬用スキンケア%2F',
-        rakutenKeyword: 'イハダ 薬用スキンケアセット',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/211/4909978204211.jpg?_ex=128x128'
+        name: 'VT CICA クリーム',
+        reason: 'センテラ4Xコンプレックス（ツボクサエキス）配合のシカクリームで荒れた肌をなだめてうるおいで包む。LIPS保湿クリーム×敏感肌ランキング上位で、韓国コスメ好きの日本女性にも大人気。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=VT+CICA+クリーム&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FVTCICAクリーム%2F',
+        rakutenKeyword: 'VT CICA クリーム',
+        imageUrl: null
       }
     ]
   },
@@ -345,32 +336,29 @@ export const skincareConcerns = [
     products: [
       {
         rank: 1,
-        name: 'メラノCC 薬用しみ集中対策美容液',
-        price: '¥950',
-        reason: '有効成分ビタミンCが高濃度配合されたプチプラ美容液。毛穴の黒ずみにも効果的で、継続使用することでくすみが取れてワントーン明るい肌へと変わる、SNSで長年バズり続けている名品。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=メラノCC+美容液&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FメラノCC美容液%2F',
-        rakutenKeyword: 'メラノCC 美容液',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24-cosmetics/cabinet/583/542583.jpg?_ex=128x128'
+        name: 'メラノCC 薬用しみ集中対策 美容液',
+        reason: '有効成分ビタミンCを高濃度配合したプチプラ名品。VOCE毛穴ケア美容液ランキング1位で、くすみ・黒ずみにアプローチしSNSで長年バズり続ける定番アイテム。継続使用でワントーン明るい肌へ。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=メラノCC+薬用+しみ+集中対策+美容液&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FメラノCC薬用しみ集中対策美容液%2F',
+        rakutenKeyword: 'メラノCC 薬用しみ集中対策美容液',
+        imageUrl: null
       },
       {
         rank: 2,
-        name: 'ちふれ ホワイトニング 化粧水 とてもしっとり',
-        price: '¥990',
-        reason: 'トラネキサム酸配合で薬用美白効果が認められた医薬部外品。とろみのあるテクスチャーでしっかり保湿しながら透明感を底上げ。詰め替え用があるのも嬉しいポイント。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=ちふれ+ホワイトニング化粧水&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fちふれホワイトニング化粧水%2F',
-        rakutenKeyword: 'ちふれ ホワイトニング化粧水',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/kireimitsuketa2/cabinet/hb_cp_18_7/h-b_0011234_1.jpg?_ex=128x128'
+        name: 'オバジC クリアアドバンスドローション',
+        reason: '4種のビタミンCを配合し@cosmeベストコスメアワード2025上半期 化粧水部門を受賞。乾燥によるくすみに集中アプローチし、均一で透明感あふれるトーンへと整える実力派化粧水。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=Obagi+C+クリア+アドバンスド+ローション&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FオバジCクリアアドバンスドローション%2F',
+        rakutenKeyword: 'オバジC クリアアドバンスドローション',
+        imageUrl: null
       },
       {
         rank: 3,
-        name: 'キャンメイク グロウフルールハイライター 01',
-        price: '¥770',
-        reason: '頬骨や鼻筋にひと塗りするだけで、内側から発光しているような自然な透明感が生まれる。ファインパール配合でギラつかず、デイリーメイクに馴染む上品な輝き。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=キャンメイク+グロウフルールハイライター+01&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fキャンメイクグロウフルールハイライター01%2F',
-        rakutenKeyword: 'キャンメイク グロウフルールハイライター',
+        name: '雪肌精 クリア ウェルネス ピュア コンフォート',
+        reason: '和漢植物由来成分と麹エキス配合でくすみを一掃し、内側から輝く透明感を呼び覚ます。@cosme 2025上半期ベストコスメに入賞した実力ブランドの注目アイテム。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=KOSE+雪肌精+クリア+ウェルネス&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F雪肌精クリアウェルネスピュアコンフォート%2F',
+        rakutenKeyword: '雪肌精 クリア ウェルネス ピュアコンフォート',
         imageUrl: null
       }
     ]
@@ -384,32 +372,29 @@ export const skincareConcerns = [
       {
         rank: 1,
         name: 'イハダ 薬用クリア スクラブウォッシュ',
-        price: '¥1,210',
-        reason: '毛穴に詰まった皮脂や角栓をやさしくオフするスクラブ洗顔。ニキビの原因菌にアプローチする殺菌成分配合で、洗い上がりはつるんとなめらか。週2〜3回の使用で肌が整う。',
+        reason: '殺菌成分とスクラブで毛穴の皮脂・角栓をオフする資生堂の薬用ニキビケア洗顔料。ニキビの原因にしっかりアプローチし、洗い上がりはつるんとなめらか。週2〜3回の集中ケアで肌が整う。',
         amazonLink: 'https://www.amazon.co.jp/s?k=イハダ+薬用クリア+スクラブウォッシュ&tag=lueur0f-22',
         rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fイハダ薬用クリアスクラブウォッシュ%2F',
-        rakutenKeyword: 'イハダ スクラブウォッシュ',
+        rakutenKeyword: 'イハダ 薬用クリア スクラブウォッシュ',
         imageUrl: null
       },
       {
         rank: 2,
-        name: 'ラロッシュポゼ エファクラ DUO＋',
-        price: '¥3,520',
-        reason: '皮膚科医が薦めるニキビ跡・色素沈着ケアの定番クリーム。LHA・グリコール酸・ナイアシンアミド配合で、できてしまったニキビ跡を徐々に薄くしてクリアな肌へ。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=ラロッシュポゼ+エファクラDUO&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FラロッシュポゼエファクラDUO%2F',
-        rakutenKeyword: 'ラロッシュポゼ エファクラ DUO',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/treasurebeauty/cabinet/item/158/15811121_1.jpg?_ex=128x128'
+        name: 'オルビス クリアフル ローション しっとりタイプ',
+        reason: 'トラネキサム酸＋グリチルリチン酸2K配合で繰り返すニキビに低刺激処方でアプローチ。美的2022年間 読者ベストコスメ ニキビケアランキング1位を受賞した、信頼と実績の化粧水。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=ORBIS+クリアフル+ローション+しっとり&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fオルビスクリアフルローション%2F',
+        rakutenKeyword: 'オルビス クリアフル ローション',
+        imageUrl: null
       },
       {
         rank: 3,
-        name: 'ビフェスタ 泡洗顔 アクネケア',
-        price: '¥880',
-        reason: '洗顔しながらコットンパックのような保湿ケアができる泡洗顔。ニキビの原因となる皮脂汚れをしっかり落としながらも乾燥させない、洗い上がりのバランスが絶妙な一本。',
-        amazonLink: 'https://www.amazon.co.jp/s?k=ビフェスタ+泡洗顔+アクネケア&tag=lueur0f-22',
-        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fビフェスタ泡洗顔アクネケア%2F',
-        rakutenKeyword: 'ビフェスタ 泡洗顔',
-        imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/464/590464.jpg?_ex=128x128'
+        name: 'ラロッシュポゼ エファクラ DUO＋',
+        reason: 'LHA・グリコール酸・ナイアシンアミド配合で皮膚科医が推奨するニキビ跡・色素沈着ケアクリーム。できてしまったニキビ跡を徐々にケアし、クリアな肌へと導く頼れる存在。',
+        amazonLink: 'https://www.amazon.co.jp/s?k=La+Roche-Posay+Effaclar+Duo%2B&tag=lueur0f-22',
+        rakutenLink: 'https://hb.afl.rakuten.co.jp/hgc/521658b7.a1689a38.521658b7.fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FラロッシュポゼエファクラDUO%2B%2F',
+        rakutenKeyword: 'ラロッシュポゼ エファクラDUO+',
+        imageUrl: null
       }
     ]
   }
