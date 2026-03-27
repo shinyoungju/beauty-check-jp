@@ -8,7 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
 import FlowerBg from '@/components/FlowerBg';
-import ProductImage from '@/components/ProductImage';
+import ProductImage from '@/components/ProductImage'
+import { trackAffiliateClick } from '@/lib/gtag';
 
 type RakutenMap = Record<string, { imageUrl: string | null; affiliateUrl: string | null; price: string | null }>;
 
@@ -203,6 +204,7 @@ function CreatorCard({
                     href={product.amazonLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackAffiliateClick(product.name, 'amazon', creator.youtuberName)}
                     className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
                     style={{ background: '#FF9900' }}
                   >
@@ -212,6 +214,7 @@ function CreatorCard({
                     href={product.rakutenLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackAffiliateClick(product.name, 'rakuten', creator.youtuberName)}
                     className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
                     style={{ background: '#BF0000' }}
                   >

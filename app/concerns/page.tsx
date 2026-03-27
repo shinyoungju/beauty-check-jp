@@ -8,7 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 import BottomNav from '@/components/BottomNav';
 import TopButton from '@/components/TopButton';
 import ProductImage from '@/components/ProductImage';
-import FlowerBg from '@/components/FlowerBg';
+import FlowerBg from '@/components/FlowerBg'
+import { trackAffiliateClick } from '@/lib/gtag';
 
 // 고민별 파스텔 그라데이션
 const concernGradients: Record<string, string> = {
@@ -181,6 +182,7 @@ function ConcernSection({
                     href={product.amazonLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackAffiliateClick(product.name, 'amazon', concern.title)}
                     className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
                     style={{ background: '#FF9900' }}
                   >
@@ -190,6 +192,7 @@ function ConcernSection({
                     href={product.rakutenLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackAffiliateClick(product.name, 'rakuten', concern.title)}
                     className="text-white text-[11px] font-semibold px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
                     style={{ background: '#BF0000' }}
                   >
