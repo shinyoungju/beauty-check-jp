@@ -201,7 +201,10 @@ function CreatorCard({
                 </p>
                 <div className="flex gap-2 mt-3 flex-wrap">
                   <a
-                    href={product.amazonLink}
+                    href={
+                      (product as { amazonLink?: string }).amazonLink ??
+                      `https://www.amazon.co.jp/s?k=${encodeURIComponent((product as { amazonKeyword?: string }).amazonKeyword ?? product.name)}&tag=lueur0f-22`
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackAffiliateClick(product.name, 'amazon', creator.youtuberName)}
@@ -211,7 +214,10 @@ function CreatorCard({
                     Amazon で見る
                   </a>
                   <a
-                    href={product.rakutenLink}
+                    href={
+                      (product as { rakutenLink?: string }).rakutenLink ??
+                      `https://hb.afl.rakuten.co.jp/ichiba/521658b7.a1689a38.521658b8.7fbb4952/?pc=${encodeURIComponent(`https://search.rakuten.co.jp/search/mall/${(product as { rakutenKeyword?: string }).rakutenKeyword ?? product.name}/`)}`
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackAffiliateClick(product.name, 'rakuten', creator.youtuberName)}
