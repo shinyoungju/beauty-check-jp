@@ -165,7 +165,7 @@ function CreatorCard({
         <div>
           {creator.products.map((product, idx) => (
             <div
-              key={product.rank}
+              key={idx}
               className="flex gap-3 items-start py-3.5"
               style={{
                 borderBottom:
