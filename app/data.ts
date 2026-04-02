@@ -516,7 +516,7 @@ export const youtuberPicks = [
         comment: '12種のハイスペック成分を独自比率で配合し、毛穴・シワ・たるみなどあらゆる悩みに全方位アプローチする最高峰の美容液。',
         amazonLink: 'https://www.amazon.co.jp/s?k=リコード+ワクチナイザーX&tag=lueur0f-22',
         rakutenLink: 'https://hb.afl.rakuten.co.jp/ichiba/521658b7.a1689a38.521658b8.7fbb4952/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fリコードワクチナイザー%2F',
-        rakutenKeyword: 'リコード ワクチナイザー X',
+        rakutenKeyword: 'リコード ワクチナイザー',
       },
       {
         rank: 2,
