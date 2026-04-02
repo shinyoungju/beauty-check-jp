@@ -185,7 +185,7 @@ function CreatorCard({
                     className="w-5 h-5 rounded-full text-[11px] font-bold flex items-center justify-center shrink-0"
                     style={{ background: '#f5e6dd', color: '#c4876a' }}
                   >
-                    {product.rank}
+                    {(product as { rank?: number }).rank ?? idx + 1}
                   </span>
                   <p className="text-[14px] font-semibold leading-snug text-[#1a1a1a]">
                     {product.name}
