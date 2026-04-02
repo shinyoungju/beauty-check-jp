@@ -13,7 +13,10 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "Lueur | リュール - あなたに似合うコスメを見つけるビューティーガイド",
   description: "肌悩み・口コミ・診断から、本当に使えるコスメだけをご提案。あなたに似合う一本を、一緒に見つけましょう。",
-  metadataBase: new URL("https://lueur-beauty.com"),
+  metadataBase: new URL("https://www.lueur-beauty.com"),
+  alternates: {
+    canonical: 'https://www.lueur-beauty.com',
+  },
   openGraph: {
     title: "Lueur | リュール - あなたに似合うコスメを見つけるビューティーガイド",
     description: "肌悩み・口コミ・診断から、本当に使えるコスメだけをご提案。",
